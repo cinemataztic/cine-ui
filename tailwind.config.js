@@ -2,7 +2,17 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      borderColor: {
+        primary: '#3AC1C8',
+      },
+      backgroundColor: {
+        primary: '#3AC1C8',
+      },
+      textColor: {
+        primary: '#3AC1C8',
+      },
+    },
   },
   variants: {
     extend: {},
