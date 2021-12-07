@@ -29,8 +29,6 @@ const InputField = ({}) => {
     return yyyy + '-' + mm + '-' + dd + 'T' + hh + ':' + min;
   };
 
-  console.log(fromDateTime, toDateTime);
-  //className={`w-full border-2 flex justify-between`}
   return (
     <div className={`w-1/2 flex justify-between`}>
       <div>
