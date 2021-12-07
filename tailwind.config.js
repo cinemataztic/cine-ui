@@ -13,6 +13,9 @@ module.exports = {
       textColor: {
         primary: '#3AC1C8',
       },
+      borderWidth: {
+        3: '3px',
+      },
     },
   },
   variants: {

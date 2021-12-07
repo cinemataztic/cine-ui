@@ -33,7 +33,7 @@ const Checkbox = ({}) => {
     },
   ];
   const [day, setDay] = useState({
-    Mon: true,
+    Mon: false,
     Tue: false,
     Wed: false,
     Thu: false,
