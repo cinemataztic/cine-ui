@@ -1,0 +1,9 @@
+@import '../../index.css';
+
+input[type='checkbox']:checked {
+  @apply bg-primary;
+}
+
+input[type='checkbox']:checked ~ .check-1 {
+  @apply visible;
+}
