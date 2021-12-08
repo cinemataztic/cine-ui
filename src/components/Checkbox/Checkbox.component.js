@@ -55,7 +55,7 @@ const Checkbox = ({}) => {
   return (
     <>
       <div
-        className={`grid grid-cols-5 w-1/2 h-28 px-4 border-0 rounded-lg py-4 bg-secondary bg-opacity-70 text-white`}
+        className={`grid grid-cols-5 gap-y-6 w-5/6 h-28 px-4 border-0 rounded-lg py-6 bg-secondary bg-opacity-70 text-white`}
       >
         {data.map((data, index) => {
           return (
@@ -79,14 +79,14 @@ const Checkbox = ({}) => {
           );
         })}
       </div>
-      <div>
+      {/* <div>
         info:
         {Object.keys(day)
           .filter((x) => day[x] === true)
           .map((data, index) => {
             return <p key={index}> {data}</p>;
           })}
-      </div>
+      </div> */}
     </>
   );
 };

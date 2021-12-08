@@ -9,7 +9,7 @@ const MyListbox = ({ results }) => {
   return (
     <Listbox as='div' value={selectedAd} onChange={setSelectedAd}>
       <Listbox.Button
-        className={`border-2 border-gray-600 focus:border-primary bg-gray-600 text-white w-96 h-10 rounded-lg text-left pl-3`}
+        className={`border-2 border-gray-600 focus:border-primary bg-secondary text-white w-3/5 h-10 rounded-lg text-left pl-3`}
       >
         <span className={`flex justify-between`}>
           <span>{selectedAd.ad}</span>
@@ -19,7 +19,7 @@ const MyListbox = ({ results }) => {
         </span>
       </Listbox.Button>
       <Listbox.Options
-        className={`border-2 border-gray-600 focus:border-primary bg-gray-600 text-white w-96 rounded-lg text-left pl-3`}
+        className={`border-2 border-gray-600 focus:border-primary bg-secondary text-white w-3/5 rounded-lg text-left pl-3`}
       >
         {results.map((advertisement) => (
           <Listbox.Option

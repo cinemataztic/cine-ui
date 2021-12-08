@@ -28,7 +28,7 @@ const RadioButton = ({}) => {
       <RadioGroup
         value={days}
         onChange={setdays}
-        className={`w-1/2 grid grid-rows-1 grid-flow-col gap-0`}
+        className={`w-full grid grid-rows-1 grid-flow-col gap-0`}
       >
         {data.map((data, index) => {
           return (
@@ -59,7 +59,7 @@ const RadioButton = ({}) => {
           );
         })}
       </RadioGroup>
-      <div className={`mt-6`}>{days === 'Custom' && <Checkbox />}</div>
+      <div className={`mt-8`}>{days === 'Custom' && <Checkbox />}</div>
     </>
   );
 };
