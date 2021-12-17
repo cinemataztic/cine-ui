@@ -1,55 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Checkbox.styles.css';
 
-const Checkbox = ({}) => {
-  const data = [
-    {
-      name: 'day1',
-      day: 'Mon',
-    },
-    {
-      name: 'day2',
-      day: 'Tue',
-    },
-    {
-      name: 'day3',
-      day: 'Wed',
-    },
-    {
-      name: 'day4',
-      day: 'Thu',
-    },
-    {
-      name: 'day5',
-      day: 'Fri',
-    },
-    {
-      name: 'day6',
-      day: 'Sat',
-    },
-    {
-      name: 'day7',
-      day: 'Sun',
-    },
-  ];
-  const [day, setDay] = useState({
-    Mon: false,
-    Tue: false,
-    Wed: false,
-    Thu: false,
-    Fri: false,
-    Sat: false,
-    Sun: false,
-  });
-
+const Checkbox = ({ data, day, onChange }) => {
   const onCheckHandle = (e) => {
     const { value, checked } = e.target;
-
-    setDay((e) => {
-      const selectedDay = e;
-      selectedDay[value] = checked;
-      return { ...selectedDay };
-    });
+    onChange(value, checked);
   };
 
   return (
@@ -79,14 +34,6 @@ const Checkbox = ({}) => {
           );
         })}
       </div>
-      {/* <div>
-        info:
-        {Object.keys(day)
-          .filter((x) => day[x] === true)
-          .map((data, index) => {
-            return <p key={index}> {data}</p>;
-          })}
-      </div> */}
     </>
   );
 };
