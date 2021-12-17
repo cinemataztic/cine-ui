@@ -7,36 +7,7 @@ export default {
 };
 
 const Template = () => {
-  const data = [
-    {
-      name: 'day1',
-      day: 'Mon',
-    },
-    {
-      name: 'day2',
-      day: 'Tue',
-    },
-    {
-      name: 'day3',
-      day: 'Wed',
-    },
-    {
-      name: 'day4',
-      day: 'Thu',
-    },
-    {
-      name: 'day5',
-      day: 'Fri',
-    },
-    {
-      name: 'day6',
-      day: 'Sat',
-    },
-    {
-      name: 'day7',
-      day: 'Sun',
-    },
-  ];
+  const data = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   const [day, setDay] = useState({
     Mon: false,
@@ -58,7 +29,12 @@ const Template = () => {
 
   return (
     <>
-      <Checkbox data={data} day={day} onChange={onChangeHandle} />
+      <Checkbox
+        data={data}
+        updatedState={day}
+        onChange={onChangeHandle}
+        checkbgColor={'bg-primary'}
+      />
       <div>
         info:
         {Object.keys(day)
