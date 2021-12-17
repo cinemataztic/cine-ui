@@ -5,32 +5,35 @@ export default {
   title: 'Example/Button',
   component: Buttons,
   argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-  argTypes: {
-    color: { control: 'color' },
-  },
-  height: {
-    control: { type: 'number' },
-  },
-  width: {
-    control: { type: 'number' },
-  },
-  fontSize: {
-    control: { type: 'number' },
+    label: {
+      control: { type: 'text' },
+    },
+    backgroundColor: { control: { type: 'color' } },
+    color: { control: { type: 'color' } },
+    size: {
+      control: { type: 'radio', options: ['xm', 'sm', 'md', 'lg'] },
+    },
   },
 };
 
-const Template = (args) => <Buttons {...args} />;
+const Template = ({ label, backgroundColor, color, size, onClick }) => {
+  return (
+    <Buttons
+      label={label}
+      backgroundColor={backgroundColor}
+      color={color}
+      size={size}
+      onClick={onClick}
+    />
+  );
+};
 
 export const Button = Template.bind({});
 
 Button.args = {
-  backgroundColor: '#3AC1C8',
+  backgroundColor: 'bg-primary',
   label: 'Click me',
-  color: 'rgba(0, 0, 0, 60);',
-  height: 40,
-  width: 300,
-  fontSize: 18,
+  color: 'textgray',
+  size: 'sm',
   onClick: () => {},
 };
