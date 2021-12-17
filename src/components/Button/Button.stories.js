@@ -1,9 +1,9 @@
 import React from 'react';
-import Buttons from './Buttons.component';
+import Button from './Button.component';
 
 export default {
   title: 'Example/Button',
-  component: Buttons,
+  component: Button,
   argTypes: {
     label: {
       control: { type: 'text' },
@@ -18,7 +18,7 @@ export default {
 
 const Template = ({ label, backgroundColor, color, size, onClick }) => {
   return (
-    <Buttons
+    <Button
       label={label}
       backgroundColor={backgroundColor}
       color={color}
@@ -28,9 +28,9 @@ const Template = ({ label, backgroundColor, color, size, onClick }) => {
   );
 };
 
-export const Button = Template.bind({});
+export const ButtonComponent = Template.bind({});
 
-Button.args = {
+ButtonComponent.args = {
   backgroundColor: 'bg-primary',
   label: 'Click me',
   color: 'textgray',

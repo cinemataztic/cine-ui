@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Buttons.styles.css';
+import './Button.styles.css';
 
-const Buttons = ({ backgroundColor, label, color, size, onClick }) => {
+const Button = ({ backgroundColor, label, color, size, onClick }) => {
   let sizeChoice;
 
   if (size === 'xm') {
@@ -26,9 +26,9 @@ const Buttons = ({ backgroundColor, label, color, size, onClick }) => {
   );
 };
 
-export default Buttons;
+export default Button;
 
-Buttons.propTypes = {
+Button.propTypes = {
   backgroundColor: PropTypes.string,
   label: PropTypes.string.isRequired,
   color: PropTypes.string,
@@ -36,7 +36,7 @@ Buttons.propTypes = {
   onClick: PropTypes.func,
 };
 
-Buttons.defaultProps = {
+Button.defaultProps = {
   backgroundColor: 'bg-primary',
   label: 'Click me',
   color: 'textgray',

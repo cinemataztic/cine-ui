@@ -3,7 +3,7 @@ import MyListbox from '../../components/Listbox/Listbox.component';
 import RadioButton from '../../components/RadioButton/RadioButton.component';
 import InputField from '../../components/Input/Input.component';
 import RangeSlider from '../../components/Slider/Slider.component';
-import Buttons from '../../components/Button/Buttons.component';
+import Button from '../../components/Button/Button.component';
 import './FormPage.styles.css';
 
 const Form = ({}) => {
@@ -79,7 +79,7 @@ const Form = ({}) => {
         </div>
       </div>
       <div className={`mt-8 pl-4 w-96 flex justify-between`}>
-        <Buttons
+        <Button
           backgroundColor={'#3AC1C8'}
           label={'Back'}
           color={'#272727'}
@@ -87,7 +87,7 @@ const Form = ({}) => {
           width={150}
           fontSize={18}
         />
-        <Buttons
+        <Button
           backgroundColor={'#3AC1C8'}
           label={'Next'}
           color={'#272727'}
