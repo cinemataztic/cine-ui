@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InputField from './Input.component';
 
 export default {
@@ -6,6 +6,14 @@ export default {
   component: InputField,
 };
 
-const Template = () => <InputField />;
+const Template = () => {
+  const [date, setDate] = useState(null);
+
+  const onDateChangeHandle = (value) => {
+    setDate(value);
+  };
+
+  return <InputField value={date} onChange={onDateChangeHandle} />;
+};
 
 export const Input = Template.bind({});
