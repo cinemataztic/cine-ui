@@ -1,33 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { RadioGroup } from '@headlessui/react';
-import Checkbox from '../Checkbox/Checkbox.component';
+import PropTypes from 'prop-types';
 import './RadioButton.styles.css';
 
-const RadioButton = ({}) => {
-  const [days, setdays] = useState('');
-
-  const data = [
-    {
-      daysValue: 'All days',
-    },
-    {
-      daysValue: 'Weekends',
-    },
-    {
-      daysValue: 'Week days',
-    },
-    {
-      daysValue: 'Custom',
-    },
-  ];
-
-  console.log(days);
-
+const RadioButton = ({ data, value, updatedState }) => {
   return (
     <>
       <RadioGroup
-        value={days}
-        onChange={setdays}
+        value={value}
+        onChange={updatedState}
         className={`w-full grid grid-rows-1 grid-flow-col gap-0`}
       >
         {data.map((data, index) => {
@@ -59,9 +40,14 @@ const RadioButton = ({}) => {
           );
         })}
       </RadioGroup>
-      <div className={`mt-8`}>{days === 'Custom' && <Checkbox />}</div>
     </>
   );
 };
 
 export default RadioButton;
+
+RadioButton.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object),
+  value: PropTypes.string,
+  updatedState: PropTypes.func,
+};

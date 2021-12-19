@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RadioButton from './RadioButton.component';
 
 export default {
@@ -6,6 +6,25 @@ export default {
   component: RadioButton,
 };
 
-const Template = () => <RadioButton />;
+const Template = () => {
+  const [days, setdays] = useState('');
+
+  const data = [
+    {
+      daysValue: 'All days',
+    },
+    {
+      daysValue: 'Weekends',
+    },
+    {
+      daysValue: 'Week days',
+    },
+    {
+      daysValue: 'Custom',
+    },
+  ];
+
+  return <RadioButton data={data} value={days} updatedState={setdays} />;
+};
 
 export const Radio = Template.bind({});
