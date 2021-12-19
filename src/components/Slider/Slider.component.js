@@ -1,20 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Slider.styles.css';
 
-const RangeSlider = ({}) => {
-  const [range, setRange] = useState(50);
+const RangeSlider = ({ value, onChange }) => {
   const [step, setStep] = useState(0);
   const ref = useRef(null);
 
-  const onChangeSliderHandle = (e) => {
-    setRange(e.target.value);
+  const onChangeHandle = (e) => {
+    const { value } = e.target;
+    onChange(value);
   };
 
   useEffect(() => {
     const rangeLinePadding = 16;
     const calcStep =
       (ref.current.offsetWidth - rangeLinePadding) / ref.current.max;
-    console.log(ref);
     setStep(calcStep);
   }, []);
 
@@ -22,11 +21,11 @@ const RangeSlider = ({}) => {
     <div class={`w-3/4 relative py-4`}>
       <input
         type='range'
-        min='1'
-        max='5000'
-        value={range}
-        class={`appearance-none w-full h-1 rounded outline-none bg-primary  bg-opacity-60 hover:bg-opacity-100 slider-thumb`}
-        onChange={onChangeSliderHandle}
+        min={value.minValue}
+        max={value.maxValue}
+        value={value.defaultValue}
+        class={`appearance-none w-full h-1 rounded outline-none bg-primary bg-opacity-60 hover:bg-opacity-100 slider-thumb `}
+        onChange={onChangeHandle}
         id='myRange'
         ref={ref}
       />
@@ -34,14 +33,14 @@ const RangeSlider = ({}) => {
         htmlFor='myRange'
         class={`text-primary font-bold absolute left-px -top-2 bubble`}
         style={{
-          transform: `translateX(${range * step}px)`,
+          transform: `translateX(${value.defaultValue * step}px)`,
         }}
       >
-        DKK {range}
+        DKK {value.defaultValue}
       </label>
       <div class={`flex justify-between py-2`}>
-        <div>DKK 1</div>
-        <div>DKK 5000</div>
+        <div>DKK {value.minValue}</div>
+        <div>DKK {value.maxValue}</div>
       </div>
     </div>
   );
