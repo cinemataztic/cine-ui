@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import './Slider.styles.css';
 
 const RangeSlider = ({ value, onChange }) => {
@@ -47,3 +48,8 @@ const RangeSlider = ({ value, onChange }) => {
 };
 
 export default RangeSlider;
+
+RangeSlider.propTypes = {
+  value: PropTypes.object,
+  onChange: PropTypes.func,
+};

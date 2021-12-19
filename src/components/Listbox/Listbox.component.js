@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 import './Listbox.styles.css';
 import { Listbox } from '@headlessui/react';
 
-const MyListbox = ({ results }) => {
-  const [selectedAd, setSelectedAd] = useState(results[0]);
-
+const MyListbox = ({ data, value, updatedstate }) => {
   return (
-    <Listbox as='div' value={selectedAd} onChange={setSelectedAd}>
+    <Listbox as='div' value={value} onChange={updatedstate}>
       <Listbox.Button
         className={`border-2 border-gray-600 focus:border-primary bg-secondary text-white w-3/5 h-10 rounded-lg text-left pl-3`}
       >
         <span className={`flex justify-between`}>
-          <span>{selectedAd.ad}</span>
+          <span>{value.ad}</span>
           <span>
             <img src='https://img.icons8.com/material-sharp/24/ffffff/expand-arrow--v1.png' />
           </span>
@@ -21,7 +19,7 @@ const MyListbox = ({ results }) => {
       <Listbox.Options
         className={`border-2 border-gray-600 focus:border-primary bg-secondary text-white w-3/5 rounded-lg text-left pl-3`}
       >
-        {results.map((advertisement) => (
+        {data.map((advertisement) => (
           <Listbox.Option
             key={advertisement.id}
             value={advertisement}
@@ -39,5 +37,5 @@ const MyListbox = ({ results }) => {
 export default MyListbox;
 
 MyListbox.propTypes = {
-  results: PropTypes.arrayOf(PropTypes.object),
+  data: PropTypes.arrayOf(PropTypes.object),
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { array } from '@storybook/addon-knobs';
 import MyListbox from './Listbox.component';
 
@@ -6,7 +6,7 @@ export default {
   title: 'Example/Listbox',
   component: MyListbox,
   argTypes: {
-    results: {
+    data: {
       control: {
         type: 'array',
       },
@@ -14,12 +14,18 @@ export default {
   },
 };
 
-const Template = ({ results }) => <MyListbox results={results} />;
+const Template = ({ data }) => {
+  const [selectedAd, setSelectedAd] = useState(data[0]);
+
+  return (
+    <MyListbox data={data} value={selectedAd} updatedstate={setSelectedAd} />
+  );
+};
 
 export const Listboxs = Template.bind({});
 
 Listboxs.args = {
-  results: array('advertisements', [
+  data: array('advertisements', [
     { id: 1, ad: 'Select ad', disabled: true },
     { id: 2, ad: 'Coco Cola-15' },
     { id: 3, ad: 'Coco Cola-30' },
