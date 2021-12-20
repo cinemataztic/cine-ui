@@ -3,6 +3,7 @@ import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import './Input.styles.css';
+import PropTypes from 'prop-types';
 
 const InputField = ({ value, onChange }) => {
   const [focused, setFocused] = useState(false);
@@ -31,3 +32,8 @@ const InputField = ({ value, onChange }) => {
 };
 
 export default InputField;
+
+InputField.propTypes = {
+  value: PropTypes.object,
+  onChange: PropTypes.func,
+};

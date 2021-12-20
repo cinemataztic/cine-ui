@@ -13,6 +13,8 @@ const Template = () => {
     setDate(value);
   };
 
+  console.log(date);
+
   return <InputField value={date} onChange={onDateChangeHandle} />;
 };
 
