@@ -25,21 +25,21 @@ const RangeSlider = ({ value, onChange, bgColor, textColor }) => {
         min={value.minValue}
         max={value.maxValue}
         value={value.defaultValue}
-        class={`appearance-none w-full h-1 rounded outline-none ${bgColor} bg-opacity-60 hover:bg-opacity-100 slider-thumb `}
+        className={`appearance-none w-full h-1 rounded outline-none ${bgColor} bg-opacity-60 hover:bg-opacity-100 slider-thumb `}
         onChange={onChangeHandle}
         id='myRange'
         ref={ref}
       />
       <label
         htmlFor='myRange'
-        class={`${textColor} font-bold absolute left-px -top-2 bubble`}
+        className={`${textColor} font-bold absolute left-px -top-2 bubble`}
         style={{
           transform: `translateX(${value.defaultValue * step}px)`,
         }}
       >
         DKK {value.defaultValue}
       </label>
-      <div class={`flex justify-between py-2`}>
+      <div className={`flex justify-between py-2`}>
         <div>DKK {value.minValue}</div>
         <div>DKK {value.maxValue}</div>
       </div>

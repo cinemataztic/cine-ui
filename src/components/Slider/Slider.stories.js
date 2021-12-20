@@ -21,6 +21,8 @@ const Template = () => {
     });
   };
 
+  console.log(range.defaultValue);
+
   return (
     <>
       <RangeSlider
@@ -33,4 +35,4 @@ const Template = () => {
   );
 };
 
-export const Slider = Template.bind({});
+export const SliderComponent = Template.bind({});
