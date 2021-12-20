@@ -16,19 +16,17 @@ const InputField = ({ value, onChange }) => {
   };
 
   return (
-    <div className='custom'>
-      <SingleDatePicker
-        date={value}
-        onDateChange={onDateChangeHandle}
-        focused={focused}
-        onFocusChange={onFocusChangeHandle}
-        id='date'
-        noBorder
-        showDefaultInputIcon={true}
-        inputIconPosition='after'
-        placeholder='From'
-      />
-    </div>
+    <SingleDatePicker
+      date={value}
+      onDateChange={onDateChangeHandle}
+      focused={focused}
+      onFocusChange={onFocusChangeHandle}
+      id='date'
+      noBorder
+      showDefaultInputIcon={true}
+      inputIconPosition='after'
+      placeholder='From'
+    />
   );
 };
 
