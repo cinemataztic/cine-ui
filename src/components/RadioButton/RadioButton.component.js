@@ -3,7 +3,13 @@ import { RadioGroup } from '@headlessui/react';
 import PropTypes from 'prop-types';
 import './RadioButton.styles.css';
 
-const RadioButton = ({ data, value, updatedState }) => {
+const RadioButton = ({
+  data,
+  value,
+  updatedState,
+  checkedbgColor,
+  borderColor,
+}) => {
   return (
     <>
       <RadioGroup
@@ -11,29 +17,25 @@ const RadioButton = ({ data, value, updatedState }) => {
         onChange={updatedState}
         className={`w-full grid grid-rows-1 grid-flow-col gap-0`}
       >
-        {data.map((data, index) => {
+        {data.map((item, index) => {
           return (
-            <RadioGroup.Option
-              value={data.daysValue}
-              className={`flex`}
-              key={index}
-            >
+            <RadioGroup.Option value={item} className={`flex`} key={index}>
               {({ checked }) => (
                 <>
                   <div
                     className={`
                     ${`w-5 h-5 rounded-full border-2 border-gray-500 bg-white mr-2 grid place-content-center`}
-                    ${checked ? `border-primary` : ``}`}
+                    ${checked ? `border-${checkedbgColor}` : ``}`}
                   >
                     <div
                       className={
                         checked
-                          ? `w-4 h-4 border-3 border-gray-600 rounded-full bg-primary `
+                          ? `w-4 h-4 border-3 ${borderColor} rounded-full bg-${checkedbgColor} `
                           : ``
                       }
                     />
                   </div>
-                  <span>{data.daysValue}</span>
+                  <span>{item}</span>
                 </>
               )}
             </RadioGroup.Option>
@@ -47,7 +49,7 @@ const RadioButton = ({ data, value, updatedState }) => {
 export default RadioButton;
 
 RadioButton.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object),
+  data: PropTypes.array,
   value: PropTypes.string,
   updatedState: PropTypes.func,
 };

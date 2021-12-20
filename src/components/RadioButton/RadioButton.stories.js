@@ -7,24 +7,21 @@ export default {
 };
 
 const Template = () => {
-  const [days, setdays] = useState('');
+  const [selectedOption, setSelectedOption] = useState('');
 
-  const data = [
-    {
-      daysValue: 'All days',
-    },
-    {
-      daysValue: 'Weekends',
-    },
-    {
-      daysValue: 'Week days',
-    },
-    {
-      daysValue: 'Custom',
-    },
-  ];
+  const data = ['All days', 'Weekends'];
 
-  return <RadioButton data={data} value={days} updatedState={setdays} />;
+  console.log(selectedOption);
+
+  return (
+    <RadioButton
+      data={data}
+      value={selectedOption}
+      updatedState={setSelectedOption}
+      checkedbgColor={'primary'}
+      borderColor={'border-gray-600'}
+    />
+  );
 };
 
-export const Radio = Template.bind({});
+export const RadioButtonComponent = Template.bind({});
