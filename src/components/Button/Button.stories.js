@@ -33,7 +33,7 @@ export const ButtonComponent = Template.bind({});
 ButtonComponent.args = {
   backgroundColor: 'bg-primary',
   label: 'Click me',
-  color: 'textgray',
+  color: 'text-textgray',
   size: 'sm',
   onClick: () => {},
 };

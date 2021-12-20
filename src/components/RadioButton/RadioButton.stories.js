@@ -9,7 +9,7 @@ export default {
 const Template = () => {
   const [selectedOption, setSelectedOption] = useState('');
 
-  const data = ['All days', 'Weekends'];
+  const data = ['All days', 'Weekends', 'Week days', 'Custom'];
 
   console.log(selectedOption);
 
