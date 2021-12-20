@@ -15,7 +15,13 @@ const Template = () => {
 
   console.log(date);
 
-  return <InputField value={date} onChange={onDateChangeHandle} />;
+  return (
+    <InputField
+      value={date}
+      onChange={onDateChangeHandle}
+      placeholder={'From'}
+    />
+  );
 };
 
 export const Input = Template.bind({});

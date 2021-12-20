@@ -5,7 +5,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import './Input.styles.css';
 import PropTypes from 'prop-types';
 
-const InputField = ({ value, onChange }) => {
+const InputField = ({ value, onChange, placeholder }) => {
   const [focused, setFocused] = useState(false);
 
   const onDateChangeHandle = (date) => {
@@ -26,7 +26,7 @@ const InputField = ({ value, onChange }) => {
       noBorder
       showDefaultInputIcon={true}
       inputIconPosition='after'
-      placeholder='From'
+      placeholder={placeholder}
     />
   );
 };
@@ -36,4 +36,5 @@ export default InputField;
 InputField.propTypes = {
   value: PropTypes.object,
   onChange: PropTypes.func,
+  placeholder: PropTypes.string,
 };
