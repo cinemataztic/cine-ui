@@ -52,4 +52,6 @@ RadioButton.propTypes = {
   data: PropTypes.array,
   value: PropTypes.string,
   updatedState: PropTypes.func,
+  checkedbgColor: PropTypes.string,
+  borderColor: PropTypes.string,
 };
