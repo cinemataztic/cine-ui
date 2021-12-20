@@ -1,7 +1,7 @@
 import React from 'react';
 import MyListbox from '../../components/Listbox/Listbox.component';
 import RadioButton from '../../components/RadioButton/RadioButton.component';
-import InputField from '../../components/Input/Input.component';
+import InputField from '../../components/Input/Input-datepicker/Input.component';
 import RangeSlider from '../../components/Slider/Slider.component';
 import Button from '../../components/Button/Button.component';
 import './FormPage.styles.css';

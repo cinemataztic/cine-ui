@@ -19,13 +19,17 @@ const Template = ({ type, placeholder }) => {
       placeholder={placeholder}
       value={text}
       onChange={onChangeHandle}
+      bgColor={'bg-secondary'}
+      textColor={'text-black'}
+      height={'h-10'}
+      width={'w-60'}
     />
   );
 };
 
-export const Input1 = Template.bind({});
+export const InputComponent = Template.bind({});
 
-Input1.args = {
+InputComponent.args = {
   type: 'text',
   placeholder: 'Enter text here',
 };

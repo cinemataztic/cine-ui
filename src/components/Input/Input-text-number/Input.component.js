@@ -2,7 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Input.styles.css';
 
-const InputField = ({ type, placeholder, value, onChange }) => {
+const InputField = ({
+  type,
+  placeholder,
+  value,
+  onChange,
+  bgColor,
+  textColor,
+  height,
+  width,
+}) => {
   const onChangeInputHandle = (e) => {
     const { value } = e.target;
     onChange(value);
@@ -15,7 +24,7 @@ const InputField = ({ type, placeholder, value, onChange }) => {
         type={type}
         value={value}
         onChange={onChangeInputHandle}
-        className={`bg-secondary bg-opacity-70 text-white focus:outline-none rounded h-10 w-64  px-2 cursor-pointer`}
+        className={`${bgColor} bg-opacity-80 ${textColor} focus:outline-none rounded ${width} ${height} px-2 cursor-pointer`}
       />
     </div>
   );
@@ -28,6 +37,10 @@ InputField.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  bgColor: PropTypes.string,
+  textColor: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
 };
 
 InputField.defaultProps = {
