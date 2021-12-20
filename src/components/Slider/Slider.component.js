@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './Slider.styles.css';
 
-const RangeSlider = ({ value, onChange }) => {
+const RangeSlider = ({ value, onChange, bgColor, textColor }) => {
   const [step, setStep] = useState(0);
   const ref = useRef(null);
 
@@ -25,14 +25,14 @@ const RangeSlider = ({ value, onChange }) => {
         min={value.minValue}
         max={value.maxValue}
         value={value.defaultValue}
-        class={`appearance-none w-full h-1 rounded outline-none bg-primary bg-opacity-60 hover:bg-opacity-100 slider-thumb `}
+        class={`appearance-none w-full h-1 rounded outline-none ${bgColor} bg-opacity-60 hover:bg-opacity-100 slider-thumb `}
         onChange={onChangeHandle}
         id='myRange'
         ref={ref}
       />
       <label
         htmlFor='myRange'
-        class={`text-primary font-bold absolute left-px -top-2 bubble`}
+        class={`${textColor} font-bold absolute left-px -top-2 bubble`}
         style={{
           transform: `translateX(${value.defaultValue * step}px)`,
         }}
@@ -52,4 +52,6 @@ export default RangeSlider;
 RangeSlider.propTypes = {
   value: PropTypes.object,
   onChange: PropTypes.func,
+  bgColor: PropTypes.string,
+  textColor: PropTypes.string,
 };

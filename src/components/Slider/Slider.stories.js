@@ -23,7 +23,12 @@ const Template = () => {
 
   return (
     <>
-      <RangeSlider value={range} onChange={onChangeSliderHandle} />
+      <RangeSlider
+        value={range}
+        onChange={onChangeSliderHandle}
+        bgColor={'bg-primary'}
+        textColor={'text-primary'}
+      />
     </>
   );
 };
