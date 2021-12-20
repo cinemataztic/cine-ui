@@ -20,6 +20,7 @@ const Template = () => {
       value={date}
       onChange={onDateChangeHandle}
       placeholder={'From'}
+      id={'1'}
     />
   );
 };

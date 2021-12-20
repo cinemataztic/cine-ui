@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Button.styles.css';
 
-const Button = ({ backgroundColor, label, color, size, onClick }) => {
+const Button = ({ backgroundColor, label, color, size, onClick, disabled }) => {
   let sizeChoice;
 
   if (size === 'xm') {
@@ -18,8 +18,13 @@ const Button = ({ backgroundColor, label, color, size, onClick }) => {
   return (
     <button
       type='button'
-      className={`border-0 rounded-md cursor-pointer font-bold font-sans leading-none ${backgroundColor} ${color} ${sizeChoice}`}
+      className={`${
+        disabled
+          ? `border-0 rounded-md font-bold font-sans leading-none ${sizeChoice} bg-gray-400 text-gray-300`
+          : `border-0 rounded-md cursor-pointer font-bold font-sans leading-none ${backgroundColor} ${color} ${sizeChoice}`
+      }`}
       onClick={onClick}
+      disabled={disabled}
     >
       {label}
     </button>
@@ -34,6 +39,7 @@ Button.propTypes = {
   color: PropTypes.string,
   size: PropTypes.oneOf(['xm', 'sm', 'md', 'lg']),
   onClick: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -42,4 +48,5 @@ Button.defaultProps = {
   color: 'textgray',
   size: 'sm',
   onClick: () => {},
+  disabled: false,
 };

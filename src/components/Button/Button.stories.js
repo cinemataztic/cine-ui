@@ -24,6 +24,7 @@ const Template = ({ label, backgroundColor, color, size, onClick }) => {
       color={color}
       size={size}
       onClick={onClick}
+      disabled={false}
     />
   );
 };

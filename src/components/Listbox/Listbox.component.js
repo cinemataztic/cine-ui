@@ -31,7 +31,7 @@ const ListBox = ({
             key={advertisement.id}
             value={advertisement}
             hidden={advertisement.disabled}
-            className={`m-2`}
+            className={`m-2 cursor-pointer`}
           >
             {advertisement.ad}
           </Listbox.Option>

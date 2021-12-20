@@ -19,7 +19,11 @@ const RadioButton = ({
       >
         {data.map((item, index) => {
           return (
-            <RadioGroup.Option value={item} className={`flex`} key={index}>
+            <RadioGroup.Option
+              value={item}
+              className={`flex cursor-pointer`}
+              key={index}
+            >
               {({ checked }) => (
                 <>
                   <div

@@ -109,6 +109,7 @@ const Form = ({}) => {
                 value={fromDate}
                 onChange={onFromDateChangeHandle}
                 placeholder={'From'}
+                id={'1'}
               />
             </div>
             <div>
@@ -116,6 +117,7 @@ const Form = ({}) => {
                 value={toDate}
                 onChange={onToDateChangeHandle}
                 placeholder={'To'}
+                id={'2'}
               />
             </div>
           </div>
@@ -176,12 +178,14 @@ const Form = ({}) => {
           label={'Back'}
           color={'text-textgray'}
           size={'md'}
+          disabled={false}
         />
         <Button
           backgroundColor={'bg-primary'}
           label={'Next'}
           color={'text-textgray'}
           size={'md'}
+          disabled={false}
         />
       </div>
     </div>
