@@ -10,12 +10,10 @@ const Checkbox = ({ data, updatedState, onChange, checkbgColor }) => {
 
   return (
     <>
-      <div
-        className={`grid grid-cols-5 gap-y-6 w-4/6 h-28 px-4 border-0 rounded-lg py-6 bg-secondary bg-opacity-70 text-white`}
-      >
-        {data.map((item, index) => {
-          return (
-            <label key={index} htmlFor={item} className={`relative`}>
+      {data.map((item, index) => {
+        return (
+          <div key={index}>
+            <label htmlFor={item} className={`relative`}>
               <input
                 type='checkbox'
                 id={item}
@@ -27,14 +25,14 @@ const Checkbox = ({ data, updatedState, onChange, checkbgColor }) => {
               />
               <img
                 src='https://img.icons8.com/material-outlined/24/000000/checkmark--v2.png'
-                className={`h-5 absolute top-0 invisible check-1`}
+                className={`h-5 absolute bottom-0.5 invisible check-1`}
                 alt='tick'
               />
-              <span className={`px-2 absolute -top-px`}>{item} </span>
+              <span className={`px-2 absolute bottom-px`}>{item} </span>
             </label>
-          );
-        })}
-      </div>
+          </div>
+        );
+      })}
     </>
   );
 };
