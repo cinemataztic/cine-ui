@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './Listbox.styles.css';
 import { Listbox } from '@headlessui/react';
 
-const MyListbox = ({ data, value, updatedstate }) => {
+const ListBox = ({
+  data,
+  value,
+  updatedstate,
+  bgColor,
+  borderColor,
+  textColor,
+}) => {
   return (
     <Listbox as='div' value={value} onChange={updatedstate}>
       <Listbox.Button
-        className={`border-2 border-gray-600 focus:border-primary bg-secondary text-white w-3/5 h-10 rounded-lg text-left pl-3`}
+        className={`border-2 border-gray-600 focus:${borderColor} ${bgColor} ${textColor} w-3/5 h-10 rounded-lg text-left pl-3`}
       >
         <span className={`flex justify-between`}>
           <span>{value.ad}</span>
@@ -17,7 +24,7 @@ const MyListbox = ({ data, value, updatedstate }) => {
         </span>
       </Listbox.Button>
       <Listbox.Options
-        className={`border-2 border-gray-600 focus:border-primary bg-secondary text-white w-3/5 rounded-lg text-left pl-3`}
+        className={`border-2 border-gray-600 focus:${borderColor} ${bgColor} ${textColor} text-white w-3/5 rounded-lg text-left pl-3`}
       >
         {data.map((advertisement) => (
           <Listbox.Option
@@ -34,8 +41,13 @@ const MyListbox = ({ data, value, updatedstate }) => {
   );
 };
 
-export default MyListbox;
+export default ListBox;
 
-MyListbox.propTypes = {
+ListBox.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
+  value: PropTypes.object,
+  updatedstate: PropTypes.func,
+  bgColor: PropTypes.string,
+  borderColor: PropTypes.string,
+  textColor: PropTypes.string,
 };
