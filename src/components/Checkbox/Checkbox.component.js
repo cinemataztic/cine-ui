@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Checkbox.styles.css';
 
-const Checkbox = ({ data, updatedState, onChange, checkBgColor }) => {
+const Checkbox = ({ data, updatedState, onChange, checkedBgColor }) => {
   const onCheckHandle = (e) => {
     const { value, checked } = e.target;
     onChange(value, checked);
@@ -21,7 +21,7 @@ const Checkbox = ({ data, updatedState, onChange, checkBgColor }) => {
                 value={item}
                 checked={updatedState[item]}
                 onChange={onCheckHandle}
-                className={`appearance-none h-5 w-5 bg-white cursor-pointer rounded-sm checked:${checkBgColor}`}
+                className={`appearance-none h-5 w-5 bg-white cursor-pointer rounded-sm checked:${checkedBgColor}`}
               />
               <img
                 src='https://img.icons8.com/material-outlined/24/000000/checkmark--v2.png'
@@ -43,5 +43,5 @@ Checkbox.propTypes = {
   data: PropTypes.array,
   updatedState: PropTypes.object,
   onChange: PropTypes.func,
-  checkBgColor: PropTypes.string,
+  checkedBgColor: PropTypes.string,
 };

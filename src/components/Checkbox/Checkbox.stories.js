@@ -37,7 +37,7 @@ const Template = () => {
           data={data}
           updatedState={day}
           onChange={onChangeHandle}
-          checkBgColor={'bg-primary'}
+          checkedBgColor={'bg-red-600'}
         />
       </div>
     </>
