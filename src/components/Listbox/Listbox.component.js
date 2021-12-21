@@ -18,8 +18,11 @@ const ListBox = ({
       >
         <span className={`flex justify-between`}>
           <span>{value.ad}</span>
-          <span>
-            <img src='https://img.icons8.com/material-sharp/24/ffffff/expand-arrow--v1.png' />
+          <span className={`mt-2 mr-2`}>
+            <img
+              src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAYAAADN5B7xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABNSURBVHgBhYzREQAQDEPLRDbqKIxi06hTHFeVrzb3XogkABJ9shg5MkbYgVmZHOUP2ldL0q7qG2ZZsMPGck+5lw7JhR+SDz8kH74kE27czYwZeCNT6wAAAABJRU5ErkJggg=='
+              alt='Down Arrow'
+            />
           </span>
         </span>
       </Listbox.Button>
