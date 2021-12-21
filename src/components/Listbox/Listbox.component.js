@@ -47,7 +47,7 @@ ListBox.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
   value: PropTypes.object,
   updatedstate: PropTypes.func,
-  bgColor: PropTypes.string,
+  bgColor: PropTypes.oneOf(['bg-secondary', 'bg-red-600']),
   borderColor: PropTypes.string,
   textColor: PropTypes.string,
 };

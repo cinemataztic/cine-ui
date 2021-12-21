@@ -17,6 +17,7 @@ const Template = ({ type, placeholder }) => {
     <InputField
       type={type}
       placeholder={placeholder}
+      id={'1'}
       value={text}
       onChange={onChangeHandle}
       bgColor={'bg-secondary'}

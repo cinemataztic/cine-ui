@@ -5,6 +5,7 @@ import './Input.styles.css';
 const InputField = ({
   type,
   placeholder,
+  id,
   value,
   onChange,
   bgColor,
@@ -22,6 +23,7 @@ const InputField = ({
       <input
         placeholder={placeholder}
         type={type}
+        id={id}
         value={value}
         onChange={onChangeInputHandle}
         className={`${bgColor} bg-opacity-80 ${textColor} focus:outline-none rounded ${width} ${height} px-2 cursor-pointer`}
@@ -35,6 +37,7 @@ export default InputField;
 InputField.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string,
+  id: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
   bgColor: PropTypes.string,
