@@ -139,7 +139,7 @@ const Form = ({}) => {
                 data={datas}
                 updatedState={day}
                 onChange={onChangeHandle}
-                checkbgColor={'bg-primary'}
+                checkBgColor={'bg-primary'}
               />
             </div>
           )}
