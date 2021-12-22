@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"write some tests!\"",
-    "start": "webpack-dev-server --mode development --open",
     "build": "webpack"
   },
   "repository": {
