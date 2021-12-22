@@ -5,3 +5,13 @@ Cine-UI is a UI component library which has a set of basic ready-made UI compone
 # Technologies used
 
 Headless UI, React, Tailwind CSS, Storybook
+
+# Testing npm package locally
+
+It is always recommended to test the package locally before publishing to the npm registry.
+
+1. Build a tarball that can be installed locally in another project `npm run build && npm pack`
+2. Open the project you wish to use for testing the package
+3. run `npm install path/to/cine-ui/cine-ui-version.tgz` where cine-ui-version.tgz could e.g. be cine-ui-0.1.0.tgz
+## Known issues
+- New changes not applied after installing the tgz package locally: remove the node_modules folder in the test project and run step 3 again (`npm install path/to/cine-ui/cine-ui-version.tgz`).  
