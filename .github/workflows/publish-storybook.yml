@@ -24,5 +24,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: npm ci    
     - run: npm run build-storybook
     - run: npm run deploy-storybook
