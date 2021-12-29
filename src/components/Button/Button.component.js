@@ -5,7 +5,7 @@ import "./Button.styles.css";
 const Button = ({ backgroundColor, label, color, size, onClick, disabled }) => {
   let sizeChoice;
 
-  if (size === "xm") {
+  if (size === "xs") {
     sizeChoice = "h-7 w-20 text-xs";
   } else if (size === "sm") {
     sizeChoice = "h-9 w-24 text-sm";
@@ -37,7 +37,7 @@ Button.propTypes = {
   backgroundColor: PropTypes.string,
   label: PropTypes.string.isRequired,
   color: PropTypes.string,
-  size: PropTypes.oneOf(["xm", "sm", "md", "lg"]),
+  size: PropTypes.oneOf(["xs", "sm", "md", "lg"]),
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
 };
