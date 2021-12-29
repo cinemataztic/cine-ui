@@ -11,7 +11,7 @@ export default {
     backgroundColor: { control: { type: 'color' } },
     color: { control: { type: 'color' } },
     size: {
-      control: { type: 'radio', options: ['xm', 'sm', 'md', 'lg'] },
+      control: { type: 'radio', options: ['xs', 'sm', 'md', 'lg'] },
     },
   },
 };
