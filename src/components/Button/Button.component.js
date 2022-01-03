@@ -9,10 +9,10 @@ const getSizeStyle = (size) => {
     case 'sm':
       return 'h-9 w-24 text-sm';
     case 'lg':
-      return 'h-11 w-36 text-lg';
+      return 'h-12 w-32 text-lg';
     case 'md':
     default:
-      return 'h-10 w-32 text-base';
+      return 'h-12 w-28 text-base';
   }
 };
 
