@@ -1,0 +1,5 @@
+@import '../../index.css';
+
+.slider-thumb::-webkit-slider-thumb {
+  @apply appearance-none w-5 h-5 rounded-full bg-primary bg-opacity-100 cursor-pointer;
+}
