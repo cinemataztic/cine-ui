@@ -35,6 +35,6 @@ ButtonComponent.args = {
   backgroundColor: 'bg-primary',
   label: 'Click me',
   color: 'text-textgray',
-  size: 'sm',
+  size: 'md',
   onClick: () => {},
 };
