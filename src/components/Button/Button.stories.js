@@ -11,7 +11,7 @@ export default {
     backgroundColor: { control: { type: 'color' } },
     color: { control: { type: 'color' } },
     size: {
-      control: { type: 'radio', options: ['xs', 'sm', 'md', 'lg'] },
+      control: { type: 'radio', options: ['sm','lg'] },
     },
   },
 };
@@ -35,6 +35,6 @@ ButtonComponent.args = {
   backgroundColor: 'bg-primary',
   label: 'Click me',
   color: 'text-textgray',
-  size: 'md',
+  size: 'lg',
   onClick: () => {},
 };

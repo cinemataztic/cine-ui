@@ -4,15 +4,11 @@ import './Button.styles.css';
 
 const getSizeStyle = (size) => {
   switch (size) {
-    case 'xs':
-      return 'h-7 w-20 text-xs';
     case 'sm':
-      return 'h-9 w-24 text-sm';
+      return 'h-9 w-auto text-base px-4 py-2';
     case 'lg':
-      return 'h-12 w-32 text-lg';
-    case 'md':
     default:
-      return 'h-12 w-28 text-base';
+      return 'h-12 w-auto text-lg px-6 py-3';
   }
 };
 
@@ -41,7 +37,7 @@ Button.propTypes = {
   backgroundColor: PropTypes.string,
   label: PropTypes.string.isRequired,
   color: PropTypes.string,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['sm', 'lg']),
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
 };
@@ -50,7 +46,7 @@ Button.defaultProps = {
   backgroundColor: 'bg-primary',
   label: 'Click me',
   color: 'textgray',
-  size: 'md',
+  size: 'lg',
   onClick: () => {},
   disabled: false,
 };
