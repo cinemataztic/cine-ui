@@ -18,7 +18,7 @@ const DisclosureComponent = ({
               <span className={`text-white`}>{buttonContent}</span>
               <span className={`p-2`}>
                 <img
-                  src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAYAAADN5B7xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABNSURBVHgBhYzREQAQDEPLRDbqKIxi06hTHFeVrzb3XogkABJ9shg5MkbYgVmZHOUP2ldL0q7qG2ZZsMPGck+5lw7JhR+SDz8kH74kE27czYwZeCNT6wAAAABJRU5ErkJggg=='
+                  src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMC41OSAwLjU4OTk5Nkw2IDUuMTdMMS40MSAwLjU4OTk5NkwwIDJMNiA4TDEyIDJMMTAuNTkgMC41ODk5OTZaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K'
                   alt='Down Arrow'
                   className={`${open ? 'transform rotate-180' : ''}`}
                 />
