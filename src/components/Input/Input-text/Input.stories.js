@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import InputField from './Input.component';
+import React, { useState } from "react";
+import InputField from "./Input.component";
 
 export default {
-  title: 'Example/InputField',
+  title: "Example/InputField",
   component: InputField,
 };
 
-const Template = ({ type, placeholder }) => {
-  const [text, setText] = useState('');
+const Template = ({ type, placeholder, disabled }) => {
+  const [text, setText] = useState("");
 
   const onChangeHandle = (e) => {
     const { value } = e.target;
@@ -18,9 +18,10 @@ const Template = ({ type, placeholder }) => {
     <InputField
       type={type}
       placeholder={placeholder}
-      id={'1'}
+      id={"1"}
       value={text}
       onChange={onChangeHandle}
+      disabled={disabled}
     />
   );
 };
@@ -28,6 +29,7 @@ const Template = ({ type, placeholder }) => {
 export const InputComponent = Template.bind({});
 
 InputComponent.args = {
-  type: 'text',
-  placeholder: 'Enter text here',
+  type: "text",
+  placeholder: "Enter text here",
+  disabled: false,
 };
