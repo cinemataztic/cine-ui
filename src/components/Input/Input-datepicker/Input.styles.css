@@ -1,0 +1,16 @@
+@import '../../../index.css';
+
+@layer components {
+  .SingleDatePickerInput {
+    @apply relative;
+  }
+  .SingleDatePickerInput_calendarIcon {
+    @apply absolute left-52 top-1;
+  }
+  .DateInput {
+    @apply w-64;
+  }
+  .DateInput_input {
+    @apply bg-secondary bg-opacity-90 rounded text-white text-base border-0;
+  }
+}
