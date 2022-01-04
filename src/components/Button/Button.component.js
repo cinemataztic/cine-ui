@@ -12,7 +12,7 @@ const getSizeStyle = (size) => {
   }
 };
 
-const Button = ({ backgroundColor, label, color, size, onClick, disabled }) => {
+const Button = ({ label, size, onClick, disabled }) => {
   const sizeStyle = getSizeStyle(size);
 
   return (
@@ -21,7 +21,7 @@ const Button = ({ backgroundColor, label, color, size, onClick, disabled }) => {
       className={`border-0 rounded-md font-bold font-sans leading-none ${sizeStyle} ${
         disabled
           ? `pointer-events-none bg-primary opacity-50`
-          : `cursor-pointer ${backgroundColor} ${color} bg-gradient-to-r hover:from-secondary hover:to-secondary active:from-primary active:to-primary `
+          : `cursor-pointer bg-primary text-textgray bg-gradient-to-r hover:from-secondary hover:to-secondary active:from-primary active:to-primary `
       }`}
       onClick={onClick}
       disabled={disabled}
@@ -34,18 +34,14 @@ const Button = ({ backgroundColor, label, color, size, onClick, disabled }) => {
 export default Button;
 
 Button.propTypes = {
-  backgroundColor: PropTypes.string,
   label: PropTypes.string.isRequired,
-  color: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'lg']),
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
-  backgroundColor: 'bg-primary',
   label: 'Click me',
-  color: 'textgray',
   size: 'lg',
   onClick: () => {},
   disabled: false,

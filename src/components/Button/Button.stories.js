@@ -8,33 +8,26 @@ export default {
     label: {
       control: { type: 'text' },
     },
-    backgroundColor: { control: { type: 'color' } },
-    color: { control: { type: 'color' } },
     size: {
-      control: { type: 'radio', options: ['sm','lg'] },
+      control: { type: 'radio', options: ['sm', 'lg'] },
+    },
+    disabled: {
+      control: { type: 'boolean' },
     },
   },
 };
 
-const Template = ({ label, backgroundColor, color, size, onClick }) => {
+const Template = ({ label, size, onClick, disabled }) => {
   return (
-    <Button
-      label={label}
-      backgroundColor={backgroundColor}
-      color={color}
-      size={size}
-      onClick={onClick}
-      disabled={false}
-    />
+    <Button label={label} size={size} onClick={onClick} disabled={disabled} />
   );
 };
 
 export const ButtonComponent = Template.bind({});
 
 ButtonComponent.args = {
-  backgroundColor: 'bg-primary',
   label: 'Click me',
-  color: 'text-textgray',
   size: 'lg',
   onClick: () => {},
+  disabled: false,
 };
