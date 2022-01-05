@@ -21,12 +21,12 @@ const ListBox = ({ options, value, onChange }) => {
       <HeadlessListBox.Options className='border-2 border-gray-600 focus:border-primary bg-secondary text-white w-full rounded-lg text-left pl-3'>
         {options.map((option) => (
           <HeadlessListBox.Option
-            key={option.id}
-            value={option.label}
+            key={option.value}
+            value={option.value}
             hidden={option.disabled}
             className='m-2 cursor-pointer'
           >
-            {option.label}
+            {option.value}
           </HeadlessListBox.Option>
         ))}
       </HeadlessListBox.Options>
@@ -39,8 +39,8 @@ export default ListBox;
 ListBox.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
       disabled: PropTypes.bool,
     })
   ).isRequired,

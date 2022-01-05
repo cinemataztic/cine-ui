@@ -14,9 +14,7 @@ export default {
 };
 
 const Template = ({ data }) => {
-  const [selectedAd, setSelectedAd] = useState(data[0].label);
-
-  console.log(selectedAd);
+  const [selectedAd, setSelectedAd] = useState(data[0].value);
 
   return <ListBox options={data} value={selectedAd} onChange={setSelectedAd} />;
 };
@@ -25,10 +23,10 @@ export const ListboxComponent = Template.bind({});
 
 ListboxComponent.args = {
   data: [
-    { id: '1', label: 'Select ad', disabled: true },
-    { id: '2', label: 'Coco Cola-15' },
-    { id: '3', label: 'Coco Cola-30' },
-    { id: '4', label: 'Pepsi-15' },
-    { id: '5', label: 'Pepsi-30' },
+    { label: '1', value: 'Select ad', disabled: true },
+    { label: '2', value: 'Coco Cola-15' },
+    { label: '3', value: 'Coco Cola-30' },
+    { label: '4', value: 'Pepsi-15' },
+    { label: '5', value: 'Pepsi-30' },
   ],
 };
