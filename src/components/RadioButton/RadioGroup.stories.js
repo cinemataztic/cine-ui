@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import RadioButton from './RadioButton.component';
+import RadioButton from './RadioGroup.component';
 
 export default {
   title: 'Example/RadioButton',
@@ -9,15 +9,20 @@ export default {
 const Template = () => {
   const [selectedOption, setSelectedOption] = useState('');
 
-  const options = ['All days', 'Weekends', 'Week days', 'Custom'];
+  const options = [
+    { label: 'Label 1', value: 'All days' },
+    { label: 'Label 2', value: 'Weekends' },
+    { label: 'Label 3', value: 'Week days' },
+    { label: 'Label 4', value: 'Custom' },
+  ];
+
+  console.log(selectedOption);
 
   return (
     <RadioButton
       options={options}
       value={selectedOption}
       onChange={setSelectedOption}
-      checkedbgColor={'primary'}
-      borderColor={'border-gray-600'}
     />
   );
 };
