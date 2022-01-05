@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import "./Checkbox.styles.css";
 
 const Checkbox = ({ id, name, checked, onChange, label }) => {
