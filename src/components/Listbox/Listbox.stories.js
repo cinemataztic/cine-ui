@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { array } from '@storybook/addon-knobs';
 import ListBox from './Listbox.component';
 
 export default {
@@ -15,25 +14,21 @@ export default {
 };
 
 const Template = ({ data }) => {
-  const [selectedAd, setSelectedAd] = useState(data[0]);
+  const [selectedAd, setSelectedAd] = useState(data[0].label);
 
-  return (
-    <ListBox
-      options={data}
-      selectedValue={selectedAd}
-      onChange={setSelectedAd}
-    />
-  );
+  console.log(selectedAd);
+
+  return <ListBox options={data} value={selectedAd} onChange={setSelectedAd} />;
 };
 
 export const ListboxComponent = Template.bind({});
 
 ListboxComponent.args = {
-  data: array('advertisements', [
-    { id: 1, label: 'Select ad', disabled: true },
-    { id: 2, label: 'Coco Cola-15' },
-    { id: 3, label: 'Coco Cola-30' },
-    { id: 4, label: 'Pepsi-15' },
-    { id: 5, label: 'Pepsi-30' },
-  ]),
+  data: [
+    { id: '1', label: 'Select ad', disabled: true },
+    { id: '2', label: 'Coco Cola-15' },
+    { id: '3', label: 'Coco Cola-30' },
+    { id: '4', label: 'Pepsi-15' },
+    { id: '5', label: 'Pepsi-30' },
+  ],
 };
