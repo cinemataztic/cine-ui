@@ -15,13 +15,15 @@ const Template = () => {
   };
 
   return (
-    <Slider
-      value={range}
-      valueLabel={'DKK'}
-      minValue={1}
-      maxValue={5000}
-      onChange={onChangeSliderHandle}
-    />
+    <div className="text-white">
+      <Slider
+        value={range}
+        valueLabel={'DKK'}
+        minValue={1}
+        maxValue={5000}
+        onChange={onChangeSliderHandle}
+      />
+    </div>
   );
 };
 
