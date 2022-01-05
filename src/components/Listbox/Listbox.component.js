@@ -8,15 +8,15 @@ function getLabelForValue(value, options = []) {
   const selectedOption = options.filter((option) => option.value === value);
   if (selectedOption.length === 1) {
     return selectedOption[0].label;
-  } else throw new Error("More than one label/option pair with same value.");
+  } else throw new Error(`More than one label/option pair with same value.`);
 }
 
-const ListBox = ({ options, value, onChange }) => {
+const ListBox = ({ options, value, onChange, placeholder }) => {
   return (
     <HeadlessListBox as="div" value={value} onChange={onChange}>
       <HeadlessListBox.Button className="border-2 border-gray-600 focus:border-primary bg-secondary text-white w-full h-10 rounded-lg text-left pl-3">
         <span className="flex justify-between">
-          <span>{getLabelForValue(value, options)}</span>
+          <span>{value ? getLabelForValue(value, options) : placeholder}</span>
           <span className="mt-2 mr-2">
             <img
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAYAAADN5B7xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABNSURBVHgBhYzREQAQDEPLRDbqKIxi06hTHFeVrzb3XogkABJ9shg5MkbYgVmZHOUP2ldL0q7qG2ZZsMPGck+5lw7JhR+SDz8kH74kE27czYwZeCNT6wAAAABJRU5ErkJggg=="
