@@ -1,19 +1,19 @@
 import React from 'react';
-import { RadioGroup } from '@headlessui/react';
+import { RadioGroup as HeadlessRadioGroup } from '@headlessui/react';
 import PropTypes from 'prop-types';
 
 import './RadioGroup.styles.css';
 
-const RadioButton = ({ options, value, onChange }) => {
+const RadioGroup = ({ options, value, onChange }) => {
   return (
-    <RadioGroup
+    <HeadlessRadioGroup
       value={value}
       onChange={onChange}
       className='w-full grid grid-rows-1 grid-flow-col gap-0'
     >
       {options.map((option, index) => {
         return (
-          <RadioGroup.Option
+          <HeadlessRadioGroup.Option
             value={option.value}
             className='flex cursor-pointer'
             key={option.value}
@@ -36,16 +36,16 @@ const RadioButton = ({ options, value, onChange }) => {
                 <span>{option.value}</span>
               </>
             )}
-          </RadioGroup.Option>
+          </HeadlessRadioGroup.Option>
         );
       })}
-    </RadioGroup>
+    </HeadlessRadioGroup>
   );
 };
 
-export default RadioButton;
+export default RadioGroup;
 
-RadioButton.propTypes = {
+RadioGroup.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,

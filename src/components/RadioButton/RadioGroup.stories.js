@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import RadioButton from './RadioGroup.component';
+import RadioGroup from './RadioGroup.component';
 
 export default {
-  title: 'Example/RadioButton',
-  component: RadioButton,
+  title: 'Example/RadioGroup',
+  component: RadioGroup,
 };
 
 const Template = () => {
@@ -19,7 +19,7 @@ const Template = () => {
   console.log(selectedOption);
 
   return (
-    <RadioButton
+    <RadioGroup
       options={options}
       value={selectedOption}
       onChange={setSelectedOption}
