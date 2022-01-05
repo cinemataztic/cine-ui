@@ -14,7 +14,7 @@ const Template = () => {
       checked={checked}
       label="Test me!"
       onChange={(e) => {
-        setChecked(e);
+        setChecked(e.target.checked);
       }}
     />
   );

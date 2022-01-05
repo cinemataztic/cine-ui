@@ -6,7 +6,10 @@ import "./Checkbox.styles.css";
 const Checkbox = ({ id, name, checked, onChange, label }) => {
   return (
     <div className="inline-block">
-      <label htmlFor={id} className="flex items-center cursor-pointer text-white">
+      <label
+        htmlFor={id}
+        className="flex items-center cursor-pointer text-white"
+      >
         <div className="relative h-5">
           <input
             className="absolute"
@@ -15,7 +18,7 @@ const Checkbox = ({ id, name, checked, onChange, label }) => {
             name={name}
             label={label}
             checked={checked}
-            onChange={(e) => onChange(e.target.checked)}
+            onChange={onChange}
             className="appearance-none h-5 w-5 bg-white rounded-sm checked:bg-primary"
           />
           <img
