@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import ListBox from './Listbox.component';
+import React, { useState } from "react";
+import ListBox from "./Listbox.component";
 
 export default {
-  title: 'Example/Listbox',
+  title: "Example/Listbox",
   component: ListBox,
   argTypes: {
     data: {
       control: {
-        type: 'array',
+        type: "array",
       },
     },
   },
@@ -23,10 +23,10 @@ export const ListboxComponent = Template.bind({});
 
 ListboxComponent.args = {
   data: [
-    { label: '1', value: 'Select ad', disabled: true },
-    { label: '2', value: 'Coco Cola-15' },
-    { label: '3', value: 'Coco Cola-30' },
-    { label: '4', value: 'Pepsi-15' },
-    { label: '5', value: 'Pepsi-30' },
+    { value: "1", label: "Select ad", disabled: true },
+    { value: "2", label: "Coco Cola-15" },
+    { value: "3", label: "Coco Cola-30" },
+    { value: "4", label: "Pepsi-15" },
+    { value: "5", label: "Pepsi-30" },
   ],
 };
