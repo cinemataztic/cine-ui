@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import RangeSlider from './Slider.component';
+import Slider from './Slider.component';
 
 export default {
   title: 'Example/Slider',
-  component: RangeSlider,
+  component: Slider,
 };
 
 const Template = () => {
@@ -11,19 +11,17 @@ const Template = () => {
 
   const onChangeSliderHandle = (e) => {
     const { value } = e.target;
-    setRange(value);
+    setRange(Number(value));
   };
 
   return (
-    <>
-      <RangeSlider
-        value={range}
-        valueLabel={'Dkk'}
-        minValue={1}
-        maxValue={5000}
-        onChange={onChangeSliderHandle}
-      />
-    </>
+    <Slider
+      value={range}
+      valueLabel={'Dkk'}
+      minValue={1}
+      maxValue={5000}
+      onChange={onChangeSliderHandle}
+    />
   );
 };
 

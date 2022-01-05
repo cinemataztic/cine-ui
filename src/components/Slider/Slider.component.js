@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './Slider.styles.css';
 
-const RangeSlider = ({ value, valueLabel, minValue, maxValue, onChange }) => {
+const Slider = ({ value, valueLabel, minValue, maxValue, onChange }) => {
   const [step, setStep] = useState(0);
   const rangeInputRef = useRef(null);
 
@@ -44,9 +44,9 @@ const RangeSlider = ({ value, valueLabel, minValue, maxValue, onChange }) => {
   );
 };
 
-export default RangeSlider;
+export default Slider;
 
-RangeSlider.propTypes = {
+Slider.propTypes = {
   value: PropTypes.number,
   valueLabel: PropTypes.string,
   minValue: PropTypes.number,
