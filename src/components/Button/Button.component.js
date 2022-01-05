@@ -1,27 +1,27 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./Button.styles.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Button.styles.css';
 
-const Button = ({ backgroundColor, label, color, size, onClick, disabled }) => {
-  let sizeChoice;
-
-  if (size === "xs") {
-    sizeChoice = "h-7 w-20 text-xs";
-  } else if (size === "sm") {
-    sizeChoice = "h-9 w-24 text-sm";
-  } else if (size === "md") {
-    sizeChoice = "h-10 w-32 text-base";
-  } else if (size === "lg") {
-    sizeChoice = "h-11 w-36 text-lg";
+const getSizeStyle = (size) => {
+  switch (size) {
+    case 'sm':
+      return 'h-9 w-auto text-base px-4 py-2';
+    case 'lg':
+    default:
+      return 'h-12 w-auto text-lg px-6 py-3';
   }
+};
+
+const Button = ({ label, size, onClick, disabled }) => {
+  const sizeStyle = getSizeStyle(size);
 
   return (
     <button
-      type="button"
-      className={`${
+      type='button'
+      className={`border-0 rounded-md font-bold font-sans leading-none ${sizeStyle} ${
         disabled
-          ? `border-0 rounded-md font-bold font-sans leading-none ${sizeChoice} bg-gray-400 text-gray-300`
-          : `border-0 rounded-md cursor-pointer font-bold font-sans leading-none ${backgroundColor} ${color} ${sizeChoice}`
+          ? `pointer-events-none bg-primary opacity-50`
+          : `cursor-pointer bg-primary text-textgray bg-gradient-to-r hover:from-secondary hover:to-secondary active:from-primary active:to-primary `
       }`}
       onClick={onClick}
       disabled={disabled}
@@ -34,19 +34,15 @@ const Button = ({ backgroundColor, label, color, size, onClick, disabled }) => {
 export default Button;
 
 Button.propTypes = {
-  backgroundColor: PropTypes.string,
   label: PropTypes.string.isRequired,
-  color: PropTypes.string,
-  size: PropTypes.oneOf(["xs", "sm", "md", "lg"]),
+  size: PropTypes.oneOf(['sm', 'lg']),
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
-  backgroundColor: "bg-primary",
-  label: "Click me",
-  color: "textgray",
-  size: "sm",
+  label: 'Click me',
+  size: 'lg',
   onClick: () => {},
   disabled: false,
 };
