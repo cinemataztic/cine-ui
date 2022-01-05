@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Listbox as HeadlessListBox } from "@headlessui/react";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Listbox as HeadlessListBox } from '@headlessui/react';
 
-import "./Listbox.styles.css";
+import './Listbox.styles.css';
 
 function getLabelForValue(value, options = []) {
   const selectedOption = options.filter((option) => option.value === value);
@@ -14,7 +14,7 @@ function getLabelForValue(value, options = []) {
 const ListBox = ({ options, value, onChange, placeholder }) => {
   return (
     <HeadlessListBox as="div" value={value} onChange={onChange}>
-      <HeadlessListBox.Button className="border-2 border-gray-600 focus:border-primary bg-secondary text-white w-full h-10 rounded-lg text-left pl-3">
+      <HeadlessListBox.Button className="border-2 border-secondary focus:border-primary bg-secondary text-white w-full h-10 rounded-lg text-left pl-3">
         <span className="flex justify-between">
           <span>{value ? getLabelForValue(value, options) : placeholder}</span>
           <span className="mt-2 mr-2">
@@ -25,7 +25,7 @@ const ListBox = ({ options, value, onChange, placeholder }) => {
           </span>
         </span>
       </HeadlessListBox.Button>
-      <HeadlessListBox.Options className="border-2 border-gray-600 focus:border-primary bg-secondary text-white w-full rounded-lg text-left pl-3">
+      <HeadlessListBox.Options className="border-2 border-secondary focus:border-primary bg-secondary text-white w-full rounded-lg text-left pl-3">
         {options.map((option) => (
           <HeadlessListBox.Option
             key={option.value}
@@ -49,7 +49,7 @@ ListBox.propTypes = {
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
       disabled: PropTypes.bool,
-    })
+    }),
   ).isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,

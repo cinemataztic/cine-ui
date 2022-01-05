@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       borderColor: {
         primary: '#3AC1C8',
+        secondary: '#323232',
       },
       backgroundColor: {
         primary: '#3AC1C8',
@@ -20,8 +21,8 @@ module.exports = {
         3: '3px',
       },
       gradientColorStops: {
-        primary: '#00000020',
-        secondary: '#ffffff20',
+        primary: '#1E1E1E',
+        secondary: '#272727',
       },
     },
   },
