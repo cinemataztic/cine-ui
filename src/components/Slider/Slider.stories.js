@@ -17,7 +17,8 @@ const Template = () => {
   return (
     <>
       <RangeSlider
-        range={range}
+        value={range}
+        valueLabel={'Dkk'}
         minValue={1}
         maxValue={5000}
         onChange={onChangeSliderHandle}
