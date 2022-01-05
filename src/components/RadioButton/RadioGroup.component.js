@@ -33,7 +33,7 @@ const RadioGroup = ({ options, value, onChange }) => {
                     }
                   />
                 </div>
-                <span>{option.value}</span>
+                <span>{option.label}</span>
               </>
             )}
           </HeadlessRadioGroup.Option>
