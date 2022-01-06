@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import "react-dates/initialize";
-import { SingleDatePicker } from "react-dates";
-import "react-dates/lib/css/_datepicker.css";
-import "./Input.styles.css";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import 'react-dates/initialize';
+import { SingleDatePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+import './Input.styles.css';
+import PropTypes from 'prop-types';
 
 const InputField = ({ value, onChange, placeholder, id }) => {
   const [focused, setFocused] = useState(false);
@@ -14,6 +14,7 @@ const InputField = ({ value, onChange, placeholder, id }) => {
 
   return (
     <SingleDatePicker
+      numberOfMonths={1}
       date={value}
       onDateChange={(date) => {
         onChange(date);
