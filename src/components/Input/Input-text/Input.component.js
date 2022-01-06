@@ -20,7 +20,7 @@ const InputField = ({
       className={`bg-secondary focus:outline-none rounded placeholder-primary h-12 w-full px-4 ${
         disabled
           ? 'opacity-50 textgray cursor-not-allowed'
-          : 'text-white cursor-pointer'
+          : 'text-white cursor-text'
       }`}
       disabled={disabled}
     />
