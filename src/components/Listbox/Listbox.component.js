@@ -49,7 +49,7 @@ ListBox.propTypes = {
       label: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
 };
