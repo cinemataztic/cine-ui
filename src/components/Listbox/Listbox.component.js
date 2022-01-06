@@ -14,10 +14,10 @@ function getLabelForValue(value, options = []) {
 const ListBox = ({ options, value, onChange, placeholder }) => {
   return (
     <HeadlessListBox as="div" value={value} onChange={onChange}>
-      <HeadlessListBox.Button className="border-2 border-secondary focus:border-primary bg-secondary text-white w-full h-10 rounded-lg text-left pl-3">
+      <HeadlessListBox.Button className="border-2 border-secondary focus:border-primary bg-secondary text-white w-full h-12 rounded-lg text-left pl-4">
         <span className="flex justify-between">
           <span>{value ? getLabelForValue(value, options) : placeholder}</span>
-          <span className="mt-2 mr-2">
+          <span className="mt-2 mr-4">
             <img
               src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMC41OSAwLjU5MDAyN0w2IDUuMTcwMDNMMS40MSAwLjU5MDAyN0wwIDIuMDAwMDNMNiA4LjAwMDAzTDEyIDIuMDAwMDNMMTAuNTkgMC41OTAwMjdaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K"
               alt="Down Arrow"
