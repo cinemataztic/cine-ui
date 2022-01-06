@@ -14,6 +14,7 @@ const InputField = ({ value, onChange, placeholder, id }) => {
 
   return (
     <SingleDatePicker
+      hideKeyboardShortcutsPanel
       numberOfMonths={1}
       date={value}
       onDateChange={(date) => {
