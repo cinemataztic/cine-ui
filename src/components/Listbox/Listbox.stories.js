@@ -1,26 +1,26 @@
-import React, { useState } from "react";
-import ListBox from "./Listbox.component";
+import React, { useState } from 'react';
+import ListBox from './Listbox.component';
 
 export default {
-  title: "Example/Listbox",
+  title: 'Example/Listbox',
   component: ListBox,
   argTypes: {
     data: {
       control: {
-        type: "array",
+        type: 'array',
       },
     },
   },
 };
 
 const Template = ({ data }) => {
-  const [setValue, value] = useState();
+  const [value, setValue] = useState();
 
   return (
     <ListBox
       options={data}
-      value={setValue}
-      onChange={value}
+      value={value}
+      onChange={setValue}
       placeholder="Select option"
     />
   );
@@ -30,10 +30,10 @@ export const ListboxComponent = Template.bind({});
 
 ListboxComponent.args = {
   data: [
-    { value: "1", label: "Option 1" },
-    { value: "2", label: "Option 2" },
-    { value: "3", label: "Option 3" },
-    { value: "4", label: "Option 4" },
-    { value: "5", label: "Option 5" },
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3' },
+    { value: '4', label: 'Option 4' },
+    { value: '5', label: 'Option 5' },
   ],
 };
