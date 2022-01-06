@@ -61,13 +61,19 @@
 }
 
 .CalendarDay__default {
-  @apply text-white;
+  @apply text-white rounded border-hidden;
+}
+
+.CalendarDay__default:hover {
+  @apply border-hidden;
+  background-color: #174d50;
+  color: #3ac1c8;
 }
 
 .CalendarDay__blocked_out_of_range,
 .CalendarDay__blocked_out_of_range:active,
 .CalendarDay__blocked_out_of_range:hover {
-  @apply opacity-50;
+  @apply opacity-25 rounded bg-transparent;
 }
 
 .DateInput_fang {
@@ -76,4 +82,17 @@
 
 .SingleDatePicker_picker {
   @apply rounded;
+}
+
+.CalendarDay__selected {
+  @apply bg-primary text-black;
+}
+
+.DayPickerNavigation_button,
+.DayPickerNavigation_button:hover {
+  @apply border-hidden;
+}
+
+.DayPickerNavigation_button:active {
+  @apply bg-transparent;
 }
