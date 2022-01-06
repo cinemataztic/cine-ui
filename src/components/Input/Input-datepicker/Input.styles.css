@@ -1,16 +1,21 @@
-@import '../../../index.css';
+@import "../../../index.css";
 
-@layer components {
-  .SingleDatePickerInput {
-    @apply relative;
-  }
-  .SingleDatePickerInput_calendarIcon {
-    @apply absolute left-52 top-1;
-  }
-  .DateInput {
-    @apply w-64;
-  }
-  .DateInput_input {
-    @apply bg-secondary bg-opacity-90 rounded text-white text-base border-0;
-  }
+.SingleDatePicker {
+  @apply relative w-full block;
+}
+
+.SingleDatePickerInput_calendarIcon {
+  @apply absolute right-0 top-2;
+}
+
+.SingleDatePickerInput {
+  @apply relative w-full block;
+}
+
+.DateInput {
+  @apply w-full;
+}
+
+.DateInput_input {
+  @apply bg-secondary bg-opacity-90 rounded text-white text-base border-0 py-3 font-normal px-4;
 }
