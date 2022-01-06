@@ -21,8 +21,8 @@ module.exports = {
         3: '3px',
       },
       gradientColorStops: {
-        primary: '#1E1E1E',
-        secondary: '#272727',
+        primary: '#00000020',
+        secondary: '#ffffff20',
       },
     },
   },
