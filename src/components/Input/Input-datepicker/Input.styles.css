@@ -1,4 +1,4 @@
-@import "../../../index.css";
+@import '../../../index.css';
 
 .SingleDatePicker {
   @apply relative w-full block;
@@ -18,4 +18,58 @@
 
 .DateInput_input {
   @apply bg-secondary rounded text-white text-base border-0 py-3 font-normal px-4;
+}
+
+.SingleDatePicker_picker {
+  @apply bg-secondary;
+}
+
+.DayPicker {
+  @apply bg-secondary;
+}
+
+.CalendarMonth {
+  @apply bg-secondary;
+}
+
+.CalendarDay {
+  @apply bg-secondary;
+}
+
+.CalendarMonthGrid {
+  @apply bg-secondary;
+}
+
+.DateInput_fangShape {
+  fill: #323232;
+}
+
+.DateInput_fangStroke {
+  stroke: #323232;
+}
+
+.DayPickerNavigation_button__default {
+  @apply bg-secondary;
+}
+
+.CalendarMonth_caption {
+  @apply text-white;
+}
+
+.DayPicker_weekHeader {
+  @apply text-white;
+}
+
+.CalendarDay__default {
+  @apply text-white;
+}
+
+.CalendarDay__blocked_out_of_range,
+.CalendarDay__blocked_out_of_range:active,
+.CalendarDay__blocked_out_of_range:hover {
+  @apply opacity-50;
+}
+
+.DateInput_fang {
+  top: 56px !important;
 }
