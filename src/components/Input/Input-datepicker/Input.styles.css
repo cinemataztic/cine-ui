@@ -17,7 +17,7 @@
 }
 
 .DateInput_input {
-  @apply bg-secondary rounded text-white text-base border-0 py-3 font-normal px-4;
+  @apply bg-secondary rounded text-white text-base border-0 py-3 font-normal px-4 placeholder-primary;
 }
 
 .SingleDatePicker_picker {
