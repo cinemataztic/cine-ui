@@ -73,3 +73,7 @@
 .DateInput_fang {
   top: 56px !important;
 }
+
+.SingleDatePicker_picker {
+  @apply rounded;
+}
