@@ -8,16 +8,12 @@ export default {
 
 const DisclosurePanelContent = () => {
   return (
-    <>
-      <div className="list-none flex flex-col space-y-4">
-        <li>1. Spot details</li>
-        <li>2. Creatives</li>
-        <li>3. Day & Time</li>
-        <li>4. Audience</li>
-        <li>5. Distribution</li>
-        <li>6. Budget</li>
-      </div>
-    </>
+    <div>
+      <p>
+        A disclosure can hold all kinds of content.
+        <br />A disclosure is also known as an accordion.
+      </p>
+    </div>
   );
 };
 
@@ -25,7 +21,7 @@ const Template = ({}) => {
   return (
     <DisclosureComponent
       panelContent={DisclosurePanelContent}
-      buttonContent={'Spot 1'}
+      buttonContent={'Disclosure'}
     />
   );
 };
