@@ -73,7 +73,8 @@
 .CalendarDay__blocked_out_of_range,
 .CalendarDay__blocked_out_of_range:active,
 .CalendarDay__blocked_out_of_range:hover {
-  @apply opacity-25 rounded bg-transparent;
+  color: #707070;
+  @apply rounded bg-transparent;
 }
 
 .DateInput_fang {
