@@ -17,5 +17,5 @@
 }
 
 .DateInput_input {
-  @apply bg-secondary bg-opacity-90 rounded text-white text-base border-0 py-3 font-normal px-4;
+  @apply bg-secondary rounded text-white text-base border-0 py-3 font-normal px-4;
 }
