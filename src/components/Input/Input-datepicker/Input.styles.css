@@ -9,11 +9,11 @@
 }
 
 .SingleDatePickerInput {
-  @apply relative w-full block;
+  @apply relative w-full block bg-transparent;
 }
 
 .DateInput {
-  @apply w-full;
+  @apply w-full bg-transparent;
 }
 
 .DateInput_input {
