@@ -5,7 +5,7 @@
 }
 
 .SingleDatePickerInput_calendarIcon {
-  @apply absolute right-0 top-2;
+  @apply absolute right-0 top-1;
 }
 
 .SingleDatePickerInput {
