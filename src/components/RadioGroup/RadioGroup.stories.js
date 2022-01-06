@@ -4,7 +4,7 @@ import RadioGroupComponent from './RadioGroup.component';
 import './RadioGroup.styles.css';
 
 export default {
-  title: 'cine-ui/RadioGroup',
+  title: 'Forms/RadioGroup',
   component: RadioGroupComponent,
 };
 

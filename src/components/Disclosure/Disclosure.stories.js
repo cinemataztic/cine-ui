@@ -2,7 +2,7 @@ import React from 'react';
 import DisclosureComponent from './Disclosure.component';
 
 export default {
-  title: 'cine-ui/Disclosure',
+  title: 'Layout/Disclosure',
   component: DisclosureComponent,
 };
 

@@ -3,7 +3,7 @@ import CheckboxComponent from './Checkbox.component';
 import './Checkbox.styles.css';
 
 export default {
-  title: 'cine-ui/Checkbox',
+  title: 'Forms/Checkbox',
   component: CheckboxComponent,
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import ButtonComponent from './Button.component';
 
 export default {
-  title: 'cine-ui/Button',
+  title: 'Components/Button',
   component: ButtonComponent,
   argTypes: {
     label: {

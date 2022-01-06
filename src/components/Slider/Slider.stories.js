@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SliderComponent from './Slider.component';
 
 export default {
-  title: 'cine-ui/Slider',
+  title: 'Components/Slider',
   component: SliderComponent,
 };
 

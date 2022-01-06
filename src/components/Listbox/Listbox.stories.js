@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ListboxComponent from './Listbox.component';
 
 export default {
-  title: 'cine-ui/Listbox',
+  title: 'Forms/Listbox',
   component: ListboxComponent,
   argTypes: {
     data: {

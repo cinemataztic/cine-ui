@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import InputField from './Input.component';
 
 export default {
-  title: 'cine-ui/Input',
+  title: 'Forms/Input',
   component: InputField,
 };
 
