@@ -25,12 +25,12 @@ const ListBox = ({ options, value, onChange, placeholder }) => {
           </span>
         </span>
       </HeadlessListBox.Button>
-      <HeadlessListBox.Options className="border-2 border-secondary focus:border-primary bg-secondary text-white w-full rounded-lg text-left pl-3">
+      <HeadlessListBox.Options className="border-2 border-secondary focus:border-primary bg-secondary w-full rounded-lg">
         {options.map((option) => (
           <HeadlessListBox.Option
             key={option.value}
             value={option.value}
-            className="m-2 cursor-pointer"
+            className="cursor-pointer hover:bg-lightgray text-white text-left px-4 py-2 rounded-lg"
           >
             {option.label}
           </HeadlessListBox.Option>

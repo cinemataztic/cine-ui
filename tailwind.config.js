@@ -15,6 +15,7 @@ module.exports = {
         secondary: '#323232',
         tertiary: '#1E1E1E',
         bggray: '#272727',
+        lightgray: '#3c3c3c',
       },
       textColor: {
         primary: '#3AC1C8',
