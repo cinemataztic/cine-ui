@@ -30,7 +30,6 @@ const ListBox = ({ options, value, onChange, placeholder }) => {
           <HeadlessListBox.Option
             key={option.value}
             value={option.value}
-            hidden={option.disabled}
             className="m-2 cursor-pointer"
           >
             {option.label}
@@ -46,11 +45,11 @@ export default ListBox;
 ListBox.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
-      disabled: PropTypes.bool,
+      label: PropTypes.string.isRequired,
     }),
   ).isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  placeholder: PropTypes.string,
 };
