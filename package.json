@@ -29,6 +29,7 @@
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
+    "react-datepicker": "^4.5.0",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
@@ -50,6 +51,7 @@
     "html-webpack-plugin": "^5.5.0",
     "postcss": "^8.4.5",
     "postcss-loader": "^6.2.1",
+    "react-dates": "^21.8.0",
     "style-loader": "^3.3.1",
     "tailwindcss": "^3.0.7",
     "webpack": "^5.65.0",

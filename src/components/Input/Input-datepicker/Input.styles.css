@@ -1,0 +1,21 @@
+@import "../../../index.css";
+
+.SingleDatePicker {
+  @apply relative w-full block;
+}
+
+.SingleDatePickerInput_calendarIcon {
+  @apply absolute right-0 top-1;
+}
+
+.SingleDatePickerInput {
+  @apply relative w-full block bg-transparent;
+}
+
+.DateInput {
+  @apply w-full bg-transparent;
+}
+
+.DateInput_input {
+  @apply bg-secondary rounded text-white text-base border-0 py-3 font-normal px-4;
+}
