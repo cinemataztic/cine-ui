@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import ListBox from './Listbox.component';
+import ListboxComponent from './Listbox.component';
 
 export default {
-  title: 'Example/Listbox',
-  component: ListBox,
+  title: 'cine-ui/Listbox',
+  component: ListboxComponent,
   argTypes: {
     data: {
       control: {
@@ -18,7 +18,7 @@ const Template = ({ data }) => {
   const [value, setValue] = useState();
 
   return (
-    <ListBox
+    <ListboxComponent
       options={data}
       value={value}
       onChange={setValue}
@@ -27,9 +27,9 @@ const Template = ({ data }) => {
   );
 };
 
-export const ListboxComponent = Template.bind({});
+export const Listbox = Template.bind({});
 
-ListboxComponent.args = {
+Listbox.args = {
   data: [
     { value: '1', label: 'Option 1' },
     { value: '2', label: 'Option 2' },

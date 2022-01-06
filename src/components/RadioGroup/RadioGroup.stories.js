@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import RadioGroup from './RadioGroup.component';
+import RadioGroupComponent from './RadioGroup.component';
+
+import './RadioGroup.styles.css';
 
 export default {
-  title: 'Example/RadioGroup',
-  component: RadioGroup,
+  title: 'cine-ui/RadioGroup',
+  component: RadioGroupComponent,
 };
 
 const Template = () => {
@@ -16,10 +18,8 @@ const Template = () => {
     { label: 'Label 4', value: 'Custom' },
   ];
 
-  console.log(selectedOption);
-
   return (
-    <RadioGroup
+    <RadioGroupComponent
       options={options}
       value={selectedOption}
       onChange={setSelectedOption}
@@ -27,4 +27,4 @@ const Template = () => {
   );
 };
 
-export const RadioButtonComponent = Template.bind({});
+export const RadioGroup = Template.bind({});

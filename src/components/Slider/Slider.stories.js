@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Slider from './Slider.component';
+import SliderComponent from './Slider.component';
 
 export default {
-  title: 'Example/Slider',
-  component: Slider,
+  title: 'cine-ui/Slider',
+  component: SliderComponent,
 };
 
 const Template = () => {
@@ -16,7 +16,7 @@ const Template = () => {
 
   return (
     <div className="text-white">
-      <Slider
+      <SliderComponent
         value={range}
         valueLabel={'DKK'}
         minValue={1}
@@ -27,4 +27,4 @@ const Template = () => {
   );
 };
 
-export const SliderComponent = Template.bind({});
+export const Slider = Template.bind({});

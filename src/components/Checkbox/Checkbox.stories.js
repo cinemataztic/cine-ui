@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import Checkbox from "./Checkbox.component";
-import "./Checkbox.styles.css";
+import React, { useState } from 'react';
+import CheckboxComponent from './Checkbox.component';
+import './Checkbox.styles.css';
 
 export default {
-  title: "Example/Checkbox",
-  component: Checkbox,
+  title: 'cine-ui/Checkbox',
+  component: CheckboxComponent,
 };
 
 const Template = () => {
   const [checked, setChecked] = useState(false);
   return (
-    <Checkbox
+    <CheckboxComponent
       checked={checked}
       label="Test me!"
       onChange={(e) => {
@@ -20,4 +20,4 @@ const Template = () => {
   );
 };
 
-export const CheckboxComponent = Template.bind({});
+export const Checkbox = Template.bind({});
