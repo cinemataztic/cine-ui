@@ -23,4 +23,4 @@ const Template = () => {
   );
 };
 
-export const Input = Template.bind({});
+export const InputDate = Template.bind({});
