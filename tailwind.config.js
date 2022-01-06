@@ -2,6 +2,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    placeholderColor: {
+      primary: '#707070',
+    },
     extend: {
       borderColor: {
         primary: '#3AC1C8',

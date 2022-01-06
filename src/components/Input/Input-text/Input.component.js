@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./Input.styles.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Input.styles.css';
 
 const InputField = ({
   type,
@@ -17,10 +17,10 @@ const InputField = ({
       id={id}
       value={value}
       onChange={(e) => onChange(e)}
-      className={`bg-secondary focus:outline-none rounded h-12 w-full px-4 ${
+      className={`bg-secondary focus:outline-none rounded placeholder-primary h-12 w-full px-4 ${
         disabled
-          ? "opacity-50 textgray cursor-not-allowed"
-          : "text-white cursor-pointer"
+          ? 'opacity-50 textgray cursor-not-allowed'
+          : 'text-white cursor-pointer'
       }`}
       disabled={disabled}
     />
@@ -39,6 +39,6 @@ InputField.propTypes = {
 };
 
 InputField.defaultProps = {
-  placeholder: "",
-  type: "text",
+  placeholder: '',
+  type: 'text',
 };
