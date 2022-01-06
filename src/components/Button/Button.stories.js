@@ -1,9 +1,9 @@
 import React from 'react';
-import ButtonComponent from './Button.component';
+import Button from './Button.component';
 
 export default {
   title: 'Components/Button',
-  component: ButtonComponent,
+  component: Button,
   argTypes: {
     label: {
       control: { type: 'text' },
@@ -19,18 +19,13 @@ export default {
 
 const Template = ({ label, size, onClick, disabled }) => {
   return (
-    <ButtonComponent
-      label={label}
-      size={size}
-      onClick={onClick}
-      disabled={disabled}
-    />
+    <Button label={label} size={size} onClick={onClick} disabled={disabled} />
   );
 };
 
-export const Button = Template.bind({});
+export const Base = Template.bind({});
 
-Button.args = {
+Base.args = {
   label: 'Click me',
   size: 'lg',
   onClick: () => {},

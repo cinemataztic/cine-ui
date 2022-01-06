@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Disclosure.styles.css';
-import { Disclosure } from '@headlessui/react';
+import { Disclosure as HeadlessDisclosure } from '@headlessui/react';
 
-const DisclosureComponent = ({ panelContent, buttonContent }) => {
+const Disclosure = ({ panelContent, buttonContent }) => {
   return (
     <>
-      <Disclosure>
+      <HeadlessDisclosure>
         {({ open }) => (
           <div
             className={`bg-secondary bg-opacity-90 rounded-lg py-2 px-4 w-full`}
           >
-            <Disclosure.Button className="flex justify-between w-full">
+            <HeadlessDisclosure.Button className="flex justify-between w-full">
               <div className="text-white text-lg pt-1">{buttonContent}</div>
               <div className="py-3">
                 <img
@@ -20,20 +20,20 @@ const DisclosureComponent = ({ panelContent, buttonContent }) => {
                   className={`${open ? 'transform rotate-180' : ''}`}
                 />
               </div>
-            </Disclosure.Button>
-            <Disclosure.Panel className="text-white my-2.5">
+            </HeadlessDisclosure.Button>
+            <HeadlessDisclosure.Panel className="text-white my-2.5">
               {panelContent()}
-            </Disclosure.Panel>
+            </HeadlessDisclosure.Panel>
           </div>
         )}
-      </Disclosure>
+      </HeadlessDisclosure>
     </>
   );
 };
 
-export default DisclosureComponent;
+export default Disclosure;
 
-DisclosureComponent.propTypes = {
+Disclosure.propTypes = {
   panelContent: PropTypes.func,
   buttonContent: PropTypes.string,
 };

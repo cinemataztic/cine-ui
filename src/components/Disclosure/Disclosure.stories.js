@@ -1,9 +1,9 @@
 import React from 'react';
-import DisclosureComponent from './Disclosure.component';
+import Disclosure from './Disclosure.component';
 
 export default {
   title: 'Layout/Disclosure',
-  component: DisclosureComponent,
+  component: Disclosure,
 };
 
 const DisclosurePanelContent = () => {
@@ -19,11 +19,11 @@ const DisclosurePanelContent = () => {
 
 const Template = ({}) => {
   return (
-    <DisclosureComponent
+    <Disclosure
       panelContent={DisclosurePanelContent}
       buttonContent={'Disclosure'}
     />
   );
 };
 
-export const Disclosure = Template.bind({});
+export const Base = Template.bind({});

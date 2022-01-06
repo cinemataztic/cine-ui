@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import CheckboxComponent from './Checkbox.component';
+import Checkbox from './Checkbox.component';
 import './Checkbox.styles.css';
 
 export default {
   title: 'Forms/Checkbox',
-  component: CheckboxComponent,
+  component: Checkbox,
 };
 
 const Template = () => {
   const [checked, setChecked] = useState(false);
   return (
-    <CheckboxComponent
+    <Checkbox
       checked={checked}
       label="Test me!"
       onChange={(e) => {
@@ -20,4 +20,4 @@ const Template = () => {
   );
 };
 
-export const Checkbox = Template.bind({});
+export const Base = Template.bind({});

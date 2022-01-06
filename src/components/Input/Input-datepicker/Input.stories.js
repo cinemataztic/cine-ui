@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import InputField from './Input.component';
+import DateInput from './Input.component';
 
 export default {
   title: 'Forms/Input',
-  component: InputField,
+  component: DateInput,
 };
 
 const Template = () => {
@@ -14,7 +14,7 @@ const Template = () => {
   };
 
   return (
-    <InputField
+    <DateInput
       value={date}
       onChange={onDateChangeHandle}
       placeholder={'From'}
@@ -23,4 +23,4 @@ const Template = () => {
   );
 };
 
-export const InputDate = Template.bind({});
+export const Date = Template.bind({});

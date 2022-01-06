@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import InputField from './Input.component';
+import Input from './Input.component';
 
 export default {
   title: 'Forms/Input',
-  component: InputField,
+  component: Input,
 };
 
 const Template = ({ type, placeholder, disabled }) => {
@@ -15,7 +15,7 @@ const Template = ({ type, placeholder, disabled }) => {
   };
 
   return (
-    <InputField
+    <Input
       type={type}
       placeholder={placeholder}
       id={'1'}
@@ -26,9 +26,9 @@ const Template = ({ type, placeholder, disabled }) => {
   );
 };
 
-export const Input = Template.bind({});
+export const Base = Template.bind({});
 
-Input.args = {
+Base.args = {
   type: 'text',
   placeholder: 'Enter text here',
   disabled: false,

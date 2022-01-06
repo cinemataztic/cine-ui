@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Input.styles.css';
 
-const InputField = ({
+const Input = ({
   type,
   placeholder,
   id,
@@ -27,9 +27,9 @@ const InputField = ({
   );
 };
 
-export default InputField;
+export default Input;
 
-InputField.propTypes = {
+Input.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string,
   id: PropTypes.string,
@@ -38,7 +38,7 @@ InputField.propTypes = {
   disabled: PropTypes.bool,
 };
 
-InputField.defaultProps = {
+Input.defaultProps = {
   placeholder: '',
   type: 'text',
 };

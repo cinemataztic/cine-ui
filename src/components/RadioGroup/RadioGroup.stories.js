@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import RadioGroupComponent from './RadioGroup.component';
+import RadioGroup from './RadioGroup.component';
 
 import './RadioGroup.styles.css';
 
 export default {
   title: 'Forms/RadioGroup',
-  component: RadioGroupComponent,
+  component: RadioGroup,
 };
 
 const Template = () => {
@@ -19,7 +19,7 @@ const Template = () => {
   ];
 
   return (
-    <RadioGroupComponent
+    <RadioGroup
       options={options}
       value={selectedOption}
       onChange={setSelectedOption}
@@ -27,4 +27,4 @@ const Template = () => {
   );
 };
 
-export const RadioGroup = Template.bind({});
+export const Base = Template.bind({});
