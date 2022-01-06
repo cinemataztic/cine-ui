@@ -26,7 +26,6 @@ const Template = ({}) => {
     <DisclosureComponent
       panelContent={DisclosurePanelContent}
       buttonContent={'Spot 1'}
-      width={'w-60'}
     />
   );
 };
