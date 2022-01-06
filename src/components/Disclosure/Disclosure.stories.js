@@ -9,7 +9,7 @@ export default {
 const DisclosurePanelContent = () => {
   return (
     <>
-      <div className='list-none flex flex-col space-y-4'>
+      <div className="list-none flex flex-col space-y-4">
         <li>1. Spot details</li>
         <li>2. Creatives</li>
         <li>3. Day & Time</li>
@@ -31,4 +31,4 @@ const Template = ({}) => {
   );
 };
 
-export const DisclosureComp = Template.bind({});
+export const Disclosure = Template.bind({});
