@@ -1,34 +1,38 @@
-const path = require("path");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    filename: "index.js",
-    path: path.resolve(__dirname, "dist"),
-    libraryTarget: "commonjs",
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'dist'),
+    libraryTarget: 'commonjs',
+  },
+  externals: {
+    react: 'react',
+    reactDOM: 'react-dom',
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader"],
+        use: ['babel-loader'],
       },
       {
         test: /\.css$/i,
         use: [
-          "style-loader",
-          { loader: "css-loader", options: { importLoaders: 1 } },
-          "postcss-loader",
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader',
         ],
       },
     ],
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"],
+    extensions: ['*', '.js', '.jsx'],
     alias: {
-      "@": path.resolve(__dirname, "../src/"),
+      '@': path.resolve(__dirname, '../src/'),
     },
   },
   plugins: [new CleanWebpackPlugin()],
