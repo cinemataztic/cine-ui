@@ -5,6 +5,9 @@ export default {
   title: 'Components/Button',
   component: Button,
   argTypes: {
+    type: {
+      control: { type: 'radio', options: ['button', 'submit', 'reset'] },
+    },
     label: {
       control: { type: 'text' },
     },
@@ -17,15 +20,22 @@ export default {
   },
 };
 
-const Template = ({ label, size, onClick, disabled }) => {
+const Template = ({ type, label, size, onClick, disabled }) => {
   return (
-    <Button label={label} size={size} onClick={onClick} disabled={disabled} />
+    <Button
+      type={type}
+      label={label}
+      size={size}
+      onClick={onClick}
+      disabled={disabled}
+    />
   );
 };
 
 export const Base = Template.bind({});
 
 Base.args = {
+  type: 'button',
   label: 'Click me',
   size: 'lg',
   onClick: () => {},

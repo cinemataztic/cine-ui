@@ -12,12 +12,12 @@ const getSizeStyle = (size) => {
   }
 };
 
-const Button = ({ label, size, onClick, disabled }) => {
+const Button = ({ type, label, size, onClick, disabled }) => {
   const sizeStyle = getSizeStyle(size);
 
   return (
     <button
-      type='button'
+      type={type}
       className={`border-0 rounded-md font-bold font-sans leading-none ${sizeStyle} ${
         disabled
           ? `pointer-events-none bg-primary opacity-50`
@@ -34,6 +34,7 @@ const Button = ({ label, size, onClick, disabled }) => {
 export default Button;
 
 Button.propTypes = {
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
   label: PropTypes.string.isRequired,
   size: PropTypes.oneOf(['sm', 'lg']),
   onClick: PropTypes.func,
@@ -41,6 +42,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  type: 'button',
   label: 'Click me',
   size: 'lg',
   onClick: () => {},
