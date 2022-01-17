@@ -22,15 +22,15 @@ It is always recommended to test the package locally before publishing to the np
 
 ## Common issues
 
-- When using cine-ui tailwind CSS components into an existing project which is also built using tailwind CSS then there are possibilities of some issues with styling. In order to avoid them all one need to do is to set preflight to false in
-  the corePlugins section of tailwind.config.js file.
+- When using cine-ui tailwind CSS components into an existing project which is also built using tailwind CSS, then there are possibilities of some issues with styling. In order to avoid them all, one need to do is to set `preflight` to false in
+  the `corePlugins` section of tailwind.config.js file.
 
-```
+```js
 module.exports = {
-corePlugins: {
-preflight: false,
-}
-}
+  corePlugins: {
+    preflight: false,
+  },
+};
 ```
 
 # Make the Cine UI components work with React hook form using “ref”/"Controller"
@@ -43,7 +43,7 @@ preflight: false,
 
 - These components can accept the ref prop , so that we can easily integrate these components with react-hook-form
 
-```
+```js
 # Sample code
 
 import React, { useState } from 'react';
@@ -87,7 +87,7 @@ export const Base = Template.bind({});
 
 - These components are implemented using external UI library. These components doesn’t expose input’s ref, so it has to be implemented using a controller method, which takes care of the registration process.
 
-```
+```js
 # Sample code
 
 import React, { useState } from 'react';
