@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Input.styles.css';
 
 const Input = React.forwardRef(
-  ({ type, name, placeholder, id, value, onChange, disabled = true }, ref) => {
+  ({ type, name, placeholder, id, value, onChange, disabled }, ref) => {
     return (
       <input
         placeholder={placeholder}
