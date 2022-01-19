@@ -20,15 +20,19 @@ const RadioGroup = ({ options, value, onChange }) => {
             disabled={option.disabled}
           >
             {({ checked }) => (
-              <>
+              <div
+                className={`flex flex-row items-center ${
+                  option.disabled && 'cursor-not-allowed opacity-50'
+                }`}
+              >
                 <div
                   className={`
                       w-5 h-5 rounded-full border-2 bg-white mr-2 grid place-content-center
                       ${
                         checked
-                          ? `bg-transparent border-primary`
-                          : `border-transparent`
-                      } ${option.disabled ? `cursor-not-allowed` : ''}`}
+                          ? 'bg-transparent border-primary'
+                          : 'border-transparent'
+                      }`}
                 >
                   <div
                     className={
@@ -41,7 +45,7 @@ const RadioGroup = ({ options, value, onChange }) => {
                 <span className={option.disabled ? 'cursor-not-allowed' : ''}>
                   {option.label}
                 </span>
-              </>
+              </div>
             )}
           </HeadlessRadioGroup.Option>
         );
@@ -58,7 +62,7 @@ RadioGroup.propTypes = {
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
       disabled: PropTypes.bool,
-        }),
+    }),
   ).isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,
