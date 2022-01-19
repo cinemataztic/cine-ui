@@ -1,8 +1,8 @@
-import React from "react";
-import { RadioGroup as HeadlessRadioGroup } from "@headlessui/react";
-import PropTypes from "prop-types";
+import React from 'react';
+import { RadioGroup as HeadlessRadioGroup } from '@headlessui/react';
+import PropTypes from 'prop-types';
 
-import "./RadioGroup.styles.css";
+import './RadioGroup.styles.css';
 
 const RadioGroup = ({ options, value, onChange }) => {
   return (
@@ -17,6 +17,7 @@ const RadioGroup = ({ options, value, onChange }) => {
             value={option.value}
             className="flex cursor-pointer"
             key={option.value}
+            disabled={option.disabled}
           >
             {({ checked }) => (
               <>
@@ -54,7 +55,8 @@ RadioGroup.propTypes = {
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
-    })
+      disabled: PropTypes.bool,
+    }),
   ).isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,

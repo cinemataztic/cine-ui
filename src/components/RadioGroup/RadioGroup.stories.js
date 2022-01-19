@@ -12,10 +12,10 @@ const Template = () => {
   const [selectedOption, setSelectedOption] = useState('');
 
   const options = [
-    { label: 'Label 1', value: 'All days' },
-    { label: 'Label 2', value: 'Weekends' },
-    { label: 'Label 3', value: 'Week days' },
-    { label: 'Label 4', value: 'Custom' },
+    { label: 'Label 1', value: 'All days', disabled: false },
+    { label: 'Label 2', value: 'Weekends', disabled: false },
+    { label: 'Label 3', value: 'Week days', disabled: true },
+    { label: 'Label 4', value: 'Custom', disabled: true },
   ];
 
   return (
