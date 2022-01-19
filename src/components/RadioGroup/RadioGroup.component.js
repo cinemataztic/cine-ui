@@ -33,7 +33,7 @@ const RadioGroup = ({ options, value, onChange }) => {
                   <div
                     className={
                       checked
-                        ? `w-3 h-3 border-3 border-transparent rounded-full bg-primary `
+                        ? `w-3 h-3 border-3 border-transparent rounded-full bg-buttonPrimary `
                         : ``
                     }
                   />
@@ -58,7 +58,7 @@ RadioGroup.propTypes = {
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
       disabled: PropTypes.bool,
-    }),
+        }),
   ).isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,

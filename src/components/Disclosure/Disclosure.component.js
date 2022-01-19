@@ -9,7 +9,7 @@ const Disclosure = ({ panelContent, buttonContent }) => {
       <HeadlessDisclosure>
         {({ open }) => (
           <div
-            className={`bg-secondary bg-opacity-90 rounded-lg py-2 px-4 w-full`}
+            className={`bg-tertiary bg-opacity-90 rounded-lg py-2 px-4 w-full`}
           >
             <HeadlessDisclosure.Button className="flex justify-between w-full">
               <div className="text-white text-lg pt-1">{buttonContent}</div>

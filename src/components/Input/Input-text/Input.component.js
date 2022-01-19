@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Input.styles.css';
 
 const Input = React.forwardRef(
-  ({ type, name, placeholder, id, value, onChange, disabled = true }, ref) => {
+  ({ type, name, placeholder, id, value, onChange, disabled }, ref) => {
     return (
       <input
         placeholder={placeholder}
@@ -12,9 +12,9 @@ const Input = React.forwardRef(
         id={id}
         value={value}
         onChange={(e) => onChange(e)}
-        className={`bg-secondary focus:outline-none rounded placeholder-primary h-12 w-full px-4 ${
+        className={`bg-tertiary focus:outline-none rounded placeholder-primary h-12 w-full px-4 ${
           disabled
-            ? 'opacity-50 textgray cursor-not-allowed'
+            ? 'opacity-50 text-secondary cursor-not-allowed'
             : 'text-white cursor-text'
         }`}
         ref={ref}

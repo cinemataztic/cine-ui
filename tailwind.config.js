@@ -11,15 +11,16 @@ module.exports = {
         secondary: '#323232',
       },
       backgroundColor: {
-        primary: '#3AC1C8',
-        secondary: '#323232',
-        tertiary: '#1E1E1E',
-        bggray: '#272727',
-        lightgray: '#3c3c3c',
+        primary: '#1E1E1E',
+        secondary: '#272727',
+        tertiary: '#323232',
+        hover: '#3c3c3c',
+        buttonPrimary: '#3AC1C8',
+        buttonSecondary: '#C9C9C9',
       },
       textColor: {
         primary: '#3AC1C8',
-        textgray: '#272727',
+        secondary: '#272727',
       },
       borderWidth: {
         3: '3px',
