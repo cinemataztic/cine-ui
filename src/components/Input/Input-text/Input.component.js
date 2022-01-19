@@ -14,7 +14,7 @@ const Input = React.forwardRef(
         onChange={(e) => onChange(e)}
         className={`bg-tertiary focus:outline-none rounded placeholder-primary h-12 w-full px-4 ${
           disabled
-            ? 'opacity-50 textgray cursor-not-allowed'
+            ? 'opacity-50 text-secondary cursor-not-allowed'
             : 'text-white cursor-text'
         }`}
         ref={ref}

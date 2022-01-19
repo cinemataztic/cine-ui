@@ -20,7 +20,7 @@ module.exports = {
       },
       textColor: {
         primary: '#3AC1C8',
-        textgray: '#272727',
+        secondary: '#272727',
       },
       borderWidth: {
         3: '3px',
