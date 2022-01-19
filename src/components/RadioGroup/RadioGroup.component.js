@@ -28,7 +28,7 @@ const RadioGroup = ({ options, value, onChange }) => {
                         checked
                           ? `bg-transparent border-primary`
                           : `border-transparent`
-                      }`}
+                      } ${option.disabled ? `cursor-not-allowed` : ''}`}
                 >
                   <div
                     className={
@@ -38,7 +38,9 @@ const RadioGroup = ({ options, value, onChange }) => {
                     }
                   />
                 </div>
-                <span>{option.label}</span>
+                <span className={option.disabled ? 'cursor-not-allowed' : ''}>
+                  {option.label}
+                </span>
               </>
             )}
           </HeadlessRadioGroup.Option>
