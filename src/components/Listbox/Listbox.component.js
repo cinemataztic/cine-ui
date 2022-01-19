@@ -14,7 +14,7 @@ function getLabelForValue(value, options = []) {
 const ListBox = ({ options, value, onChange, placeholder }) => {
   return (
     <HeadlessListBox as="div" value={value} onChange={onChange}>
-      <HeadlessListBox.Button className="border-2 border-secondary focus:border-primary bg-secondary text-white w-full h-12 rounded-lg text-left pl-4 ">
+      <HeadlessListBox.Button className="border-2 border-secondary focus:border-primary bg-tertiary text-white w-full h-12 rounded-lg text-left pl-4 ">
         <span className="flex justify-between">
           <span>{value ? getLabelForValue(value, options) : placeholder}</span>
           <span className="mt-2 mr-4">
@@ -25,12 +25,12 @@ const ListBox = ({ options, value, onChange, placeholder }) => {
           </span>
         </span>
       </HeadlessListBox.Button>
-      <HeadlessListBox.Options className="border-2 border-secondary focus:border-primary bg-secondary w-full rounded-lg max-h-80 overflow-y-auto">
+      <HeadlessListBox.Options className="border-2 border-secondary focus:border-primary bg-tertiary w-full rounded-lg max-h-80 overflow-y-auto">
         {options.map((option) => (
           <HeadlessListBox.Option
             key={option.value}
             value={option.value}
-            className="cursor-pointer hover:bg-lightgray text-white text-left px-4 py-2 rounded-lg "
+            className="cursor-pointer hover:bg-hover text-white text-left px-4 py-2 rounded-lg "
           >
             {option.label}
           </HeadlessListBox.Option>

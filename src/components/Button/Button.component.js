@@ -20,8 +20,8 @@ const Button = ({ type, label, size, onClick, disabled }) => {
       type={type}
       className={`border-0 rounded-md font-bold font-sans leading-none ${sizeStyle} ${
         disabled
-          ? `pointer-events-none bg-primary opacity-50`
-          : `cursor-pointer bg-primary text-textgray bg-gradient-to-r hover:from-secondary hover:to-secondary active:from-primary active:to-primary `
+          ? `pointer-events-none bg-buttonPrimary opacity-50`
+          : `cursor-pointer bg-buttonPrimary text-textgray bg-gradient-to-r hover:from-secondary hover:to-secondary active:from-primary active:to-primary `
       }`}
       onClick={onClick}
       disabled={disabled}

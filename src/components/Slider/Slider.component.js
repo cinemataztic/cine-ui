@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 
-import "./Slider.styles.css";
+import './Slider.styles.css';
 
 const Slider = ({ value, valueLabel, minValue, maxValue, onChange }) => {
   const [step, setStep] = useState(0);
@@ -22,7 +22,7 @@ const Slider = ({ value, valueLabel, minValue, maxValue, onChange }) => {
         min={minValue}
         max={maxValue}
         value={value}
-        className="appearance-none w-full h-1 rounded outline-none bg-primary bg-opacity-60 hover:bg-opacity-100 slider-thumb"
+        className="appearance-none w-full h-1 rounded outline-none bg-buttonPrimary bg-opacity-60 hover:bg-opacity-100 slider-thumb"
         onChange={onChange}
         id="myRange"
         ref={rangeInputRef}

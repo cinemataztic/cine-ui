@@ -21,7 +21,7 @@ const Checkbox = React.forwardRef(
               checked={checked}
               onChange={onChange}
               ref={ref}
-              className="appearance-none h-5 w-5 bg-white rounded-sm checked:bg-primary"
+              className="appearance-none h-5 w-5 bg-white rounded-sm checked:bg-buttonPrimary"
             />
             <img
               src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUuOTk5OTEgMTEuMTdMMS44Mjk5MSA2Ljk5OTk3TDAuNDA5OTEyIDguNDA5OTdMNS45OTk5MSAxNEwxNy45OTk5IDEuOTk5OTdMMTYuNTg5OSAwLjU4OTk2Nkw1Ljk5OTkxIDExLjE3WiIgZmlsbD0iYmxhY2siLz4KPC9zdmc+Cg=="
