@@ -140,3 +140,8 @@ export const Listbox = Template.bind({});
 ## Slider
 
 This component already has an internal ref to track the range value. So, when we pass ref from the external component, it is not returning the current value of the slider range. Due to that reason, when we integrate react-hook-form with this component ,one have to implement using Controller method.
+
+# Theming
+CineUI is styled using TailwindCSS. This means that the component library can easily be styled to other color themes by overriding the tailwind theme variables in the consumer project.
+The easiest way to achieve this is to use TailwindCSS in the consumer project too and add the relevant variables to the tailwind.config.js file. 
+Available customization variables can be found [here](tailwind.config.js). 

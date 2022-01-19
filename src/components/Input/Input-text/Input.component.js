@@ -12,9 +12,9 @@ const Input = React.forwardRef(
         id={id}
         value={value}
         onChange={(e) => onChange(e)}
-        className={`bg-secondary focus:outline-none rounded placeholder-primary h-12 w-full px-4 ${
+        className={`bg-tertiary focus:outline-none rounded placeholder-primary h-12 w-full px-4 ${
           disabled
-            ? 'opacity-50 textgray cursor-not-allowed'
+            ? 'opacity-50 text-secondary cursor-not-allowed'
             : 'text-white cursor-text'
         }`}
         ref={ref}

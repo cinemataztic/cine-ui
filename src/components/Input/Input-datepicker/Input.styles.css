@@ -17,27 +17,27 @@
 }
 
 .DateInput_input {
-  @apply bg-secondary rounded text-white text-base border-0 py-3 font-normal px-4 placeholder-primary;
+  @apply bg-tertiary rounded text-white text-base border-0 py-3 font-normal px-4 placeholder-primary;
 }
 
 .SingleDatePicker_picker {
-  @apply bg-secondary;
+  @apply bg-tertiary;
 }
 
 .DayPicker {
-  @apply bg-secondary;
+  @apply bg-tertiary;
 }
 
 .CalendarMonth {
-  @apply bg-secondary;
+  @apply bg-tertiary;
 }
 
 .CalendarDay {
-  @apply bg-secondary;
+  @apply bg-tertiary;
 }
 
 .CalendarMonthGrid {
-  @apply bg-secondary;
+  @apply bg-tertiary;
 }
 
 .DateInput_fangShape {
@@ -49,7 +49,7 @@
 }
 
 .DayPickerNavigation_button__default {
-  @apply bg-secondary;
+  @apply bg-tertiary;
 }
 
 .CalendarMonth_caption {
@@ -86,7 +86,7 @@
 }
 
 .CalendarDay__selected {
-  @apply bg-primary text-black;
+  @apply bg-buttonPrimary text-black;
 }
 
 .DayPickerNavigation_button,

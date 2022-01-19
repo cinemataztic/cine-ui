@@ -1,8 +1,8 @@
-import React from "react";
-import { RadioGroup as HeadlessRadioGroup } from "@headlessui/react";
-import PropTypes from "prop-types";
+import React from 'react';
+import { RadioGroup as HeadlessRadioGroup } from '@headlessui/react';
+import PropTypes from 'prop-types';
 
-import "./RadioGroup.styles.css";
+import './RadioGroup.styles.css';
 
 const RadioGroup = ({ options, value, onChange }) => {
   return (
@@ -32,7 +32,7 @@ const RadioGroup = ({ options, value, onChange }) => {
                   <div
                     className={
                       checked
-                        ? `w-3 h-3 border-3 border-transparent rounded-full bg-primary `
+                        ? `w-3 h-3 border-3 border-transparent rounded-full bg-buttonPrimary `
                         : ``
                     }
                   />
@@ -54,7 +54,7 @@ RadioGroup.propTypes = {
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
-    })
+    }),
   ).isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,
