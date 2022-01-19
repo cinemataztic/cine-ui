@@ -11,6 +11,9 @@ export default {
     label: {
       control: { type: 'text' },
     },
+    bgColor: {
+      control: { type: 'radio', options: ['bg-buttonPrimary', 'bg-secondary'] },
+    },
     size: {
       control: { type: 'radio', options: ['sm', 'lg'] },
     },
@@ -20,7 +23,7 @@ export default {
   },
 };
 
-const Template = ({ type, label, size, onClick, disabled }) => {
+const Template = ({ type, label, size, onClick, disabled, bgColor }) => {
   return (
     <Button
       type={type}
@@ -28,6 +31,7 @@ const Template = ({ type, label, size, onClick, disabled }) => {
       size={size}
       onClick={onClick}
       disabled={disabled}
+      bgColor={bgColor}
     />
   );
 };
@@ -36,6 +40,7 @@ export const Base = Template.bind({});
 
 Base.args = {
   type: 'button',
+  bgColor: 'bg-secondary',
   label: 'Click me',
   size: 'lg',
   onClick: () => {},

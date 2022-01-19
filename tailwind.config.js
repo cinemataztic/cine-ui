@@ -16,11 +16,12 @@ module.exports = {
         tertiary: '#323232',
         hover: '#3c3c3c',
         buttonPrimary: '#3AC1C8',
-        buttonSecondary: '#C9C9C9',
+        //buttonSecondary: '#C9C9C9',
       },
       textColor: {
         primary: '#3AC1C8',
         secondary: '#272727',
+        tertiary: '#3C3C3C',
       },
       borderWidth: {
         3: '3px',
@@ -28,6 +29,8 @@ module.exports = {
       gradientColorStops: {
         primary: '#00000020',
         secondary: '#ffffff20',
+        tertiary: '#ffffff75',
+        quaternary: '#ffffff50',
       },
     },
   },
