@@ -19,8 +19,9 @@ module.exports = {
         buttonSecondary: '#C9C9C9',
       },
       textColor: {
-        primary: '#3AC1C8',
+        primary: '#fff',
         secondary: '#272727',
+        accent1: '#3AC1C8',
       },
       borderWidth: {
         3: '3px',
@@ -28,6 +29,32 @@ module.exports = {
       gradientColorStops: {
         primary: '#00000020',
         secondary: '#ffffff20',
+      },
+      fontSize: {
+        '4xl': [
+          '2.25rem',
+          {
+            lineHeight: '2.625rem',
+          },
+        ],
+        '3xl': [
+          '2rem',
+          {
+            lineHeight: '2.375rem',
+          },
+        ],
+        '2xl': [
+          '1.5rem',
+          {
+            lineHeight: '1.75rem',
+          },
+        ],
+        xl: [
+          '1.25rem',
+          {
+            lineHeight: '1.5rem',
+          },
+        ],
       },
     },
   },
