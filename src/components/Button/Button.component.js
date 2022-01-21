@@ -12,35 +12,69 @@ const getSizeStyle = (size) => {
   }
 };
 
-const getButtonStyle = (bgColor, disabled) => {
-  switch (bgColor) {
-    case 'bg-buttonPrimary':
-      switch (disabled) {
-        case true:
-          return `cursor-not-allowed ${bgColor} opacity-50 text-tertiary`;
-        default:
-          return `cursor-pointer ${bgColor} text-tertiary bg-gradient-to-r hover:from-secondary hover:to-secondary hover:text-secondary active:from-primary active:to-primary active:text-secondary`;
-      }
-    case 'bg-secondary':
-      switch (disabled) {
-        case true:
-          return `cursor-not-allowed ${bgColor} bg-gradient-to-r from-tertiary to-tertiary opacity-50 text-secondary`;
-        default:
-          return `cursor-pointer ${bgColor} bg-gradient-to-r from-tertiary to-tertiary text-tertiary bg-gradient-to-r hover:from-white hover:to-white hover:text-secondary active:from-quaternary active:to-quaternary active:text-secondary`;
-      }
-    default:
-      return;
-  }
-};
+const Button = (props) => {
+  const { type, label, size, onClick, disabled, color, variant } = props;
 
-const Button = ({ type, label, size, onClick, disabled, bgColor }) => {
   const sizeStyle = getSizeStyle(size);
-  const buttonStyle = getButtonStyle(bgColor, disabled);
+
+  let buttonStyle;
+
+  if (color === 'primary') {
+    if (variant === 'outlined') {
+      if (disabled) {
+        buttonStyle =
+          'cursor-not-allowed border border-primary opacity-50 text-tertiary';
+      } else {
+        buttonStyle =
+          'cursor-pointer text-tertiary border-2 border-primary hover:border-tertiary hover:text-secondary active:border-quaternary active:text-secondary';
+      }
+    } else if (variant === 'text') {
+      if (disabled) {
+        buttonStyle = 'cursor-not-allowed text-primary opacity-50';
+      } else {
+        buttonStyle =
+          'cursor-pointer text-primary hover:text-quaternary active:text-quinary';
+      }
+    } else {
+      if (disabled) {
+        buttonStyle =
+          'cursor-not-allowed bg-buttonPrimary opacity-50 text-tertiary';
+      } else {
+        buttonStyle =
+          'cursor-pointer bg-buttonPrimary text-tertiary bg-gradient-to-r hover:from-secondary hover:to-secondary hover:text-secondary active:from-primary active:to-primary active:text-secondary';
+      }
+    }
+  } else if (color === 'secondary') {
+    if (variant === 'outlined') {
+      if (disabled) {
+        buttonStyle =
+          'cursor-not-allowed border-2 border-quinary opacity-50 text-secondary';
+      } else {
+        buttonStyle =
+          'cursor-pointer text-senary border-2 border-quinary hover:border-white hover:text-secondary active:border-senary active:text-secondary';
+      }
+    } else if (variant === 'text') {
+      if (disabled) {
+        buttonStyle = 'cursor-not-allowed text-septenary opacity-50';
+      } else {
+        buttonStyle =
+          'cursor-pointer text-septenary hover:text-nonary active:text-octonary';
+      }
+    } else {
+      if (disabled) {
+        buttonStyle =
+          'cursor-not-allowed bg-secondary bg-gradient-to-r from-tertiary to-tertiary opacity-50 text-secondary';
+      } else {
+        buttonStyle =
+          'cursor-pointer bg-secondary bg-gradient-to-r from-tertiary to-tertiary text-tertiary bg-gradient-to-r hover:from-white hover:to-white hover:text-secondary active:from-quaternary active:to-quaternary active:text-secondary';
+      }
+    }
+  }
 
   return (
     <button
       type={type}
-      className={`border-0 rounded-md font-bold font-sans leading-none ${sizeStyle} ${buttonStyle}`}
+      className={`rounded-md font-bold font-sans leading-none ${sizeStyle} ${buttonStyle} `}
       onClick={onClick}
       disabled={disabled}
     >
@@ -57,12 +91,10 @@ Button.propTypes = {
   size: PropTypes.oneOf(['sm', 'lg']),
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
-  bgColor: PropTypes.oneOf(['bg-buttonPrimary', 'bg-secondary']),
 };
 
 Button.defaultProps = {
   type: 'button',
-  bgColor: 'bg-buttonPrimary',
   label: 'Click me',
   size: 'lg',
   onClick: () => {},
