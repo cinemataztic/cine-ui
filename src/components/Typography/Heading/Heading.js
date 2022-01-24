@@ -52,10 +52,10 @@ const getTextColor = (color) => {
 };
 
 /****************************************************************
- * Title
+ * Heading
  ****************************************************************/
 
-const Title = ({ children, onClick, level, color, className }) => {
+const Heading = ({ children, onClick, level, color, className }) => {
   return (
     <TypographyBase
       className={`font-bold ${getTextColor(color)} ${getFontSize(
@@ -69,15 +69,15 @@ const Title = ({ children, onClick, level, color, className }) => {
   );
 };
 
-Title.propTypes = {
+Heading.propTypes = {
   ...TypographyBase.propTypes,
   level: PropTypes.oneOf([1, 2, 3, 4]),
   color: PropTypes.oneOf(['primary', 'secondary', 'accent1']),
 };
 
-Title.defaultProps = {
+Heading.defaultProps = {
   level: 1,
   color: 'primary',
 };
 
-export default Title;
+export default Heading;

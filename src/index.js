@@ -6,4 +6,4 @@ export { default as Input } from './components/Input/Input-text/Input.component'
 export { default as Listbox } from './components/Listbox/Listbox.component';
 export { default as RadioGroup } from './components/RadioGroup/RadioGroup.component';
 export { default as Slider } from './components/Slider/Slider.component';
-export { Title } from './components/Typography';
+export { Heading } from './components/Typography';

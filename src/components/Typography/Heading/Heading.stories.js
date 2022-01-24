@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Title from './Title.component';
+import Heading from './Heading';
 
 export default {
-  title: 'Components/Title',
-  component: Title,
+  title: 'Components/Heading',
+  component: Heading,
   argTypes: {
     children: {
       control: { type: 'text' },
@@ -20,16 +20,16 @@ export default {
 
 const Template = ({ children, level, color }) => {
   return (
-    <Title level={level} color={color}>
+    <Heading level={level} color={color}>
       {children}
-    </Title>
+    </Heading>
   );
 };
 
 export const Base = Template.bind({});
 
 Base.args = {
-  children: 'Title text',
+  children: 'Heading text',
   level: 1,
   color: 'primary',
 };
