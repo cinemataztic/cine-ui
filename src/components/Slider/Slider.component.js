@@ -29,7 +29,7 @@ const Slider = ({ value, valueLabel, minValue, maxValue, onChange }) => {
       />
       <label
         htmlFor="myRange"
-        className="text-primary font-bold absolute left-px -top-2"
+        className="text-accent1 font-bold absolute left-px -top-2"
         style={{
           transform: `translateX(${value * step}px)`,
         }}
