@@ -11,11 +11,11 @@ export default {
     label: {
       control: { type: 'text' },
     },
-    color: {
-      control: { type: 'radio', options: ['primary', 'secondary'] },
-    },
     variant: {
-      control: { type: 'radio', options: ['solid', 'outlined', 'text'] },
+      control: { type: 'radio', options: ['primary', 'secondary', 'tertiary'] },
+    },
+    appearance: {
+      control: { type: 'radio', options: ['default', 'outline'] },
     },
     size: {
       control: { type: 'radio', options: ['sm', 'lg'] },
@@ -26,7 +26,15 @@ export default {
   },
 };
 
-const Template = ({ type, label, size, onClick, disabled, color, variant }) => {
+const Template = ({
+  type,
+  label,
+  size,
+  onClick,
+  disabled,
+  variant,
+  appearance,
+}) => {
   return (
     <Button
       type={type}
@@ -34,8 +42,8 @@ const Template = ({ type, label, size, onClick, disabled, color, variant }) => {
       size={size}
       onClick={onClick}
       disabled={disabled}
-      color={color}
       variant={variant}
+      appearance={appearance}
     />
   );
 };
@@ -48,6 +56,6 @@ Base.args = {
   size: 'lg',
   onClick: () => {},
   disabled: false,
-  color: 'primary',
-  variant: 'solid',
+  variant: 'tertiary',
+  appearance: 'default',
 };
