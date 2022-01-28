@@ -82,7 +82,7 @@ const Button = (props) => {
         buttonStyle = 'cursor-not-allowed text-primary opacity-50';
       } else {
         buttonStyle =
-          'cursor-pointer text-primary hover:text-buttonTertiaryHover active:text-buttonTertiaryActive';
+          'cursor-pointer text-buttonTertiary hover:text-buttonTertiaryHover active:text-buttonTertiaryActive';
       }
     }
   }

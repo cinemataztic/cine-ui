@@ -34,6 +34,7 @@ module.exports = {
         buttonPrimary: '#174D50',
         buttonDefaultSecondary: '#5D5D5D',
         buttonOutlineSecondary: '#C9C9C9',
+        buttonTertiary: '#3AC1C8',
         buttonTertiaryHover: '#61CDD3',
         buttonTertiaryActive: '#237478',
         buttonDanger: '#FF657A',
