@@ -17,6 +17,9 @@ export default {
     appearance: {
       control: { type: 'radio', options: ['default', 'outline'] },
     },
+    danger: {
+      control: { type: 'boolean' },
+    },
     size: {
       control: { type: 'radio', options: ['sm', 'lg'] },
     },
@@ -34,6 +37,7 @@ const Template = ({
   disabled,
   variant,
   appearance,
+  danger,
 }) => {
   return (
     <Button
@@ -44,6 +48,7 @@ const Template = ({
       disabled={disabled}
       variant={variant}
       appearance={appearance}
+      danger={danger}
     />
   );
 };
@@ -58,4 +63,5 @@ Base.args = {
   disabled: false,
   variant: 'tertiary',
   appearance: 'default',
+  danger: false,
 };
