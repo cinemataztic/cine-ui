@@ -28,13 +28,13 @@ module.exports = {
         buttonDanger: '#FF657A',
       },
       textColor: {
+        //Update few text colors later based on the PR text-color-update
         primary: '#fff',
         secondary: '#272727',
         tertiary: '#3C3C3C',
         buttonPrimary: '#174D50',
         buttonDefaultSecondary: '#5D5D5D',
         buttonOutlineSecondary: '#C9C9C9',
-        buttonTertiary: '#3AC1C8',
         buttonTertiaryHover: '#61CDD3',
         buttonTertiaryActive: '#237478',
         buttonDanger: '#FF657A',

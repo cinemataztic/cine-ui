@@ -79,10 +79,10 @@ const Button = (props) => {
       buttonStyle = 'cursor-pointer text-buttonDanger';
     } else {
       if (disabled) {
-        buttonStyle = 'cursor-not-allowed text-primary opacity-50';
+        buttonStyle = 'cursor-not-allowed text-accent1 opacity-50';
       } else {
         buttonStyle =
-          'cursor-pointer text-buttonTertiary hover:text-buttonTertiaryHover active:text-buttonTertiaryActive';
+          'cursor-pointer text-accent1 hover:text-buttonTertiaryHover active:text-buttonTertiaryActive';
       }
     }
   }
