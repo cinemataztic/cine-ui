@@ -33,10 +33,10 @@ const Button = (props) => {
       } else {
         if (disabled) {
           buttonStyle =
-            'cursor-not-allowed bg-buttonPrimary opacity-50 text-buttonPrimary';
+            'cursor-not-allowed bg-buttonPrimary opacity-50 text-secondary';
         } else {
           buttonStyle =
-            'cursor-pointer bg-buttonPrimary text-buttonPrimary hover:bg-buttonPrimaryHover hover:text-secondary active:bg-buttonPrimaryActive active:text-secondary';
+            'cursor-pointer bg-buttonPrimary text-secondary hover:bg-buttonPrimaryHover hover:text-secondary active:bg-buttonPrimaryActive active:text-secondary';
         }
       }
     } else if (appearance === 'outline') {
@@ -51,10 +51,10 @@ const Button = (props) => {
       } else {
         if (disabled) {
           buttonStyle =
-            'cursor-not-allowed border-2 border-primary opacity-50 text-secondary';
+            'cursor-not-allowed border-2 border-primary opacity-50 text-accent1';
         } else {
           buttonStyle =
-            'cursor-pointer border-2 border-primary text-buttonPrimary hover:border-buttonPrimaryHover hover:text-secondary active:border-buttonPrimaryActive active:text-secondary';
+            'cursor-pointer border-2 border-primary text-accent1 hover:border-buttonPrimaryHover hover:text-buttonTertiaryHover active:border-buttonPrimaryActive active:text-buttonTertiaryActive';
         }
       }
     }
@@ -74,7 +74,7 @@ const Button = (props) => {
             'cursor-not-allowed bg-buttonSecondary opacity-50 text-secondary';
         } else {
           buttonStyle =
-            'cursor-pointer bg-buttonSecondary text-buttonDefaultSecondary hover:bg-white hover:text-secondary active:bg-buttonSecondaryActive active:text-secondary';
+            'cursor-pointer bg-buttonSecondary text-secondary hover:bg-white hover:text-secondary active:bg-buttonSecondaryActive active:text-secondary';
         }
       }
     } else if (appearance === 'outline') {
@@ -89,10 +89,10 @@ const Button = (props) => {
       } else {
         if (disabled) {
           buttonStyle =
-            'cursor-not-allowed border-2 border-buttonSecondary opacity-50 text-secondary';
+            'cursor-not-allowed border-2 border-buttonSecondary opacity-50 text-buttonSecondary';
         } else {
           buttonStyle =
-            'cursor-pointer border-2 border-buttonSecondary text-buttonOutlineSecondary hover:border-white hover:text-secondary active:border-buttonSecondaryActive active:text-secondary';
+            'cursor-pointer border-2 border-buttonSecondary text-buttonSecondary hover:border-white hover:text-white active:border-buttonSecondaryActive active:text-buttonSecondaryActive';
         }
       }
     }
