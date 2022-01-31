@@ -7,3 +7,4 @@ export { default as Listbox } from './components/Listbox/Listbox.component';
 export { default as RadioGroup } from './components/RadioGroup/RadioGroup.component';
 export { default as Slider } from './components/Slider/Slider.component';
 export { Heading } from './components/Typography';
+export { default as Label } from './components/Label/Label.component';
