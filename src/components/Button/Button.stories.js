@@ -61,7 +61,7 @@ Base.args = {
   size: 'lg',
   onClick: () => {},
   disabled: false,
-  variant: 'primary',
-  appearance: 'default',
+  variant: 'tertiary',
+  appearance: 'outline',
   danger: false,
 };

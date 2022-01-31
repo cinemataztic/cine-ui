@@ -14,6 +14,8 @@ module.exports = {
         buttonSecondary: '#C9C9C9',
         buttonSecondaryActive: '#5D5D5D',
         buttonDanger: '#FF657A',
+        buttonDangerHover: '#FF8495',
+        buttonDangerActive: '#993D49',
       },
       backgroundColor: {
         primary: '#1E1E1E',
@@ -26,6 +28,8 @@ module.exports = {
         buttonSecondary: '#C9C9C9',
         buttonSecondaryActive: '#5D5D5D',
         buttonDanger: '#FF657A',
+        buttonDangerHover: '#FF8495',
+        buttonDangerActive: '#993D49',
       },
       textColor: {
         //Update few text colors later based on the PR text-color-update
@@ -38,6 +42,8 @@ module.exports = {
         buttonTertiaryHover: '#61CDD3',
         buttonTertiaryActive: '#237478',
         buttonDanger: '#FF657A',
+        buttonDangerHover: '#FF8495',
+        buttonDangerActive: '#993D49',
         accent1: '#3AC1C8',
       },
       borderWidth: {

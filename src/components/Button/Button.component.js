@@ -23,7 +23,13 @@ const Button = (props) => {
   if (variant === 'primary') {
     if (appearance === 'default') {
       if (danger) {
-        buttonStyle = 'cursor-pointer bg-buttonDanger text-white';
+        if (disabled) {
+          buttonStyle =
+            'cursor-not-allowed bg-buttonDanger opacity-50 text-secondary';
+        } else {
+          buttonStyle =
+            'cursor-pointer bg-buttonDanger text-secondary hover:bg-buttonDangerHover hover:text-secondary active:bg-buttonDangerActive active:text-secondary';
+        }
       } else {
         if (disabled) {
           buttonStyle =
@@ -35,8 +41,13 @@ const Button = (props) => {
       }
     } else if (appearance === 'outline') {
       if (danger) {
-        buttonStyle =
-          'cursor-pointer border-2 border-buttonDanger text-buttonDanger';
+        if (disabled) {
+          buttonStyle =
+            'cursor-not-allowed border-2 border-buttonDanger opacity-50 text-buttonDanger';
+        } else {
+          buttonStyle =
+            'cursor-pointer border-2 border-buttonDanger text-buttonDanger hover:border-buttonDangerHover hover:text-buttonDangerHover active:border-buttonDangerActive active:text-buttonDangerActive';
+        }
       } else {
         if (disabled) {
           buttonStyle =
@@ -50,7 +61,13 @@ const Button = (props) => {
   } else if (variant === 'secondary') {
     if (appearance === 'default') {
       if (danger) {
-        buttonStyle = 'cursor-pointer bg-buttonDanger text-white';
+        if (disabled) {
+          buttonStyle =
+            'cursor-not-allowed bg-buttonDanger opacity-50 text-secondary';
+        } else {
+          buttonStyle =
+            'cursor-pointer bg-buttonDanger text-secondary hover:bg-buttonDangerHover hover:text-secondary active:bg-buttonDangerActive active:text-secondary';
+        }
       } else {
         if (disabled) {
           buttonStyle =
@@ -62,8 +79,13 @@ const Button = (props) => {
       }
     } else if (appearance === 'outline') {
       if (danger) {
-        buttonStyle =
-          'cursor-pointer border-2 border-buttonDanger text-buttonDanger';
+        if (disabled) {
+          buttonStyle =
+            'cursor-not-allowed border-2 border-buttonDanger opacity-50 text-buttonDanger';
+        } else {
+          buttonStyle =
+            'cursor-pointer border-2 border-buttonDanger text-buttonDanger hover:border-buttonDangerHover hover:text-buttonDangerHover active:border-buttonDangerActive active:text-buttonDangerActive';
+        }
       } else {
         if (disabled) {
           buttonStyle =
@@ -76,7 +98,12 @@ const Button = (props) => {
     }
   } else if (variant === 'tertiary') {
     if (danger) {
-      buttonStyle = 'cursor-pointer text-buttonDanger';
+      if (disabled) {
+        buttonStyle = 'cursor-not-allowed text-buttonDanger opacity-50';
+      } else {
+        buttonStyle =
+          'cursor-pointer text-buttonDanger hover:text-buttonDangerHover active:text-buttonDangerActive';
+      }
     } else {
       if (disabled) {
         buttonStyle = 'cursor-not-allowed text-accent1 opacity-50';
