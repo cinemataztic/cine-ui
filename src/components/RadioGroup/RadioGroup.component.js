@@ -9,7 +9,7 @@ const RadioGroup = ({ options, value, onChange }) => {
     <HeadlessRadioGroup
       value={value}
       onChange={onChange}
-      className="w-full grid grid-rows-1 grid-flow-col gap-0 text-white"
+      className="w-full grid grid-rows-1 gap-y-4 sm:grid-rows-1 sm:grid-flow-col sm:gap-0 text-white"
     >
       {options.map((option) => {
         return (
