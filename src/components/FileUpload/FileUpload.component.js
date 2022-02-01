@@ -21,8 +21,8 @@ const FileUpload = ({ onDrop, text='Upload File', dragActiveText='Upload File' }
       <div className='flex justify-center items-center text-gray-300'>
         {
           isDragActive ?
-            <div>{text}</div> :
-            <div>{dragActiveText}</div>
+            <div>{dragActiveText}</div> :
+            <div>{text}</div>
         }
       </div>
     </div>
