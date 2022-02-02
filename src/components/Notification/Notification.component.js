@@ -4,6 +4,8 @@ import './Notification.styles.css';
 
 function getIcon(type) {
   switch (type) {
+    case 'error':
+      return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTkgMTNIMTFWMTVIOVYxM1pNOSA1SDExVjExSDlWNVpNOS45OSAwQzQuNDcgMCAwIDQuNDggMCAxMEMwIDE1LjUyIDQuNDcgMjAgOS45OSAyMEMxNS41MiAyMCAyMCAxNS41MiAyMCAxMEMyMCA0LjQ4IDE1LjUyIDAgOS45OSAwWk0xMCAxOEM1LjU4IDE4IDIgMTQuNDIgMiAxMEMyIDUuNTggNS41OCAyIDEwIDJDMTQuNDIgMiAxOCA1LjU4IDE4IDEwQzE4IDE0LjQyIDE0LjQyIDE4IDEwIDE4WiIgZmlsbD0iIzI3MjcyNyIvPgo8L3N2Zz4K';
     case 'warning':
       return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMTkiIHZpZXdCb3g9IjAgMCAyMiAxOSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExIDMuOTlMMTguNTMgMTdIMy40N0wxMSAzLjk5Wk0xMSAwTDAgMTlIMjJMMTEgMFpNMTIgMTRIMTBWMTZIMTJWMTRaTTEyIDhIMTBWMTJIMTJWOFoiIGZpbGw9IiMyNzI3MjciLz4KPC9zdmc+Cg==';
     case 'info':
@@ -12,13 +14,27 @@ function getIcon(type) {
   }
 }
 
+const getBgAndTextColor = (type) => {
+  switch (type) {
+    case 'error':
+      return 'bg-danger text-secondary';
+    case 'warning':
+      return 'bg-warning text-secondary';
+    case 'info':
+    default:
+      return 'bg-hover text-white';
+  }
+};
+
 const Notification = ({ title, text, type, icon }) => {
+  const color = getBgAndTextColor(type);
+
   return (
-    <div className="w-full bg-hover rounded-lg mt-8 p-5 flex justify-between text-white">
+    <div className={`w-full rounded-lg mt-8 p-5 flex ${color}`}>
       {icon ? (
         icon()
       ) : (
-        <div className="mr-2 pt-1 shrink-0">
+        <div className={`mr-2 pt-1 shrink-0`}>
           <img className="w-full" src={getIcon(type)} alt="notification" />
         </div>
       )}
@@ -36,10 +52,11 @@ Notification.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   icon: PropTypes.func,
-  type: PropTypes.oneOf(['info', 'warning']),
+  type: PropTypes.oneOf(['info', 'warning', 'error']),
 };
 
 Notification.defaultProps = {
-  type: 'Title',
+  title: 'Title',
   text: 'Paragraph',
+  type: 'info',
 };

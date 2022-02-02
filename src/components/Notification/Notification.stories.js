@@ -12,7 +12,7 @@ export default {
       control: { type: 'text' },
     },
     type: {
-      control: { type: 'radio', options: ['info', 'warning'] },
+      control: { type: 'radio', options: ['info', 'warning', 'error'] },
     },
   },
 };
