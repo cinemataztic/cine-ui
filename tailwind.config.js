@@ -14,9 +14,11 @@ module.exports = {
         primary: '#1E1E1E',
         secondary: '#272727',
         tertiary: '#323232',
-        hover: '#3c3c3c',
+        hover: '#3C3C3C',
         buttonPrimary: '#3AC1C8',
         buttonSecondary: '#C9C9C9',
+        danger: '#FF657A',
+        warning: '#FF8811',
       },
       textColor: {
         primary: '#fff',
