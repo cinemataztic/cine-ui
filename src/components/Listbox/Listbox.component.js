@@ -11,7 +11,15 @@ function getLabelForValue(value, options = []) {
   } else throw new Error(`More than one label/option pair with same value.`);
 }
 
-const ListBox = ({ options, value, onChange, placeholder }) => {
+const ListBox = ({
+  options,
+  value,
+  onChange,
+  placeholder,
+  emptyHeader,
+  emptyExplanation,
+  emptyCTA,
+}) => {
   return (
     <HeadlessListBox as="div" value={value} onChange={onChange}>
       <HeadlessListBox.Button className="border-2 border-secondary focus:border-primary bg-tertiary text-white w-full h-12 rounded-lg text-left pl-4 ">
@@ -25,16 +33,37 @@ const ListBox = ({ options, value, onChange, placeholder }) => {
           </span>
         </span>
       </HeadlessListBox.Button>
-      <HeadlessListBox.Options className="border-2 border-secondary focus:border-primary bg-tertiary w-full rounded-lg max-h-80 overflow-y-auto">
-        {options.map((option) => (
-          <HeadlessListBox.Option
-            key={option.value}
-            value={option.value}
-            className="cursor-pointer hover:bg-hover text-white text-left px-4 py-2 rounded-lg "
-          >
-            {option.label}
-          </HeadlessListBox.Option>
-        ))}
+      <HeadlessListBox.Options className="border-2 border-secondary focus:border-primary bg-tertiary w-full rounded-lg max-h-80 overflow-y-auto text-white ">
+        {options.length > 0 ? (
+          options.map((option) => (
+            <HeadlessListBox.Option
+              key={option.value}
+              value={option.value}
+              className="cursor-pointer hover:bg-hover text-left px-4 py-2 rounded-lg "
+            >
+              {option.label}
+            </HeadlessListBox.Option>
+          ))
+        ) : emptyHeader ? (
+          <div className="m-10 text-center">
+            <p className="text-2xl font-bold">{emptyHeader}</p>
+            {emptyExplanation && (
+              <p className="text-xl mt-6">{emptyExplanation}</p>
+            )}
+            {emptyCTA && (
+              <p className="text-xl mt-4">
+                {emptyCTA.text}
+                <span className="ml-2 text-accent1 ">
+                  <button onClick={emptyCTA.onClick}>here</button>
+                </span>
+              </p>
+            )}
+          </div>
+        ) : (
+          <p className="text-2xl font-bold m-10 text-center">
+            We couldn't find any options.
+          </p>
+        )}
       </HeadlessListBox.Options>
     </HeadlessListBox>
   );
@@ -52,4 +81,10 @@ ListBox.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
+  emptyHeader: PropTypes.string,
+  emptyExplanation: PropTypes.string,
+  emptyCTA: PropTypes.shape({
+    text: PropTypes.string,
+    onClick: PropTypes.func,
+  }),
 };
