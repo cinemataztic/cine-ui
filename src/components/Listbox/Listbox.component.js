@@ -20,7 +20,6 @@ const ListBox = ({
   emptyExplanation,
   emptyCTA,
 }) => {
-  console.log(options, 'options');
   return (
     <HeadlessListBox as="div" value={value} onChange={onChange}>
       <HeadlessListBox.Button className="border-2 border-secondary focus:border-primary bg-tertiary text-white w-full h-12 rounded-lg text-left pl-4 ">
@@ -48,18 +47,22 @@ const ListBox = ({
         ) : emptyHeader ? (
           <div className="m-10 text-center">
             <p className="text-2xl font-bold">{emptyHeader}</p>
-            <p className="text-xl mt-6">{emptyExplanation}</p>
-            <p className="text-xl mt-4">
-              {emptyCTA.text}
-              <span className="ml-2 text-accent1 ">
-                <button onClick={emptyCTA.onClick}>here</button>
-              </span>
-            </p>
+            {emptyExplanation && (
+              <p className="text-xl mt-6">{emptyExplanation}</p>
+            )}
+            {emptyCTA && (
+              <p className="text-xl mt-4">
+                {emptyCTA.text}
+                <span className="ml-2 text-accent1 ">
+                  <button onClick={emptyCTA.onClick}>here</button>
+                </span>
+              </p>
+            )}
           </div>
         ) : (
-          <div className="text-2xl font-bold m-10 text-center">
+          <p className="text-2xl font-bold m-10 text-center">
             We couldn't find any options.
-          </div>
+          </p>
         )}
       </HeadlessListBox.Options>
     </HeadlessListBox>
@@ -85,7 +88,3 @@ ListBox.propTypes = {
     onClick: PropTypes.func,
   }),
 };
-
-// ListBox.defaultProps = {
-//   emptyHeader: 'No options available.',
-// };
