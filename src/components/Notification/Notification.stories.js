@@ -4,6 +4,17 @@ import Notification from './Notification.component';
 export default {
   title: 'Components/Notification',
   component: Notification,
+  argTypes: {
+    title: {
+      control: { type: 'text' },
+    },
+    text: {
+      control: { type: 'text' },
+    },
+    type: {
+      control: { type: 'radio', options: ['info', 'warning'] },
+    },
+  },
 };
 
 const Template = ({ title, text, type, icon }) => {
