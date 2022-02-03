@@ -4,14 +4,9 @@ import Modal from './Modal.component';
 export default {
   title: 'Components/Modal',
   component: Modal,
-  argTypes: {
-    color: {
-      control: { type: 'radio', options: ['primary', 'secondary'] },
-    },
-  },
 };
 
-const Template = ({ color }) => {
+const Template = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -30,7 +25,7 @@ const Template = ({ color }) => {
       >
         Open modal
       </button>
-      <Modal isModalOpen={isModalOpen} closeModal={closeModal} color={color}>
+      <Modal isModalOpen={isModalOpen} closeModal={closeModal}>
         <div>
           <div className="flex justify-between">
             <div>
@@ -68,7 +63,3 @@ const Template = ({ color }) => {
 };
 
 export const Base = Template.bind({});
-
-Base.args = {
-  color: 'secondary',
-};

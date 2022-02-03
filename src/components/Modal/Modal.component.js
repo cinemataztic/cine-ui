@@ -3,17 +3,7 @@ import { Dialog } from '@headlessui/react';
 import PropTypes from 'prop-types';
 import './Modal.styles.css';
 
-const getDialogColor = (color) => {
-  switch (color) {
-    case 'secondary':
-      return 'bg-hover text-white';
-    case 'primary':
-    default:
-      return 'bg-white text-black';
-  }
-};
-
-const Modal = ({ isModalOpen, closeModal, children, color }) => {
+const Modal = ({ isModalOpen, closeModal, children }) => {
   return (
     <Dialog
       open={isModalOpen}
@@ -24,9 +14,7 @@ const Modal = ({ isModalOpen, closeModal, children, color }) => {
         <Dialog.Overlay className="fixed inset-0 bg-black opacity-50" />
 
         <div
-          className={`relative ${getDialogColor(
-            color,
-          )} rounded-xl p-6  max-w-sm mx-auto`}
+          className={`relative bg-inverted rounded-xl p-6  max-w-sm mx-auto`}
         >
           {children}
         </div>
@@ -40,10 +28,5 @@ export default Modal;
 Modal.propTypes = {
   isModalOpen: PropTypes.bool.isRequired,
   closeModal: PropTypes.func.isRequired,
-  color: PropTypes.oneOf(['primary', 'secondary']),
   children: PropTypes.element.isRequired,
-};
-
-Modal.defaultProps = {
-  color: 'secondary',
 };
