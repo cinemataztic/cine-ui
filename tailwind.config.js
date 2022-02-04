@@ -19,6 +19,7 @@ module.exports = {
         buttonSecondary: '#C9C9C9',
         danger: '#FF657A',
         warning: '#FF8811',
+        inverted: '#FFF',
       },
       textColor: {
         primary: '#fff',
