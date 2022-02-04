@@ -42,12 +42,8 @@ const getTextColor = (color) => {
   switch (color) {
     case 'primary':
       return 'text-primary';
-    case 'secondary':
-      return 'text-secondary';
-    case 'accent1':
-      return 'text-accent1';
     default:
-      return 'text-primary';
+      return 'text-default';
   }
 };
 
@@ -72,12 +68,11 @@ const Heading = ({ children, onClick, level, color, className }) => {
 Heading.propTypes = {
   ...TypographyBase.propTypes,
   level: PropTypes.oneOf([1, 2, 3, 4]),
-  color: PropTypes.oneOf(['primary', 'secondary', 'accent1']),
+  color: PropTypes.oneOf(['primary', 'default']),
 };
 
 Heading.defaultProps = {
   level: 1,
-  color: 'primary',
 };
 
 export default Heading;

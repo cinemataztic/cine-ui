@@ -22,9 +22,8 @@ module.exports = {
         inverted: '#FFF',
       },
       textColor: {
-        primary: '#fff',
-        secondary: '#272727',
-        accent1: '#3AC1C8',
+        primary: '#3AC1C8',
+        default: '#FFF',
       },
       borderWidth: {
         3: '3px',
