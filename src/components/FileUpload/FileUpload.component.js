@@ -30,10 +30,18 @@ const FileUpload = ({ onDrop, text='Upload File', dragActiveText='Upload File', 
     return <div>{text}</div>
   }
 
+  let borderColor = 'border-secondary'
+  if (isDragActive) {
+    borderColor = 'border-primary'
+  }
+  if (isDragReject) {
+    borderColor = 'border-danger'
+  }
+
   return (
-    <div {...getRootProps()} className={`w-full border-2 border-dashed  ${isDragReject ? 'border-red-300' : 'border-gray-300'} rounded-lg p-4 transition-opacity duration-150 ease-in-out ${isDragActive ? 'opacity-80' : ''}`}>
+    <div {...getRootProps()} className={`w-full border-3 border-dashed ${borderColor} rounded-lg p-4 transition duration-150 ease-in-out`}>
       <input {...getInputProps()} />
-      <div className={`flex justify-center items-center ${isDragReject ? 'text-red-300' : 'text-gray-300'}`}>
+      <div className={`flex justify-center items-center text-default`}>
         <DropzoneContent />
       </div>
     </div>
