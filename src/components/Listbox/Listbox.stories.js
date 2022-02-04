@@ -14,7 +14,7 @@ export default {
   },
 };
 
-const Template = ({ data }) => {
+const Template = ({ data, emptyHeader, emptyExplanation, emptyCTA }) => {
   const [value, setValue] = useState();
 
   return (
@@ -23,6 +23,9 @@ const Template = ({ data }) => {
       value={value}
       onChange={setValue}
       placeholder="Select option"
+      emptyHeader={emptyHeader}
+      emptyExplanation={emptyExplanation}
+      emptyCTA={emptyCTA}
     />
   );
 };
@@ -42,4 +45,12 @@ Listbox.args = {
     { value: '9', label: 'Option 9' },
     { value: '10', label: 'Option 10' },
   ],
+  emptyHeader: 'No options available.',
+  emptyExplanation: "You don't seem to have any data available.",
+  emptyCTA: {
+    text: 'Upload ad',
+    onClick: () => {
+      console.log('clicked');
+    },
+  },
 };

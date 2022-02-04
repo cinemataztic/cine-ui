@@ -8,3 +8,5 @@ export { default as RadioGroup } from './components/RadioGroup/RadioGroup.compon
 export { default as Slider } from './components/Slider/Slider.component';
 export { Heading } from './components/Typography';
 export { default as Label } from './components/Label/Label.component';
+export { default as Modal } from './components/Modal/Modal.component';
+export { default as Notification } from './components/Notification/Notification.component';
