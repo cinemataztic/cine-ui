@@ -37,4 +37,5 @@ Base.args = {
   children: 'Text text',
   variant: 'base',
   color: 'default',
+  subtle: false,
 };

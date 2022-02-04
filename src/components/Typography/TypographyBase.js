@@ -6,15 +6,13 @@ import PropTypes from 'prop-types';
  * Helpers
  ****************************************************************/
 
-const getTextColor = (color) => {
+const getTextColor = (color, subtle) => {
   switch (color) {
     case 'primary':
       return 'text-primary';
-    case 'secondary':
-      return 'text-secondary';
     case 'default':
     default:
-      return 'text-default';
+      return subtle ? 'text-defaultSubtle' : 'text-default';
   }
 };
 
@@ -27,12 +25,13 @@ const TypographyBase = ({
   onClick,
   className,
   color,
+  subtle,
   as: Component,
 }) => {
   return (
     <Component
       onClick={onClick}
-      className={`${getTextColor(color)} ${className ?? ''}`}
+      className={`${getTextColor(color, subtle)} ${className ?? ''}`}
     >
       {children}
     </Component>
@@ -42,7 +41,7 @@ const TypographyBase = ({
 TypographyBase.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
-  color: PropTypes.oneOf(['default', 'primary', 'secondary']),
+  color: PropTypes.oneOf(['default', 'primary']),
 };
 
 TypographyBase.defaultProps = {

@@ -47,11 +47,12 @@ const Text = ({
   return (
     <TypographyBase
       className={`${getFontSize(variant)} ${emphasized ? 'font-bold' : ''} ${
-        subtle ? '!text-secondary' : ''
-      } ${className ?? ''}`}
+        className ?? ''
+      }`}
       as={getComponent(variant)}
       onClick={onClick}
       color={color}
+      subtle={subtle}
     >
       {children}
     </TypographyBase>
@@ -62,7 +63,6 @@ Text.propTypes = {
   ...TypographyBase.propTypes,
   variant: PropTypes.oneOf(['base', 'secondary', 'label']),
   emphasized: PropTypes.bool,
-  subtle: PropTypes.bool,
 };
 
 Text.defaultProps = {
