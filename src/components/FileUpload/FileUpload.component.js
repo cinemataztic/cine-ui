@@ -4,7 +4,7 @@ import './FileUpload.styles.css'
 import PropTypes from 'prop-types';
 
 
-const FileUpload = ({ onDrop, text='Upload File', dragActiveText='Upload File', dragRejectText='Invalid File', acceptedFileTypes }) => {
+const FileUpload = ({ onDrop, text='Upload File', dragActiveText='Upload File', dragRejectText='Invalid File', dragDisabledText, acceptedFileTypes, disabled }) => {
   const handleDrop = useCallback(acceptedFiles => {
     if (!onDrop) {
       console.warn('FileUpload: onDrop is not defined')
@@ -15,10 +15,15 @@ const FileUpload = ({ onDrop, text='Upload File', dragActiveText='Upload File', 
 
   const {getRootProps, getInputProps, isDragActive, isDragReject} = useDropzone({
     onDrop: handleDrop,
-    accept: acceptedFileTypes
+    accept: acceptedFileTypes,
+    disabled
   })
 
   const DropzoneContent = () => {
+    if (disabled) {
+      return <div>{dragDisabledText}</div>
+    }
+
     if (isDragReject) {
       return <div>{dragRejectText}</div>
     }
@@ -39,7 +44,7 @@ const FileUpload = ({ onDrop, text='Upload File', dragActiveText='Upload File', 
   }
 
   return (
-    <div {...getRootProps()} className={`w-full border-3 border-dashed ${borderColor} rounded-lg p-4 transition duration-150 ease-in-out`}>
+    <div {...getRootProps()} className={`w-full border-3 border-dashed ${borderColor} rounded-lg p-4 transition duration-150 ease-in-out ${disabled ? 'opacity-50' : ''}`}>
       <input {...getInputProps()} />
       <div className={`flex justify-center items-center text-default`}>
         <DropzoneContent />

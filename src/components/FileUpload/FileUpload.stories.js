@@ -6,7 +6,7 @@ export default {
   component: FileUpload,
 };
 
-const Template = ({ onDrop, text, dragActiveText, dragRejectText, acceptedFileTypes }) => {
+const Template = ({ onDrop, text, dragActiveText, dragRejectText, acceptedFileTypes, disabled, dragDisabledText }) => {
   return (
     <FileUpload
       onDrop={onDrop}
@@ -14,6 +14,8 @@ const Template = ({ onDrop, text, dragActiveText, dragRejectText, acceptedFileTy
       dragActiveText={dragActiveText}
       acceptedFileTypes={acceptedFileTypes}
       dragRejectText={dragRejectText}
+      disabled={disabled}
+      dragDisabledText={dragDisabledText}
     />
   );
 };
@@ -35,4 +37,13 @@ OnlyImages.args = {
   text: 'Upload Image (JPG, PNG)',
   dragActiveText: 'Drop file(s) here',
   acceptedFileTypes: 'image/jpeg, image/png'
+};
+
+// Disabled file upload
+export const Disabled = Template.bind({});
+
+Disabled.args = {
+  onDrop: (acceptedFiles) => {alert(acceptedFiles.map(file => file.name))},
+  disabled: true,
+  dragDisabledText: 'File Upload is disabled'
 };
