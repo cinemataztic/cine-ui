@@ -13,7 +13,7 @@ export default {
       control: { type: 'radio', options: ['base', 'secondary', 'label'] },
     },
     color: {
-      control: { type: 'radio', options: ['primary', 'secondary', 'accent1'] },
+      control: { type: 'radio', options: ['default', 'primary', 'secondary'] },
     },
   },
 };
@@ -36,5 +36,5 @@ export const Base = Template.bind({});
 Base.args = {
   children: 'Text text',
   variant: 'base',
-  color: 'primary',
+  color: 'default',
 };

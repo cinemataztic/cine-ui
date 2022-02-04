@@ -9,13 +9,13 @@ const RadioGroup = ({ options, value, onChange }) => {
     <HeadlessRadioGroup
       value={value}
       onChange={onChange}
-      className="w-full grid grid-rows-1 grid-flow-col gap-0 text-white"
+      className="flex flex-wrap text-white"
     >
       {options.map((option) => {
         return (
           <HeadlessRadioGroup.Option
             value={option.value}
-            className="flex cursor-pointer"
+            className="mr-10 cursor-pointer"
             key={option.value}
             disabled={option.disabled}
           >

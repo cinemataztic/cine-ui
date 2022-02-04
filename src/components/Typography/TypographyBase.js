@@ -12,10 +12,9 @@ const getTextColor = (color) => {
       return 'text-primary';
     case 'secondary':
       return 'text-secondary';
-    case 'accent1':
-      return 'text-accent1';
+    case 'default':
     default:
-      return 'text-primary';
+      return 'text-default';
   }
 };
 
@@ -43,12 +42,12 @@ const TypographyBase = ({
 TypographyBase.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
-  color: PropTypes.oneOf(['primary', 'secondary', 'accent1']),
+  color: PropTypes.oneOf(['default', 'primary', 'secondary']),
 };
 
 TypographyBase.defaultProps = {
   as: 'p',
-  color: 'primary',
+  color: 'default',
 };
 
 export default TypographyBase;
