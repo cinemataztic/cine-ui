@@ -24,7 +24,7 @@ module.exports = {
       textColor: {
         default: '#FFF',
         primary: '#3AC1C8',
-        defaultSubtle: '#B9B9B9',
+        defaultSubtle: '#707070',
       },
       borderWidth: {
         3: '3px',
