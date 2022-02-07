@@ -31,22 +31,18 @@ const getBorderColors = (variant, appearance, danger, disabled) => {
   }
 
   if (danger) {
-    return `border-buttonDanger ${
-      disabled
-        ? ''
-        : 'hover:border-buttonDangerHover active:border-buttonDangerActive'
+    return `border-danger ${
+      disabled ? '' : 'hover:border-dangerHover active:border-dangerActive'
     }`;
   }
 
   if (variant === 'primary') {
     return `border-primary ${
-      disabled
-        ? ''
-        : 'hover:border-buttonPrimaryHover active:border-buttonPrimaryActive'
+      disabled ? '' : 'hover:border-primaryHover active:border-primaryActive'
     }`;
   } else if (variant === 'secondary') {
     return `border-buttonSecondary ${
-      disabled ? '' : 'hover:border-white active:border-buttonSecondaryActive'
+      disabled ? '' : 'hover:border-white active:border-secondaryActive'
     }`;
   } else {
     return '';
@@ -59,20 +55,18 @@ const getBackgroundColors = (variant, appearance, danger, disabled) => {
   }
 
   if (danger) {
-    return `bg-buttonDanger ${
-      disabled ? '' : 'hover:bg-buttonDangerHover active:bg-buttonDangerActive'
+    return `bg-danger ${
+      disabled ? '' : 'hover:bg-dangerHover active:bg-dangerActive'
     }`;
   }
 
   if (variant === 'primary') {
     return `bg-buttonPrimary ${
-      disabled
-        ? ''
-        : 'hover:bg-buttonPrimaryHover active:bg-buttonPrimaryActive'
+      disabled ? '' : 'hover:bg-primaryHover active:bg-primaryActive'
     }`;
   } else if (variant === 'secondary') {
     return `bg-buttonSecondary ${
-      disabled ? '' : 'hover:bg-white active:bg-buttonSecondaryActive '
+      disabled ? '' : 'hover:bg-white active:bg-secondaryActive '
     }`;
   } else {
     return '';
@@ -82,31 +76,25 @@ const getBackgroundColors = (variant, appearance, danger, disabled) => {
 const getTextColors = (variant, appearance, danger, disabled) => {
   if (variant === 'tertiary' || appearance === 'outline')
     if (danger) {
-      return `text-buttonDanger ${
-        disabled
-          ? ''
-          : 'hover:text-buttonDangerHover active:text-buttonDangerActive'
+      return `text-danger ${
+        disabled ? '' : 'hover:text-dangerHover active:text-dangerActive'
       }`;
     }
 
   if (variant === 'tertiary') {
-    return `text-accent1 ${
-      disabled
-        ? ''
-        : 'hover:text-buttonTertiaryHover active:text-buttonTertiaryActive'
+    return `text-primary ${
+      disabled ? '' : 'hover:text-tertiaryHover active:text-tertiaryActive'
     }`;
   }
 
   if (appearance === 'outline') {
     if (variant === 'primary') {
-      return `text-accent1 ${
-        disabled
-          ? ''
-          : 'hover:text-buttonTertiaryHover active:text-buttonTertiaryActive'
+      return `text-primary ${
+        disabled ? '' : 'hover:text-tertiaryHover active:text-tertiaryActive'
       }`;
     } else if (variant === 'secondary') {
       return `text-buttonSecondary ${
-        disabled ? '' : 'hover:text-white active:text-buttonSecondaryActive'
+        disabled ? '' : 'hover:text-white active:text-secondaryActive'
       }`;
     }
   } else if (appearance === 'default') {
