@@ -15,6 +15,8 @@ const getSizeStyle = (size) => {
 const getPointerStyle = (disabled) =>
   disabled ? 'cursor-not-allowed' : 'cursor-pointer';
 
+const getTransparencyStyle = (disabled) => (disabled ? 'opacity-50' : '');
+
 const getBorderWidth = (variant, appearance) => {
   if (variant === 'tertiary' || appearance === 'default') {
     return '';
@@ -51,111 +53,100 @@ const getBorderColors = (variant, appearance, danger, disabled) => {
   }
 };
 
-const Button = (props) => {
-  const { type, label, size, onClick, disabled, variant, appearance, danger } =
-    props;
+const getBackgroundColors = (variant, appearance, danger, disabled) => {
+  if (variant === 'tertiary' || appearance === 'outline') {
+    return '';
+  }
 
-  const sizeStyle = getSizeStyle(size);
-
-  let buttonStyle;
+  if (danger) {
+    return `bg-buttonDanger ${
+      disabled ? '' : 'hover:bg-buttonDangerHover active:bg-buttonDangerActive'
+    }`;
+  }
 
   if (variant === 'primary') {
-    if (appearance === 'default') {
-      if (danger) {
-        const base = 'bg-buttonDanger text-secondary';
-        if (disabled) {
-          buttonStyle = `${base} opacity-50`;
-        } else {
-          buttonStyle = `${base} hover:bg-buttonDangerHover hover:text-secondary active:bg-buttonDangerActive active:text-secondary`;
-        }
-      } else {
-        if (disabled) {
-          buttonStyle = 'bg-buttonPrimary opacity-50 text-secondary';
-        } else {
-          buttonStyle =
-            'bg-buttonPrimary text-secondary hover:bg-buttonPrimaryHover hover:text-secondary active:bg-buttonPrimaryActive active:text-secondary';
-        }
-      }
-    } else if (appearance === 'outline') {
-      if (danger) {
-        if (disabled) {
-          buttonStyle = 'opacity-50 text-buttonDanger';
-        } else {
-          buttonStyle =
-            'text-buttonDanger  hover:text-buttonDangerHover active:text-buttonDangerActive';
-        }
-      } else {
-        if (disabled) {
-          buttonStyle = 'opacity-50 text-accent1';
-        } else {
-          buttonStyle =
-            'text-accent1 hover:text-buttonTertiaryHover active:text-buttonTertiaryActive';
-        }
-      }
-    }
+    return `bg-buttonPrimary ${
+      disabled
+        ? ''
+        : 'hover:bg-buttonPrimaryHover active:bg-buttonPrimaryActive'
+    }`;
   } else if (variant === 'secondary') {
-    if (appearance === 'default') {
-      if (danger) {
-        if (disabled) {
-          buttonStyle = 'bg-buttonDanger opacity-50 text-secondary';
-        } else {
-          buttonStyle =
-            'bg-buttonDanger text-secondary hover:bg-buttonDangerHover hover:text-secondary active:bg-buttonDangerActive active:text-secondary';
-        }
-      } else {
-        if (disabled) {
-          buttonStyle = 'bg-buttonSecondary opacity-50 text-secondary';
-        } else {
-          buttonStyle =
-            'bg-buttonSecondary text-secondary hover:bg-white hover:text-secondary active:bg-buttonSecondaryActive active:text-secondary';
-        }
-      }
-    } else if (appearance === 'outline') {
-      if (danger) {
-        if (disabled) {
-          buttonStyle = 'opacity-50 text-buttonDanger';
-        } else {
-          buttonStyle =
-            'text-buttonDanger hover:text-buttonDangerHover active:text-buttonDangerActive';
-        }
-      } else {
-        if (disabled) {
-          buttonStyle = 'opacity-50 text-buttonSecondary';
-        } else {
-          buttonStyle =
-            'text-buttonSecondary hover:text-white active:text-buttonSecondaryActive';
-        }
-      }
-    }
-  } else if (variant === 'tertiary') {
-    if (danger) {
-      if (disabled) {
-        buttonStyle = 'text-buttonDanger opacity-50';
-      } else {
-        buttonStyle =
-          'text-buttonDanger hover:text-buttonDangerHover active:text-buttonDangerActive';
-      }
-    } else {
-      if (disabled) {
-        buttonStyle = 'text-accent1 opacity-50';
-      } else {
-        buttonStyle =
-          'text-accent1 hover:text-buttonTertiaryHover active:text-buttonTertiaryActive';
-      }
-    }
+    return `bg-buttonSecondary ${
+      disabled ? '' : 'hover:bg-white active:bg-buttonSecondaryActive '
+    }`;
+  } else {
+    return '';
   }
+};
+
+const getTextColors = (variant, appearance, danger, disabled) => {
+  if (variant === 'tertiary' || appearance === 'outline')
+    if (danger) {
+      return `text-buttonDanger ${
+        disabled
+          ? ''
+          : 'hover:text-buttonDangerHover active:text-buttonDangerActive'
+      }`;
+    }
+
+  if (variant === 'tertiary') {
+    return `text-accent1 ${
+      disabled
+        ? ''
+        : 'hover:text-buttonTertiaryHover active:text-buttonTertiaryActive'
+    }`;
+  }
+
+  if (appearance === 'outline') {
+    if (variant === 'primary') {
+      return `text-accent1 ${
+        disabled
+          ? ''
+          : 'hover:text-buttonTertiaryHover active:text-buttonTertiaryActive'
+      }`;
+    } else if (variant === 'secondary') {
+      return `text-buttonSecondary ${
+        disabled ? '' : 'hover:text-white active:text-buttonSecondaryActive'
+      }`;
+    }
+  } else if (appearance === 'default') {
+    return 'text-secondary';
+  }
+};
+
+const Button = ({
+  type,
+  label,
+  size,
+  onClick,
+  disabled,
+  variant,
+  appearance,
+  danger,
+}) => {
+  const sizeStyle = getSizeStyle(size);
 
   return (
     <button
       type={type}
-      className={`rounded-md font-bold font-sans leading-none ${sizeStyle} ${buttonStyle} ${getPointerStyle(
+      className={`rounded-md font-bold font-sans leading-none ${sizeStyle} ${getPointerStyle(
         disabled,
       )} ${getBorderWidth(variant, appearance)} ${getBorderColors(
         variant,
         appearance,
         danger,
         disabled,
-      )}`}
+      )} ${getBackgroundColors(
+        variant,
+        appearance,
+        danger,
+        disabled,
+      )} ${getTextColors(
+        variant,
+        appearance,
+        danger,
+        disabled,
+      )} ${getTransparencyStyle(disabled)} `}
       onClick={onClick}
       disabled={disabled}
     >
@@ -172,7 +163,7 @@ Button.propTypes = {
   size: PropTypes.oneOf(['sm', 'lg']),
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
-  varaint: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
+  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
   appearance: PropTypes.oneOf(['default', 'outline']),
   danger: PropTypes.bool,
 };
