@@ -16,6 +16,7 @@ module.exports = {
         danger: '#FF657A',
         dangerHover: '#FF8495',
         dangerActive: '#993D49',
+        default: '#FFF',
       },
       backgroundColor: {
         primary: '#1E1E1E',

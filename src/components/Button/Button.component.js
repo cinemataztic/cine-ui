@@ -42,7 +42,7 @@ const getBorderColors = (variant, appearance, danger, disabled) => {
     }`;
   } else if (variant === 'secondary') {
     return `border-buttonSecondary ${
-      disabled ? '' : 'hover:border-white active:border-secondaryActive'
+      disabled ? '' : 'hover:border-default active:border-secondaryActive'
     }`;
   } else {
     return '';
@@ -66,7 +66,7 @@ const getBackgroundColors = (variant, appearance, danger, disabled) => {
     }`;
   } else if (variant === 'secondary') {
     return `bg-buttonSecondary ${
-      disabled ? '' : 'hover:bg-white active:bg-secondaryActive '
+      disabled ? '' : 'hover:bg-inverted active:bg-secondaryActive '
     }`;
   } else {
     return '';
@@ -94,7 +94,7 @@ const getTextColors = (variant, appearance, danger, disabled) => {
       }`;
     } else if (variant === 'secondary') {
       return `text-buttonSecondary ${
-        disabled ? '' : 'hover:text-white active:text-secondaryActive'
+        disabled ? '' : 'hover:text-default active:text-secondaryActive'
       }`;
     }
   } else if (appearance === 'default') {
