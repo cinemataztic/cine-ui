@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Heading from './Heading';
+import Heading from './Heading.component';
 
 export default {
   title: 'Components/Heading',
@@ -13,7 +13,7 @@ export default {
       control: { type: 'radio', options: [1, 2, 3, 4] },
     },
     color: {
-      control: { type: 'radio', options: ['primary', 'secondary', 'accent1'] },
+      control: { type: 'radio', options: ['primary', 'default'] },
     },
   },
 };
