@@ -111,13 +111,14 @@ const Button = ({
   variant,
   appearance,
   danger,
+  className,
 }) => {
   const sizeStyle = getSizeStyle(size);
 
   return (
     <button
       type={type}
-      className={`rounded-md font-bold font-sans leading-none ${sizeStyle} ${getPointerStyle(
+      className={`rounded-md font-bold font-sans leading-none ${sizeStyle} ${className} ${getPointerStyle(
         disabled,
       )} ${getBorderWidth(variant, appearance)} ${getBorderColors(
         variant,
@@ -154,6 +155,7 @@ Button.propTypes = {
   variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
   appearance: PropTypes.oneOf(['default', 'outline']),
   danger: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 Button.defaultProps = {
