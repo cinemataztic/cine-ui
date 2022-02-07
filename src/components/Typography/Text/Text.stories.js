@@ -13,7 +13,7 @@ export default {
       control: { type: 'radio', options: ['base', 'secondary', 'label'] },
     },
     color: {
-      control: { type: 'radio', options: ['default', 'primary', 'secondary'] },
+      control: { type: 'radio', options: ['default', 'primary'] },
     },
   },
 };
