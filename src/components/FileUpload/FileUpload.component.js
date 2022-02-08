@@ -4,7 +4,7 @@ import './FileUpload.styles.css'
 import PropTypes from 'prop-types';
 
 
-const FileUpload = ({ onDrop, text='Upload File', dragActiveText='Upload File', dragRejectText='Invalid File', dragDisabledText, acceptedFileTypes, disabled }) => {
+const FileUpload = ({ onDrop, text='Upload File', dragActiveText='Upload File', dragRejectText='Invalid File', dragDisabledText, acceptedFileTypes, disabled=false }) => {
   const handleDrop = useCallback(acceptedFiles => {
     if (!onDrop) {
       console.warn('FileUpload: onDrop is not defined')
@@ -57,13 +57,15 @@ FileUpload.PropTypes = {
   onDrop: PropTypes.func.isRequired,
   text: PropTypes.node,
   dragActiveText: PropTypes.node,
-  acceptedFileTypes: PropTypes.string
+  acceptedFileTypes: PropTypes.string,
+  disabled: PropTypes.bool,
 }
 
 FileUpload.defaultProps = {
   text: 'Upload File',
   dragActiveText: 'Upload File',
   dragRejectText: 'Invalid File',
+  disabled: false,
 }
 
 export default FileUpload;
