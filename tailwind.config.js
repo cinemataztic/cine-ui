@@ -46,6 +46,7 @@ module.exports = {
         dangerHover: '#FF8495',
         dangerActive: '#993D49',
         default: '#FFF',
+        defaultSubtle: '#707070',
       },
       borderWidth: {
         3: '3px',
@@ -75,6 +76,9 @@ module.exports = {
             lineHeight: '1.5rem',
           },
         ],
+        lg: ['1.125rem', { lineHeight: '1.5rem' }],
+        md: ['1rem', { lineHeight: '1.25rem' }],
+        sm: ['0.875rem', { lineHeight: '1rem' }],
       },
     },
   },

@@ -53,7 +53,7 @@ const ListBox = ({
             {emptyCTA && (
               <p className="text-xl mt-4">
                 {emptyCTA.text}
-                <span className="ml-2 text-accent1 ">
+                <span className="ml-2 text-primary ">
                   <button onClick={emptyCTA.onClick}>here</button>
                 </span>
               </p>
