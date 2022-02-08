@@ -11,6 +11,15 @@ export default {
     label: {
       control: { type: 'text' },
     },
+    variant: {
+      control: { type: 'radio', options: ['primary', 'secondary', 'tertiary'] },
+    },
+    appearance: {
+      control: { type: 'radio', options: ['default', 'outline'] },
+    },
+    danger: {
+      control: { type: 'boolean' },
+    },
     size: {
       control: { type: 'radio', options: ['sm', 'lg'] },
     },
@@ -20,7 +29,16 @@ export default {
   },
 };
 
-const Template = ({ type, label, size, onClick, disabled }) => {
+const Template = ({
+  type,
+  label,
+  size,
+  onClick,
+  disabled,
+  variant,
+  appearance,
+  danger,
+}) => {
   return (
     <Button
       type={type}
@@ -28,6 +46,9 @@ const Template = ({ type, label, size, onClick, disabled }) => {
       size={size}
       onClick={onClick}
       disabled={disabled}
+      variant={variant}
+      appearance={appearance}
+      danger={danger}
     />
   );
 };
@@ -40,4 +61,7 @@ Base.args = {
   size: 'lg',
   onClick: () => {},
   disabled: false,
+  variant: 'primary',
+  appearance: 'default',
+  danger: false,
 };

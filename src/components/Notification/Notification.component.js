@@ -26,11 +26,11 @@ const getBgAndTextColor = (type) => {
   }
 };
 
-const Notification = ({ title, text, type, icon }) => {
+const Notification = ({ title, text, type, icon, className }) => {
   const color = getBgAndTextColor(type);
 
   return (
-    <div className={`w-full rounded-lg mt-8 p-5 flex ${color}`}>
+    <div className={`w-full rounded-lg mt-8 p-5 flex ${color} ${className}`}>
       {icon ? (
         icon()
       ) : (
@@ -53,6 +53,7 @@ Notification.propTypes = {
   text: PropTypes.string.isRequired,
   icon: PropTypes.func,
   type: PropTypes.oneOf(['info', 'warning', 'error']),
+  className: PropTypes.string,
 };
 
 Notification.defaultProps = {
