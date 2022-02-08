@@ -53,7 +53,7 @@ const ListBox = ({
             {emptyCTA && (
               <p className="text-xl mt-4">
                 {emptyCTA.text}
-                <span className="ml-2 text-accent1 ">
+                <span className="ml-2 text-primary ">
                   <button onClick={emptyCTA.onClick}>here</button>
                 </span>
               </p>
@@ -74,11 +74,12 @@ export default ListBox;
 ListBox.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      value: PropTypes.string.isRequired,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
       label: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
   emptyHeader: PropTypes.string,

@@ -38,15 +38,6 @@ const getFontSize = (level) => {
   }
 };
 
-const getTextColor = (color) => {
-  switch (color) {
-    case 'primary':
-      return 'text-primary';
-    default:
-      return 'text-default';
-  }
-};
-
 /****************************************************************
  * Heading
  ****************************************************************/
@@ -54,11 +45,10 @@ const getTextColor = (color) => {
 const Heading = ({ children, onClick, level, color, className }) => {
   return (
     <TypographyBase
-      className={`font-bold ${getTextColor(color)} ${getFontSize(
-        level,
-      )} ${className}`}
+      className={`font-bold ${getFontSize(level)} ${className}`}
       as={getComponent(level)}
       onClick={onClick}
+      color={color}
     >
       {children}
     </TypographyBase>
@@ -68,7 +58,6 @@ const Heading = ({ children, onClick, level, color, className }) => {
 Heading.propTypes = {
   ...TypographyBase.propTypes,
   level: PropTypes.oneOf([1, 2, 3, 4]),
-  color: PropTypes.oneOf(['primary', 'default']),
 };
 
 Heading.defaultProps = {
