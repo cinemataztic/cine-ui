@@ -66,7 +66,7 @@ const FileUpload = ({
   );
 };
 
-FileUpload.PropTypes = {
+FileUpload.propTypes = {
   onDrop: PropTypes.func.isRequired,
   text: PropTypes.node,
   dragActiveText: PropTypes.node,
