@@ -54,12 +54,12 @@ const FileUpload = ({
   return (
     <div
       {...getRootProps()}
-      className={`w-full border-3 border-dashed ${borderColor} rounded-lg p-4 transition duration-150 ease-in-out ${
+      className={`w-full h-full border-3 border-dashed ${borderColor} rounded-lg p-4 transition duration-150 ease-in-out ${
         disabled ? 'opacity-50' : ''
       }`}
     >
       <input {...getInputProps()} />
-      <div className={`flex justify-center items-center text-defaultSubtle`}>
+      <div className={`flex justify-center items-center text-defaultSubtle h-full w-full`}>
         <DropzoneContent />
       </div>
     </div>
