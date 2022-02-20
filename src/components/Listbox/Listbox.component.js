@@ -6,9 +6,18 @@ import './Listbox.styles.css';
 
 function getLabelForValue(value, options = []) {
   const selectedOption = options.filter((option) => option.value === value);
-  if (selectedOption.length === 1) {
-    return selectedOption[0].label;
-  } else throw new Error(`More than one label/option pair with same value.`);
+
+  // Check that there is no duplicate values
+  if (selectedOption.length > 1) {
+    throw new Error(`More than one label/option pair with same value.`);
+  }
+
+  // Check that there is an option with the given value
+  if (selectedOption.length === 0) {
+    throw new Error(`No label/option pair with value ${value}`);
+  }
+
+  return selectedOption[0].label;
 }
 
 const ListBox = ({
