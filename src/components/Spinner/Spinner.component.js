@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Spinner = ({ size = 'medium', label }) => {
+const Spinner = ({ size, label }) => {
   let spinnerSize;
   switch (size) {
     case 'x-small':
