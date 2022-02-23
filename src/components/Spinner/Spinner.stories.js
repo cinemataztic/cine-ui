@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Spinner from './Spinner.component';
 
 import './Spinner.styles.css';
