@@ -50,7 +50,7 @@ const Spinner = ({ size = 'medium', label }) => {
     <div className="flex flex-col items-center">
       <svg
         role="status"
-        class={`${spinnerSize} text-defaultSubtle animate-spin fill-primary`}
+        className={`${spinnerSize} text-defaultSubtle animate-spin fill-primary`}
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
