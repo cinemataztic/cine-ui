@@ -11,3 +11,4 @@ export { Heading, Text } from './components/Typography';
 export { default as Label } from './components/Label/Label.component';
 export { default as Modal } from './components/Modal/Modal.component';
 export { default as Notification } from './components/Notification/Notification.component';
+export { default as Spinner } from './components/Spinner/Spinner.component';
