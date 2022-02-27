@@ -14,7 +14,7 @@ export default {
   },
 };
 
-const Template = ({ data, emptyHeader, emptyExplanation, emptyCTA, loading }) => {
+const Template = ({ data, emptyHeader, emptyExplanation, emptyCTA, loading, loadingPlaceholder}) => {
   const [value, setValue] = useState();
 
   return (
@@ -27,6 +27,7 @@ const Template = ({ data, emptyHeader, emptyExplanation, emptyCTA, loading }) =>
       emptyExplanation={emptyExplanation}
       emptyCTA={emptyCTA}
       loading={loading}
+      loadingPlaceholder={loadingPlaceholder}
     />
   );
 };
@@ -61,4 +62,5 @@ export const Loading = Template.bind({});
 Loading.args = {
   data: [],
   loading: true,
+  loadingPlaceholder: 'Loading the options...',
 };
