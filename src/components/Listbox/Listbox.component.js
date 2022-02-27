@@ -5,17 +5,29 @@ import { Spinner } from '../..';
 
 import './Listbox.styles.css';
 
-function getLabelForValue(value, options = []) {
+function LabelForValue({value, options = [], placeholder, loading, loadingPlaceholder}) {
+  // Check if we're loading the options
+  if (loading) {
+    if (loadingPlaceholder) return loadingPlaceholder;
+    return placeholder;
+  }
+
+  // Check if we have a value
+  if (!value) return placeholder;
+
+  // Find the option that matches the value
   const selectedOption = options.filter((option) => option.value === value);
 
   // Check that there is no duplicate values
   if (selectedOption.length > 1) {
-    throw new Error(`More than one label/option pair with same value.`);
+    console.warn("More than one label/option pair with same value.");
+    return placeholder;
   }
 
   // Check that there is an option with the given value
   if (selectedOption.length === 0) {
-    throw new Error(`No label/option pair with value ${value}`);
+    console.warn(`No label/option pair with value ${value}`);
+    return placeholder;
   }
 
   return selectedOption[0].label;
@@ -29,13 +41,21 @@ const ListBox = ({
   emptyHeader,
   emptyExplanation,
   emptyCTA,
-  loading
+  loading,
+  loadingPlaceholder,
 }) => {
   return (
     <HeadlessListBox disabled={loading} as="div" value={value} onChange={onChange}>
       <HeadlessListBox.Button className="border-2 border-secondary focus:border-primary bg-tertiary text-white w-full h-12 rounded-lg text-left pl-4 ">
         <span className="flex justify-between">
-          <span>{value ? getLabelForValue(value, options) : placeholder}</span>
+          <LabelForValue
+            value={value}
+            options={options}
+            placeholder={placeholder}
+            loading={loading}
+            loadingPlaceholder={loadingPlaceholder}
+          />
+          
           {
             loading ?
               <span className='mr-4'>
@@ -108,4 +128,6 @@ ListBox.propTypes = {
     text: PropTypes.string,
     onClick: PropTypes.func,
   }),
+  loading: PropTypes.bool,
+  loadingPlaceholder: PropTypes.string,
 };
