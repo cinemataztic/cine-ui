@@ -49,6 +49,9 @@ module.exports = {
         default: '#FFF',
         defaultSubtle: '#707070',
       },
+      fill: {
+        primary: '#3AC1C8',
+      },
       borderWidth: {
         3: '3px',
       },
