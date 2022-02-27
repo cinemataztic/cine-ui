@@ -14,7 +14,7 @@ export default {
   },
 };
 
-const Template = ({ data, emptyHeader, emptyExplanation, emptyCTA }) => {
+const Template = ({ data, emptyHeader, emptyExplanation, emptyCTA, loading }) => {
   const [value, setValue] = useState();
 
   return (
@@ -26,13 +26,14 @@ const Template = ({ data, emptyHeader, emptyExplanation, emptyCTA }) => {
       emptyHeader={emptyHeader}
       emptyExplanation={emptyExplanation}
       emptyCTA={emptyCTA}
+      loading={loading}
     />
   );
 };
 
-export const Listbox = Template.bind({});
+export const Base = Template.bind({});
 
-Listbox.args = {
+Base.args = {
   data: [
     { value: '1', label: 'Option 1' },
     { value: '2', label: 'Option 2' },
@@ -53,4 +54,11 @@ Listbox.args = {
       console.log('clicked');
     },
   },
+};
+
+export const Loading = Template.bind({});
+
+Loading.args = {
+  data: [],
+  loading: true,
 };
