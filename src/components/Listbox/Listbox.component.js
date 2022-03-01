@@ -21,7 +21,7 @@ function LabelForValue({value, options = [], placeholder, loading, loadingPlaceh
   // Check that there is no duplicate values
   if (selectedOption.length > 1) {
     console.warn("More than one label/option pair with same value.");
-    return placeholder;
+    return selectedOption[0].label;
   }
 
   // Check that there is an option with the given value
