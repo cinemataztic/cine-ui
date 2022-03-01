@@ -1,0 +1,5 @@
+@import '../../index.css';
+
+div span:not(:last-child) {
+  @apply mr-2;
+}
