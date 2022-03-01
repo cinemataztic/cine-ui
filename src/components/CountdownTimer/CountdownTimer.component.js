@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getRemainingTimeUtilMsTimestamp } from './Utils/CountdownTimerUtils';
 import './CountdownTimer.styles.css';
+import PropTypes from 'prop-types';
 
 const defaultRemainingTime = {
   days: '00',
@@ -30,79 +31,49 @@ function CountdownTimer({ startDate, endDate }) {
     );
   };
 
+  const dateTimeSegments = ['days', 'hours', 'minutes', 'seconds'];
+
   return (
-    <section className="flex justify-between flex-wrap ">
-      <div className="flex flex-col items-center">
-        <div className="flex">
-          {Array.from(remainingTime.days).map((number, index) => {
-            return (
-              <span
-                key={index}
-                className="h-14 w-10 rounded-lg bg-white text-4xl flex justify-center items-center"
-              >
-                {number}
-              </span>
-            );
-          })}
-        </div>
-        <div className="text-white mt-2">Days</div>
-      </div>
-      <div className="mt-2 ">
-        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDEgNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSIjMjcyNzI3Ii8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjI1Ii8+Cjwvc3ZnPgo=" />
-      </div>
-      <div className="flex flex-col items-center ">
-        <div className="flex">
-          {Array.from(remainingTime.hours).map((number, index) => {
-            return (
-              <span
-                key={index}
-                className="h-14 w-10 rounded-lg bg-white text-4xl flex justify-center items-center "
-              >
-                {number}
-              </span>
-            );
-          })}
-        </div>
-        <div className="text-white mt-2">Hours</div>
-      </div>
-      <div className="mt-2">
-        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDEgNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSIjMjcyNzI3Ii8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjI1Ii8+Cjwvc3ZnPgo=" />
-      </div>
-      <div className="flex flex-col items-center">
-        <div className="flex">
-          {Array.from(remainingTime.minutes).map((number, index) => {
-            return (
-              <span
-                key={index}
-                className="h-14 w-10 rounded-lg bg-white text-4xl flex justify-center items-center"
-              >
-                {number}
-              </span>
-            );
-          })}
-        </div>
-        <div className="text-white mt-2">Minutes</div>
-      </div>
-      <div className="mt-2">
-        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDEgNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSIjMjcyNzI3Ii8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjI1Ii8+Cjwvc3ZnPgo=" />
-      </div>
-      <div className="flex flex-col items-center">
-        <div className="flex">
-          {Array.from(remainingTime.seconds).map((number, index) => {
-            return (
-              <span
-                key={index}
-                className="h-14 w-10 rounded-lg bg-white text-4xl flex justify-center items-center"
-              >
-                {number}
-              </span>
-            );
-          })}
-        </div>
-        <div className="text-white mt-2">Seconds</div>
-      </div>
+    <section className="flex justify-between flex-wrap">
+      {dateTimeSegments.map((dateTimeSegment, index, { length }) => {
+        return (
+          <div
+            className="flex flex-1 justify-around"
+            key={index + dateTimeSegment}
+          >
+            <div className="flex flex-col items-center">
+              <div className="flex">
+                {Array.from(remainingTime[dateTimeSegment]).map(
+                  (digit, index) => {
+                    return (
+                      <span
+                        key={index}
+                        className="h-14 w-10 rounded-lg bg-white text-4xl flex justify-center items-center"
+                      >
+                        {digit}
+                      </span>
+                    );
+                  },
+                )}
+              </div>
+              <div className="text-white mt-2">{dateTimeSegment}</div>
+            </div>
+            {index + 1 !== length ? (
+              <div className="mt-2">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDEgNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSIjMjcyNzI3Ii8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjI1Ii8+Cjwvc3ZnPgo=" />
+              </div>
+            ) : (
+              <div></div>
+            )}
+          </div>
+        );
+      })}
     </section>
   );
 }
 
 export default CountdownTimer;
+CountdownTimer.propTypes = {
+  startDate: PropTypes.string.isRequired,
+  endDate: PropTypes.string.isRequired,
+};

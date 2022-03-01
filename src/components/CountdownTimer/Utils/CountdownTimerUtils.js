@@ -9,7 +9,7 @@ export function getRemainingTimeUtilMsTimestamp(
   const nowDayjs = dayjs();
 
   // Return "--" when start date is later than today and
-  // end date is before than today.
+  // end date is earlier than today.
   if (
     startDateTimestampDayjs.isAfter(nowDayjs) ||
     endDateTimestampDayjs.isBefore(nowDayjs)

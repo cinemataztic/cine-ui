@@ -8,14 +8,10 @@ export default {
 
 const Template = () => {
   return (
-    // <CountdownTimer
-    //   startDate={'Feb 26, 2022 22:37:25'}
-    //   endDate={'Mar 28, 2022 22:37:25'}
-    // />
-    <div className="text-secondary w-1/2 h-32 bg-secondary rounded-xl p-4">
+    <div className="text-secondary w-1/2 h-auto bg-secondary rounded-xl p-4">
       <CountdownTimer
-        startDate={'Feb 26, 2022 22:37:25'}
-        endDate={'Mar 28, 2023 22:37:25'}
+        startDate={'Feb 28, 2022 22:37:25'}
+        endDate={'Mar 28, 2022 22:37:25'}
       />
     </div>
   );
