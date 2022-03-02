@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+
 import { getRemainingTimeUtilMsTimestamp } from './Utils/CountdownTimerUtils';
 import './CountdownTimer.styles.css';
-import PropTypes from 'prop-types';
 
 const defaultRemainingTime = {
   days: '00',
@@ -10,6 +11,7 @@ const defaultRemainingTime = {
   seconds: '00',
 };
 
+const dateTimeSegments = ['days', 'hours', 'minutes', 'seconds'];
 function CountdownTimer({ startDate, endDate }) {
   const [remainingTime, setRemainingTime] = useState(defaultRemainingTime);
 
@@ -31,24 +33,21 @@ function CountdownTimer({ startDate, endDate }) {
     );
   };
 
-  const dateTimeSegments = ['days', 'hours', 'minutes', 'seconds'];
-
   return (
     <section className="flex justify-between flex-wrap">
       {dateTimeSegments.map((dateTimeSegment, index, { length }) => {
         return (
-          <div
-            className="flex flex-1 justify-around"
-            key={index + dateTimeSegment}
-          >
+          <div className="flex flex-1 justify-around " key={dateTimeSegment}>
             <div className="flex flex-col items-center">
               <div className="flex">
                 {Array.from(remainingTime[dateTimeSegment]).map(
-                  (digit, index) => {
+                  (digit, indexes) => {
                     return (
                       <span
-                        key={index}
-                        className="h-14 w-10 rounded-lg bg-white text-4xl flex justify-center items-center"
+                        key={indexes}
+                        className={`h-14 w-10 rounded-lg text-4xl flex justify-center items-center digitContainer ${
+                          index !== 0 ? 'bg-buttonSecondary' : 'bg-inverted'
+                        }`}
                       >
                         {digit}
                       </span>
@@ -56,7 +55,7 @@ function CountdownTimer({ startDate, endDate }) {
                   },
                 )}
               </div>
-              <div className="text-white mt-2">{dateTimeSegment}</div>
+              <div className="text-default mt-2">{dateTimeSegment}</div>
             </div>
             {index + 1 !== length ? (
               <div className="mt-2">
@@ -73,6 +72,7 @@ function CountdownTimer({ startDate, endDate }) {
 }
 
 export default CountdownTimer;
+
 CountdownTimer.propTypes = {
   startDate: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
