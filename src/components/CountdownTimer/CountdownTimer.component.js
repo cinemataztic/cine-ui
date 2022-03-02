@@ -34,10 +34,10 @@ function CountdownTimer({ startDate, endDate }) {
   };
 
   return (
-    <section className="flex justify-between flex-wrap">
+    <section className="flex flex-wrap">
       {dateTimeSegments.map((dateTimeSegment, index, { length }) => {
         return (
-          <div className="flex flex-1 justify-around " key={dateTimeSegment}>
+          <div className="flex ml-6" key={dateTimeSegment}>
             <div className="flex flex-col items-center">
               <div className="flex">
                 {Array.from(remainingTime[dateTimeSegment]).map(
@@ -58,12 +58,10 @@ function CountdownTimer({ startDate, endDate }) {
               <div className="text-default mt-2">{dateTimeSegment}</div>
             </div>
             {index + 1 !== length ? (
-              <div className="mt-2">
+              <div className="mt-2 ml-6 ">
                 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDEgNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSIjMjcyNzI3Ii8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjI1Ii8+Cjwvc3ZnPgo=" />
               </div>
-            ) : (
-              <div></div>
-            )}
+            ) : null}
           </div>
         );
       })}

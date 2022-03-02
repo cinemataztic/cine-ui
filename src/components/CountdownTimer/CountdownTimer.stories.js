@@ -16,7 +16,7 @@ export default {
 
 const Template = ({ startDate, endDate }) => {
   return (
-    <div className="text-secondary w-1/2 h-auto bg-secondary rounded-xl p-4">
+    <div className="text-secondary w-fit h-auto bg-secondary rounded-xl p-4 pr-8 ">
       <CountdownTimer startDate={startDate} endDate={endDate} />
     </div>
   );
