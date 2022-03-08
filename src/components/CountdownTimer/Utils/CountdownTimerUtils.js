@@ -8,6 +8,13 @@ export function getRemainingTimeUtilMsTimestamp(
   const endDateTimestampDayjs = dayjs(endDateTimestampMs);
   const nowDayjs = dayjs();
 
+  // Error handling for invalid dates
+  if (isNaN(startDateTimestampDayjs)) {
+    throw new Error(`Invalid start date`);
+  } else if (isNaN(endDateTimestampDayjs)) {
+    throw new Error(`Invalid end date`);
+  }
+
   // Return "--" when start date is later than today and
   // end date is earlier than today.
   if (

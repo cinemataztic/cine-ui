@@ -1,5 +1,6 @@
 import React from 'react';
 import CountdownTimer from './CountdownTimer.component';
+import dayjs from 'dayjs';
 
 export default {
   title: 'Components/CountdownTimer',
@@ -16,7 +17,7 @@ export default {
 
 const Template = ({ startDate, endDate }) => {
   return (
-    <div className="text-secondary w-fit h-auto bg-secondary rounded-xl p-4 pr-8 ">
+    <div className="text-secondary w-fit h-auto bg-secondary rounded-xl p-4 pr-8  ">
       <CountdownTimer startDate={startDate} endDate={endDate} />
     </div>
   );
@@ -25,6 +26,6 @@ const Template = ({ startDate, endDate }) => {
 export const Base = Template.bind({});
 
 Base.args = {
-  startDate: 'Feb 28, 2022 22:37:25',
-  endDate: 'Mar 28, 2022 22:37:25',
+  startDate: dayjs().format('MMM DD, YYYY HH:mm:ss'),
+  endDate: dayjs().add(30, 'days').format('MMM DD, YYYY HH:mm:ss'),
 };

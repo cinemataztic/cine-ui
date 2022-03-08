@@ -15,9 +15,9 @@ const dateTimeSegments = ['days', 'hours', 'minutes', 'seconds'];
 function CountdownTimer({ startDate, endDate }) {
   const [remainingTime, setRemainingTime] = useState(defaultRemainingTime);
 
-  //Start date in milliseconds
+  // Start date in milliseconds
   const startDateTimestampMs = new Date(startDate).getTime();
-  //End date in milliseconds
+  // End date in milliseconds
   const endDateTimestampMs = new Date(endDate).getTime();
 
   useEffect(() => {
@@ -35,36 +35,40 @@ function CountdownTimer({ startDate, endDate }) {
 
   return (
     <section className="flex flex-wrap">
-      {dateTimeSegments.map((dateTimeSegment, index, { length }) => {
-        return (
-          <div className="flex ml-6" key={dateTimeSegment}>
-            <div className="flex flex-col items-center">
-              <div className="flex">
-                {Array.from(remainingTime[dateTimeSegment]).map(
-                  (digit, indexes) => {
-                    return (
-                      <span
-                        key={indexes}
-                        className={`h-14 w-10 rounded-lg text-4xl flex justify-center items-center digitContainer ${
-                          index !== 0 ? 'bg-buttonSecondary' : 'bg-inverted'
-                        }`}
-                      >
-                        {digit}
-                      </span>
-                    );
-                  },
-                )}
+      {dateTimeSegments.map(
+        (dateTimeSegment, dateTimeSegmentIndex, { length }) => {
+          return (
+            <div className="flex ml-6" key={dateTimeSegment}>
+              <div className="flex flex-col items-center">
+                <div className="flex">
+                  {Array.from(remainingTime[dateTimeSegment]).map(
+                    (digit, digitIndex) => {
+                      return (
+                        <span
+                          key={digitIndex}
+                          className={`h-14 w-10 rounded-lg text-4xl flex justify-center items-center digitContainer ${
+                            dateTimeSegmentIndex !== 0
+                              ? 'bg-buttonSecondary'
+                              : 'bg-inverted'
+                          }`}
+                        >
+                          {digit}
+                        </span>
+                      );
+                    },
+                  )}
+                </div>
+                <div className="text-default mt-2">{dateTimeSegment}</div>
               </div>
-              <div className="text-default mt-2">{dateTimeSegment}</div>
+              {dateTimeSegmentIndex + 1 !== length ? (
+                <div className="mt-2 ml-6 ">
+                  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDEgNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSIjMjcyNzI3Ii8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjI1Ii8+Cjwvc3ZnPgo=" />
+                </div>
+              ) : null}
             </div>
-            {index + 1 !== length ? (
-              <div className="mt-2 ml-6 ">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDEgNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSIjMjcyNzI3Ii8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjI1Ii8+Cjwvc3ZnPgo=" />
-              </div>
-            ) : null}
-          </div>
-        );
-      })}
+          );
+        },
+      )}
     </section>
   );
 }
