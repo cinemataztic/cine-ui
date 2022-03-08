@@ -1,0 +1,5 @@
+@import '../../index.css';
+
+.digitContainer:not(:last-child) {
+  @apply mr-2;
+}
