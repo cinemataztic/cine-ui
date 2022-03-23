@@ -5,7 +5,13 @@ import { Spinner } from '../..';
 
 import './Listbox.styles.css';
 
-function LabelForValue({value, options = [], placeholder, loading, loadingPlaceholder}) {
+function LabelForValue({
+  value,
+  options = [],
+  placeholder,
+  loading,
+  loadingPlaceholder,
+}) {
   // Check if we're loading the options
   if (loading) {
     if (loadingPlaceholder) return loadingPlaceholder;
@@ -20,7 +26,7 @@ function LabelForValue({value, options = [], placeholder, loading, loadingPlaceh
 
   // Check that there is no duplicate values
   if (selectedOption.length > 1) {
-    console.warn("More than one label/option pair with same value.");
+    console.warn('More than one label/option pair with same value.');
     return selectedOption[0].label;
   }
 
@@ -43,9 +49,16 @@ const ListBox = ({
   emptyCTA,
   loading,
   loadingPlaceholder,
+  className,
 }) => {
   return (
-    <HeadlessListBox disabled={loading} as="div" value={value} onChange={onChange}>
+    <HeadlessListBox
+      disabled={loading}
+      as="div"
+      value={value}
+      onChange={onChange}
+      className={className}
+    >
       <HeadlessListBox.Button className="border-2 border-secondary focus:border-primary bg-tertiary text-white w-full h-12 rounded-lg text-left pl-4 ">
         <span className="flex justify-between">
           <LabelForValue
@@ -55,22 +68,19 @@ const ListBox = ({
             loading={loading}
             loadingPlaceholder={loadingPlaceholder}
           />
-          
-          {
-            loading ?
-              <span className='mr-4'>
-                <Spinner size="small" />
-              </span>
-              :
-              (
-                <span className="mt-2 mr-4">
-                  <img
-                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMC41OSAwLjU5MDAyN0w2IDUuMTcwMDNMMS40MSAwLjU5MDAyN0wwIDIuMDAwMDNMNiA4LjAwMDAzTDEyIDIuMDAwMDNMMTAuNTkgMC41OTAwMjdaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K"
-                    alt="Down Arrow"
-                  />
-                </span>
-              )
-          }
+
+          {loading ? (
+            <span className="mr-4">
+              <Spinner size="small" />
+            </span>
+          ) : (
+            <span className="mt-2 mr-4">
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMC41OSAwLjU5MDAyN0w2IDUuMTcwMDNMMS40MSAwLjU5MDAyN0wwIDIuMDAwMDNMNiA4LjAwMDAzTDEyIDIuMDAwMDNMMTAuNTkgMC41OTAwMjdaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K"
+                alt="Down Arrow"
+              />
+            </span>
+          )}
         </span>
       </HeadlessListBox.Button>
       <HeadlessListBox.Options className="border-2 border-secondary focus:border-primary bg-tertiary w-full rounded-lg max-h-80 overflow-y-auto text-white ">
@@ -130,4 +140,5 @@ ListBox.propTypes = {
   }),
   loading: PropTypes.bool,
   loadingPlaceholder: PropTypes.string,
+  className: PropTypes.string,
 };

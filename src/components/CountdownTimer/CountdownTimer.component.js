@@ -12,7 +12,7 @@ const defaultRemainingTime = {
 };
 
 const dateTimeSegments = ['days', 'hours', 'minutes', 'seconds'];
-function CountdownTimer({ startDate, endDate }) {
+function CountdownTimer({ startDate, endDate, className }) {
   const [remainingTime, setRemainingTime] = useState(defaultRemainingTime);
 
   // Start date in milliseconds
@@ -34,7 +34,7 @@ function CountdownTimer({ startDate, endDate }) {
   };
 
   return (
-    <section className="flex flex-wrap">
+    <section className={`flex flex-wrap ${className}`}>
       {dateTimeSegments.map(
         (dateTimeSegment, dateTimeSegmentIndex, { length }) => {
           return (
@@ -78,4 +78,5 @@ export default CountdownTimer;
 CountdownTimer.propTypes = {
   startDate: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };

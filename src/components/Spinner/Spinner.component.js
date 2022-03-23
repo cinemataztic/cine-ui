@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Spinner = ({ size, label }) => {
+const Spinner = ({ size, label, className }) => {
   let spinnerSize;
   switch (size) {
     case 'x-small':
@@ -47,7 +47,7 @@ const Spinner = ({ size, label }) => {
   }
 
   return (
-    <div className="flex flex-col items-center">
+    <div className={`flex flex-col items-center ${className}`}>
       <svg
         role="status"
         className={`${spinnerSize} text-defaultSubtle animate-spin fill-primary`}
@@ -74,6 +74,7 @@ const Spinner = ({ size, label }) => {
 Spinner.propTypes = {
   size: PropTypes.oneOf(['x-small', 'small', 'medium', 'large', 'x-large']),
   label: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Spinner.defaultProps = {

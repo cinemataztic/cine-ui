@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 
 import './Slider.styles.css';
 
-const Slider = ({ value, valueLabel, minValue, maxValue, onChange }) => {
+const Slider = ({
+  value,
+  valueLabel,
+  minValue,
+  maxValue,
+  onChange,
+  className,
+}) => {
   const [step, setStep] = useState(0);
   const rangeInputRef = useRef(null);
 
@@ -16,7 +23,7 @@ const Slider = ({ value, valueLabel, minValue, maxValue, onChange }) => {
   }, []);
 
   return (
-    <div className="w-11/12 relative py-4">
+    <div className={`w-11/12 relative py-4 ${className}`}>
       <input
         type="range"
         min={minValue}
@@ -56,4 +63,5 @@ Slider.propTypes = {
   minValue: PropTypes.number,
   maxValue: PropTypes.number,
   onChange: PropTypes.func,
+  className: PropTypes.string,
 };
