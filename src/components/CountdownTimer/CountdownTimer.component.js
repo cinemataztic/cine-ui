@@ -58,7 +58,9 @@ function CountdownTimer({ startDate, endDate }) {
                     },
                   )}
                 </div>
-                <div className="text-default mt-2">{dateTimeSegment}</div>
+                <div className="text-default mt-2 capitalize">
+                  {dateTimeSegment}
+                </div>
               </div>
               {dateTimeSegmentIndex + 1 !== length ? (
                 <div className="mt-2 ml-6 ">
