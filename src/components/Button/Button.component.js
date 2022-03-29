@@ -112,6 +112,7 @@ const Button = ({
   appearance,
   danger,
   className,
+  form,
 }) => {
   const sizeStyle = getSizeStyle(size);
 
@@ -138,6 +139,7 @@ const Button = ({
       )} ${getTransparencyStyle(disabled)} `}
       onClick={onClick}
       disabled={disabled}
+      form={form}
     >
       {label}
     </button>
@@ -156,6 +158,7 @@ Button.propTypes = {
   appearance: PropTypes.oneOf(['default', 'outline']),
   danger: PropTypes.bool,
   className: PropTypes.string,
+  form: PropTypes.string,
 };
 
 Button.defaultProps = {
