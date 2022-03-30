@@ -11,6 +11,7 @@ const FileUpload = ({
   dragDisabledText,
   acceptedFileTypes,
   disabled = false,
+  className,
 }) => {
   const handleDrop = useCallback((acceptedFiles) => {
     if (!onDrop) {
@@ -56,10 +57,12 @@ const FileUpload = ({
       {...getRootProps()}
       className={`w-full h-full border-3 border-dashed ${borderColor} rounded-lg p-4 transition duration-150 ease-in-out ${
         disabled ? 'opacity-50' : ''
-      }`}
+      } ${className}`}
     >
       <input {...getInputProps()} />
-      <div className={`flex justify-center items-center text-defaultSubtle h-full w-full`}>
+      <div
+        className={`flex justify-center items-center text-defaultSubtle h-full w-full`}
+      >
         <DropzoneContent />
       </div>
     </div>
@@ -72,6 +75,7 @@ FileUpload.propTypes = {
   dragActiveText: PropTypes.node,
   acceptedFileTypes: PropTypes.string,
   disabled: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 FileUpload.defaultProps = {

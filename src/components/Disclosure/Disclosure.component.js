@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import './Disclosure.styles.css';
 import { Disclosure as HeadlessDisclosure } from '@headlessui/react';
 
-const Disclosure = ({ panelContent, buttonContent }) => {
+const Disclosure = ({ panelContent, buttonContent, className }) => {
   return (
     <>
       <HeadlessDisclosure>
         {({ open }) => (
           <div
-            className={`bg-tertiary bg-opacity-90 rounded-lg py-2 px-4 w-full`}
+            className={`bg-tertiary bg-opacity-90 rounded-lg py-2 px-4 w-full ${className}`}
           >
             <HeadlessDisclosure.Button className="flex justify-between w-full">
               <div className="text-white text-lg pt-1">{buttonContent}</div>
@@ -36,4 +36,5 @@ export default Disclosure;
 Disclosure.propTypes = {
   panelContent: PropTypes.func,
   buttonContent: PropTypes.string,
+  className: PropTypes.string,
 };

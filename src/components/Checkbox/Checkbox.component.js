@@ -4,16 +4,15 @@ import PropTypes from 'prop-types';
 import './Checkbox.styles.css';
 
 const Checkbox = React.forwardRef(
-  ({ id, name, checked, onChange, label }, ref) => {
+  ({ id, name, checked, onChange, label, className }, ref) => {
     return (
-      <div className="inline-block">
+      <div className={`inline-block ${className}`}>
         <label
           htmlFor={id}
           className="flex items-center cursor-pointer text-white"
         >
           <div className="relative h-5">
             <input
-              className="absolute"
               type="checkbox"
               id={id}
               name={name}
@@ -46,4 +45,5 @@ Checkbox.propTypes = {
   value: PropTypes.bool,
   onChange: PropTypes.func,
   label: PropTypes.string,
+  className: PropTypes.string,
 };

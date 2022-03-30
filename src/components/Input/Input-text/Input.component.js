@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './Input.styles.css';
 
 const Input = React.forwardRef(
-  ({ type, name, placeholder, id, value, onChange, disabled }, ref) => {
+  (
+    { type, name, placeholder, id, value, onChange, disabled, className },
+    ref,
+  ) => {
     return (
       <input
         placeholder={placeholder}
@@ -16,7 +20,7 @@ const Input = React.forwardRef(
           disabled
             ? 'opacity-50 text-secondary cursor-not-allowed'
             : 'text-white cursor-text'
-        }`}
+        } ${className}`}
         ref={ref}
         disabled={disabled}
       />
@@ -34,6 +38,7 @@ Input.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 Input.defaultProps = {
