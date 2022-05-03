@@ -60,6 +60,12 @@ module.exports = {
         3: '3px',
       },
       fontSize: {
+        xxs: [
+          '0.5rem',
+          {
+            lineHeight: '0.75rem',
+          },
+        ],
         '4xl': [
           '2.25rem',
           {
@@ -90,6 +96,9 @@ module.exports = {
       },
       animation: {
         dash: 'dash 3s ease-in forwards',
+      },
+      strokeWidth: {
+        6: '6px',
       },
     },
   },
