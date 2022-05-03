@@ -49,6 +49,10 @@ module.exports = {
         default: '#FFF',
         defaultSubtle: '#707070',
       },
+      colors: {
+        pieChart: '#FFCE00',
+        halfPieChart: '#595542',
+      },
       fill: {
         primary: '#3AC1C8',
       },
@@ -83,6 +87,9 @@ module.exports = {
         lg: ['1.125rem', { lineHeight: '1.5rem' }],
         md: ['1rem', { lineHeight: '1.25rem' }],
         sm: ['0.875rem', { lineHeight: '1rem' }],
+      },
+      animation: {
+        dash: 'dash 3s ease-in forwards',
       },
     },
   },

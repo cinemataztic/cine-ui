@@ -13,3 +13,4 @@ export { default as Modal } from './components/Modal/Modal.component';
 export { default as Notification } from './components/Notification/Notification.component';
 export { default as Spinner } from './components/Spinner/Spinner.component';
 export { default as CountdownTimer } from './components/CountdownTimer/CountdownTimer.component';
+export { default as HalfPieChart } from './components/HalfPieChart/HalfPieChart.component';
