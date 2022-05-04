@@ -50,8 +50,8 @@ module.exports = {
         defaultSubtle: '#707070',
       },
       colors: {
-        pieChart: '#FFCE00',
-        halfPieChart: '#595542',
+        primary: '#FFCE00',
+        secondary: '#595542',
       },
       fill: {
         primary: '#3AC1C8',

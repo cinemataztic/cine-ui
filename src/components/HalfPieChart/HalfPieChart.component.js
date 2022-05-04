@@ -7,7 +7,7 @@ const HalfPieChart = ({ progress, label, height }) => {
     <>
       <svg viewBox="0 0 100 53" style={{ height: `${height}vh` }}>
         <path
-          className="stroke-halfPieChart stroke-6"
+          className="stroke-secondary stroke-6"
           strokeLinecap="round"
           d="M3,50 A20,20 0 1,1  97,50" // 3px padding on each side to allow for 6px stroke width
           fill="none"
@@ -17,7 +17,7 @@ const HalfPieChart = ({ progress, label, height }) => {
           strokeLinecap="round"
           strokeDasharray="147.66" // half of the circumsference (2*pi*47^2)
           strokeDashoffset="147.66" //  half of the circumsference (2*pi*47^2)
-          className={`stroke-6 stroke-pieChart animate-dash`}
+          className={`stroke-6 stroke-primary animate-dash`}
           d="M3,50 A20,20 0 1,1  97,50" // 3px padding on each side to allow for 6px stroke width
           style={{ '--percentage': 147.66 * (1 - progress) }}
         />
