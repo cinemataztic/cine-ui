@@ -1,12 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './HalfPieChart.styles.css';
 import PropTypes from 'prop-types';
-import $ from 'jquery';
 
 const HalfPieChart = ({ progress, label, height }) => {
-  useEffect(() => {
-    $('#yellow').animate({ 'stroke-dashoffset': 147.66 * (1 - progress) });
-  });
   return (
     <>
       <svg viewBox="0 0 100 53" style={{ height: `${height}vh` }}>
@@ -17,13 +13,13 @@ const HalfPieChart = ({ progress, label, height }) => {
           fill="none"
         />
         <path
-          id="yellow"
           fill="none"
           strokeLinecap="round"
           strokeDasharray="147.66" // half of the circumsference (2*pi*47^2)
           strokeDashoffset="147.66" //  half of the circumsference (2*pi*47^2)
-          className={`stroke-6 stroke-pieChart`}
+          className={`stroke-6 stroke-pieChart animate-dash`}
           d="M3,50 A20,20 0 1,1  97,50" // 3px padding on each side to allow for 6px stroke width
+          style={{ '--percentage': 147.66 * (1 - progress) }}
         />
         <text
           x="50%"

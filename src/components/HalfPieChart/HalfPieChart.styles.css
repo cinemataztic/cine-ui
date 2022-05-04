@@ -1,1 +1,7 @@
 @import '../../index.css';
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: var(--percentage);
+  }
+}

@@ -25,6 +25,6 @@ export const Base = Template.bind({});
 
 Base.args = {
   label: 'Goal',
-  progress: 0.9,
+  progress: 0.8,
   height: 50,
 };
