@@ -5,10 +5,10 @@ import './Button.styles.css';
 const getSizeStyle = (size) => {
   switch (size) {
     case 'sm':
-      return 'h-9 w-auto text-base px-4 py-2';
+      return 'h-9 w-auto text-[16px] px-4 py-2';
     case 'lg':
     default:
-      return 'h-12 w-auto text-lg px-6 py-3';
+      return 'h-12 w-auto text-[18px] px-6 py-3';
   }
 };
 
