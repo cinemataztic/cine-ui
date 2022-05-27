@@ -12,13 +12,12 @@ import {
 import './LineChart.styles.css';
 import PropTypes from 'prop-types';
 
-const lineColors = ['#3AC1C8', '#CE0EA3', '#F92107'];
+const lineColors = ['#FFCE00', '#3AC1C8', '#F866B9', '#FFA71A'];
 
 const LineChart = ({ data }) => {
   const formattingLegendText = (value) => {
     return <span className="text-default ml-1.5">{value}</span>;
   };
-
   return (
     <ResponsiveContainer width="100%" height="100%">
       <RechartsLineChart
@@ -36,7 +35,7 @@ const LineChart = ({ data }) => {
           className="stroke-horizontalLine"
         />
         <XAxis
-          dataKey="name"
+          dataKey={Object.keys(data[0])[0]}
           tickLine={false}
           axisLine={false}
           padding={{ left: 25 }}
@@ -56,15 +55,14 @@ const LineChart = ({ data }) => {
           iconSize={10}
           wrapperStyle={{ position: 'relative', marginTop: '10px' }}
         />
-        <Line type="monotone" dataKey="Spot 1" stroke="#FFCE00" dot={false} />
         {Object.keys(data[0])
-          .splice(2)
-          .map((spot, index) => {
+          .splice(1)
+          .map((yValue, index) => {
             return (
               <Line
-                key={spot}
+                key={yValue}
                 type="monotone"
-                dataKey={spot}
+                dataKey={yValue}
                 stroke={lineColors[index]}
                 dot={false}
               />
@@ -80,9 +78,8 @@ export default LineChart;
 LineChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      'Spot 1': PropTypes.number.isRequired,
-      'Spot 2': PropTypes.number,
+      xValue: PropTypes.string,
+      yValue: PropTypes.number,
     }),
   ).isRequired,
 };
