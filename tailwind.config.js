@@ -49,6 +49,9 @@ module.exports = {
         default: '#FFF',
         defaultSubtle: '#707070',
       },
+      colors: {
+        horizontalLine: '#151A20',
+      },
       fill: {
         primary: '#3AC1C8',
       },
