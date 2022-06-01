@@ -95,7 +95,7 @@ module.exports = {
         sm: ['0.875rem', { lineHeight: '1rem' }],
       },
       animation: {
-        dash: 'dash 3s ease-in forwards',
+        dash: 'dash 3s ease-in-out forwards',
       },
       strokeWidth: {
         6: '6px',
