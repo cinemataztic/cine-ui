@@ -50,6 +50,8 @@ module.exports = {
         defaultSubtle: '#707070',
       },
       colors: {
+        primary: '#FFCE00',
+        secondary: '#524E3E',
         horizontalLine: '#151A20',
       },
       fill: {
@@ -59,6 +61,12 @@ module.exports = {
         3: '3px',
       },
       fontSize: {
+        xxs: [
+          '0.5rem',
+          {
+            lineHeight: '0.75rem',
+          },
+        ],
         '4xl': [
           '2.25rem',
           {
@@ -86,6 +94,12 @@ module.exports = {
         lg: ['1.125rem', { lineHeight: '1.5rem' }],
         md: ['1rem', { lineHeight: '1.25rem' }],
         sm: ['0.875rem', { lineHeight: '1rem' }],
+      },
+      animation: {
+        dash: 'dash 3s ease-in-out forwards',
+      },
+      strokeWidth: {
+        6: '6px',
       },
     },
   },
