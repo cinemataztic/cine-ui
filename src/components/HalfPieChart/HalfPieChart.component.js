@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const HalfPieChart = ({ progress, label, height }) => {
   return (
     <>
-      <svg viewBox="0 0 100 53" style={{ height: `${height}vh` }}>
+      <svg viewBox="0 0 100 53" style={{ height: `${height}px` }}>
         <path
           className="stroke-secondary stroke-6"
           strokeLinecap="round"
@@ -67,5 +67,5 @@ HalfPieChart.propTypes = {
 HalfPieChart.defaultProps = {
   label: 'Goal',
   progress: 0.5,
-  height: 50,
+  height: 150,
 };
