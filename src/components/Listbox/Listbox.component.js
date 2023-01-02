@@ -89,9 +89,12 @@ const ListBox = ({
             <HeadlessListBox.Option
               key={option.value}
               value={option.value}
-              className="cursor-pointer hover:bg-hover text-left px-4 py-2 rounded-lg "
             >
-              {option.label}
+              {({ active, selected }) => (
+                <li className={`cursor-pointer hover:bg-hover text-left px-4 py-2 rounded-lg  ${active || selected ? 'bg-hover' : null}`}>
+                  {option.label}
+                </li>
+              )}
             </HeadlessListBox.Option>
           ))
         ) : emptyHeader ? (
