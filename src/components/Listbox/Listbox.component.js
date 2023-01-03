@@ -19,7 +19,7 @@ function LabelForValue({
   }
 
   // Check if we have a value
-  if (!value) return placeholder;
+  if (!value && typeof value !== 'boolean') return placeholder;
 
   // Find the option that matches the value
   const selectedOption = options.filter((option) => option.value === value);
@@ -57,7 +57,7 @@ const ListBox = ({
       as="div"
       value={value}
       onChange={onChange}
-      className={className}
+      className={`relative ${className}`}
     >
       <HeadlessListBox.Button className="border-2 border-secondary focus:border-primary bg-tertiary text-white w-full h-12 rounded-lg text-left pl-4 ">
         <span className="flex justify-between">
@@ -83,15 +83,18 @@ const ListBox = ({
           )}
         </span>
       </HeadlessListBox.Button>
-      <HeadlessListBox.Options className="border-2 border-secondary focus:border-primary bg-tertiary w-full rounded-lg max-h-80 overflow-y-auto text-white ">
+      <HeadlessListBox.Options className="border-2 border-secondary focus:border-primary bg-tertiary w-full rounded-lg max-h-80 overflow-y-auto text-white absolute">
         {options.length > 0 ? (
           options.map((option) => (
             <HeadlessListBox.Option
               key={option.value}
               value={option.value}
-              className="cursor-pointer hover:bg-hover text-left px-4 py-2 rounded-lg "
             >
-              {option.label}
+              {({ active, selected }) => (
+                <li className={`cursor-pointer hover:bg-hover text-left px-4 py-2 rounded-lg  ${active || selected ? 'bg-hover' : null}`}>
+                  {option.label}
+                </li>
+              )}
             </HeadlessListBox.Option>
           ))
         ) : emptyHeader ? (
