@@ -119,7 +119,7 @@ const Button = ({
   return (
     <button
       type={type}
-      className={`rounded-md font-bold font-sans leading-none ${sizeStyle} ${className} ${getPointerStyle(
+      className={`rounded-md font-bold font-sans ${sizeStyle} ${className} ${getPointerStyle(
         disabled,
       )} ${getBorderWidth(variant, appearance)} ${getBorderColors(
         variant,
@@ -141,7 +141,7 @@ const Button = ({
       disabled={disabled}
       form={form}
     >
-      {label}
+      <div className='leading-none'>{label}</div>
     </button>
   );
 };
