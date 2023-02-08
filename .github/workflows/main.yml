@@ -12,15 +12,18 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 14
+      - name: Set npm to CI mode
+        run: npm ci
       - name: Install dependencies
         run: npm install
       - name: Compute GH short sha
         run: echo "SHORT_SHA=`git rev-parse --short HEAD`" >> $GITHUB_ENV
-      - name: Set npm to CI mode
-        run: npm ci
       - name: Prerelease tag
         run: npm version --no-git-tag-version prerelease --preid=${SHORT_SHA}
-      - run: npm run build
+      - name: Build 
+        run: npm run build
+      - name: Package as .tgz
+        run: npm pack
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
         with:
