@@ -151,17 +151,17 @@ Available customization variables can be found [here](.config.js).
 
 ## Steps to follow to release the new version of a package.
 
-1. Check that you’re on the master/main branch and ensure that you’re not missing any commits from the git repository by running git pull origin master/main in the terminal.
+1. Check that you’re on the master/main branch and ensure that you’re not missing any commits from the git repository by running `git pull origin master/main` in the terminal.
 2. To update the version number in package.json and package-lock.json, on the command line in the package root directory, run the following command, replacing <update_type> with one of the [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) release types (patch, major, or minor): `npm version <update_type>`
 3. It will also create a version commit and a new Git tag.
 4. To see all the previously released versions and current version by running `git tag`.
-5. Create a new branch and checkout to that branch, if the master/main branch is protected from write access without a review and an approval.
-6. You’ll also want to make sure your changes are promoted to the Git repository. To push the new tag you made, you’ll need to run the push command with the --tags flag: `git push origin new-branch-name --tags`.
+5. Create a new branch and checkout to that branch, if the master/main branch is protected from write access which needs atleast one approval.
+6. You’ll also have to make sure your changes are promoted to the Git repository. To push the new tag you made, you’ll need to run the push command with the --tags flag: `git push origin new-branch-name --tags`.
 
 # Github release
 
 1. On the Github, click on the `release` in your repo and then you’ll find `release and tags` in the top left corner.
 2. Click on the latest version tag and then click `create release from tags`.
 3. Click on `Generate release notes`. It’ll automatically generate notes with the all the commits in that version.
-4. Click on `Create a discussion for this release`.
+4. Check the `Create a discussion for this release` box, if you would like have a discussion about the release with your team.
 5. Finally, click on `Publish release` to publish the release of the new version.
