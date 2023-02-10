@@ -161,9 +161,8 @@ Available customization variables can be found [here](.config.js).
 # Github release
 
 1. On the Github page, click on `Releases` in this repo.
-2. Click on `Tags`
-3. Click on the [Draft new release](https://github.com/cinemataztic/cine-ui/releases/new) button. 
-4. Click on the `Choose a tag` button and find the tag you created earlier (`vX.X.X` e.g. `v0.1.0`).
-5. Click on `Generate release notes`. It’ll automatically generate notes with references to all pull requests between the current tag and latest release.
-6. If you wish to allow discussions on this release, check the `Create a discussion for this release` box (recommended).
-7. Finally, click on `Publish release` to publish the release of the new version.
+2. Click on the [Draft new release](https://github.com/cinemataztic/cine-ui/releases/new) button. 
+3. Click on the `Choose a tag` button and find the tag you created earlier (`vX.X.X` e.g. `v0.1.0`).
+4. Click on `Generate release notes`. It’ll automatically generate notes with references to all pull requests between the current tag and latest release.
+5. If you wish to allow discussions on this release, check the `Create a discussion for this release` box (recommended).
+6. Finally, click on `Publish release` to publish the release of the new version.
