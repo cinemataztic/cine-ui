@@ -147,9 +147,9 @@ CineUI is styled using TailwindCSS. This means that the component library can ea
 The easiest way to achieve this is to use TailwindCSS in the consumer project too and add the relevant variables to the tailwind.config.js file.
 Available customization variables can be found [here](.config.js).
 
-# Version release
+# Versioning and releasing
 
-## Steps to follow to release the new version of a package.
+## Steps to follow to create a new version this package
 
 1. Check that you’re on the master/main branch and ensure that you’re not missing any commits from the git repository by running `git pull origin master/main` in the terminal.
 2. Create a new branch for the release `git branch vX.X.X && git checkout vX.X.X`.
