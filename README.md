@@ -164,5 +164,5 @@ Available customization variables can be found [here](.config.js).
 1. On the Github page, click on `Release` in your repo and then you’ll find `Release and tags` in the top left corner.
 2. Click on the latest version tag and then click `Create release from tags`.
 3. Click on `Generate release notes`. It’ll automatically generate notes with all the commits in that version.
-4. If you would like have a discussion about the release with your team, check the `Create a discussion for this release` box,
+4. If you would like have a discussion about the release with your team, check the `Create a discussion for this release` box.
 5. Finally, click on `Publish release` to publish the release of the new version.
