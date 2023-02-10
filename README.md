@@ -152,17 +152,18 @@ Available customization variables can be found [here](.config.js).
 ## Steps to follow to release the new version of a package.
 
 1. Check that you’re on the master/main branch and ensure that you’re not missing any commits from the git repository by running `git pull origin master/main` in the terminal.
-2. To update the version number in package.json and package-lock.json, on the command line in the package root directory, run the following command, replacing <update_type> with one of the [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) release types (patch, major, or minor): `npm version <update_type>`
-3. The above step will automatically create a version commit and a new Git tag.
-4. All previously released versions along with the current version can be seen by running `git tag`.
-5. If the master/main branch is protected from write access, you have to create a new branch and checkout to that branch.
-6. You’ll also have to make sure that all your changes are pushed to the Git repository.
-7. In order to push the new tag you made, you’ll need to run the push command with the --tags flag: `git push origin new-branch-name --tags`.
+2. Create a new branch for the release `git branch vX.X.X && git checkout vX.X.X`.
+3. To update the version number in package.json and package-lock.json, on the command line in the package root directory, run the following command, replacing <update_type> with one of the [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) release types (patch, major, or minor): `npm version <update_type>`
+4. The above step will automatically create a version commit and a new Git tag.
+5. Previous tags can be seen by running `git tag`.
+6. Push the new release branch and tag you made: `git push origin vX.X.X --tags`.
 
 # Github release
 
-1. On the Github page, click on `Release` in your repo and then you’ll find `Release and tags` in the top left corner.
-2. Click on the latest version tag and then click `Create release from tags`.
-3. Click on `Generate release notes`. It’ll automatically generate notes with all the commits in that version.
-4. If you would like have a discussion about the release with your team, check the `Create a discussion for this release` box.
-5. Finally, click on `Publish release` to publish the release of the new version.
+1. On the Github page, click on `Releases` in this repo.
+2. Click on `Tags`
+3. Click on the [Draft new release](https://github.com/cinemataztic/cine-ui/releases/new) button. 
+4. Click on the `Choose a tag` button and find the tag you created earlier (`vX.X.X` e.g. `v0.1.0`).
+5. Click on `Generate release notes`. It’ll automatically generate notes with references to all pull requests between the current tag and latest release.
+6. If you wish to allow discussions on this release, check the `Create a discussion for this release` box (recommended).
+7. Finally, click on `Publish release` to publish the release of the new version.
