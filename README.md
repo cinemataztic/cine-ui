@@ -142,6 +142,27 @@ export const Listbox = Template.bind({});
 This component already has an internal ref to track the range value. So, when we pass ref from the external component, it is not returning the current value of the slider range. Due to that reason, when we integrate react-hook-form with this component ,one have to implement using Controller method.
 
 # Theming
+
 CineUI is styled using TailwindCSS. This means that the component library can easily be styled to other color themes by overriding the tailwind theme variables in the consumer project.
-The easiest way to achieve this is to use TailwindCSS in the consumer project too and add the relevant variables to the tailwind.config.js file. 
-Available customization variables can be found [here](tailwind.config.js). 
+The easiest way to achieve this is to use TailwindCSS in the consumer project too and add the relevant variables to the tailwind.config.js file.
+Available customization variables can be found [here](.config.js).
+
+# Version release
+
+## Steps to follow to release the new version of a package.
+
+1. Check that you’re on the master/main branch and ensure that you’re not missing any commits from the git repository by running `git pull origin master/main` in the terminal.
+2. To update the version number in package.json and package-lock.json, on the command line in the package root directory, run the following command, replacing <update_type> with one of the [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) release types (patch, major, or minor): `npm version <update_type>`
+3. The above step will automatically create a version commit and a new Git tag.
+4. All previously released versions along with the current version can be seen by running `git tag`.
+5. If the master/main branch is protected from write access, you have to create a new branch and checkout to that branch.
+6. You’ll also have to make sure that all your changes are pushed to the Git repository.
+7. In order to push the new tag you made, you’ll need to run the push command with the --tags flag: `git push origin new-branch-name --tags`.
+
+# Github release
+
+1. On the Github page, click on `Release` in your repo and then you’ll find `Release and tags` in the top left corner.
+2. Click on the latest version tag and then click `Create release from tags`.
+3. Click on `Generate release notes`. It’ll automatically generate notes with all the commits in that version.
+4. If you would like have a discussion about the release with your team, check the `Create a discussion for this release` box.
+5. Finally, click on `Publish release` to publish the release of the new version.
