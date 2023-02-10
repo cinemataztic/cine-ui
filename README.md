@@ -156,7 +156,8 @@ Available customization variables can be found [here](.config.js).
 3. The above step will automatically create a version commit and a new Git tag.
 4. All previously released versions along with the current version can be seen by running `git tag`.
 5. If the master/main branch is protected from write access, you have to create a new branch and checkout to that branch.
-6. You’ll also have to make sure that your changes are pushed to the Git repository. In order to push the new tag you made, you’ll need to run the push command with the --tags flag: `git push origin new-branch-name --tags`.
+6. You’ll also have to make sure that all your changes are pushed to the Git repository.
+7. In order to push the new tag you made, you’ll need to run the push command with the --tags flag: `git push origin new-branch-name --tags`.
 
 # Github release
 
