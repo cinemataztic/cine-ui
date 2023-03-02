@@ -45,6 +45,7 @@ Checkbox.propTypes = {
   name: PropTypes.string,
   value: PropTypes.bool,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   label: PropTypes.string,
   className: PropTypes.string,
 };
