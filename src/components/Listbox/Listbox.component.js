@@ -86,14 +86,15 @@ const ListBox = ({
       <HeadlessListBox.Options className="border-2 border-secondary focus:border-primary bg-tertiary w-full rounded-lg max-h-80 overflow-y-auto text-white absolute">
         {options.length > 0 ? (
           options.map((option) => (
-            <HeadlessListBox.Option
-              key={option.value}
-              value={option.value}
-            >
+            <HeadlessListBox.Option key={option.value} value={option.value}>
               {({ active, selected }) => (
-                <li className={`cursor-pointer hover:bg-hover text-left px-4 py-2 rounded-lg  ${active || selected ? 'bg-hover' : null}`}>
+                <div
+                  className={`cursor-pointer hover:bg-hover text-left px-4 py-2 rounded-lg  ${
+                    active || selected ? 'bg-hover' : null
+                  }`}
+                >
                   {option.label}
-                </li>
+                </div>
               )}
             </HeadlessListBox.Option>
           ))
