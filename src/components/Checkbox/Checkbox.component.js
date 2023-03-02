@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './Checkbox.styles.css';
 
 const Checkbox = React.forwardRef(
-  ({ id, name, checked, onChange, label, className }, ref) => {
+  ({ id, name, checked, onChange, onBlur, label, className }, ref) => {
     return (
       <div className={`inline-block ${className}`}>
         <label
@@ -19,6 +19,7 @@ const Checkbox = React.forwardRef(
               label={label}
               checked={checked}
               onChange={onChange}
+              onBlur={onBlur}
               ref={ref}
               className="appearance-none h-5 w-5 bg-white rounded-sm checked:bg-buttonPrimary"
             />
