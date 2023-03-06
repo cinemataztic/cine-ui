@@ -65,5 +65,6 @@ RadioGroup.propTypes = {
   ).isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   className: PropTypes.string,
 };
