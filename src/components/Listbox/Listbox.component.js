@@ -90,13 +90,13 @@ const ListBox = ({
           options.map((option) => (
             <HeadlessListBox.Option key={option.value} value={option.value}>
               {({ active, selected }) => (
-                <li
+                <div
                   className={`cursor-pointer hover:bg-hover text-left px-4 py-2 rounded-lg  ${
                     active || selected ? 'bg-hover' : null
                   }`}
                 >
                   {option.label}
-                </li>
+                </div>
               )}
             </HeadlessListBox.Option>
           ))
