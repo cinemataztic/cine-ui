@@ -48,7 +48,7 @@ Input.propTypes = {
   id: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
-  onblur: PropTypes.func,
+  onBlur: PropTypes.func,
   disabled: PropTypes.bool,
   className: PropTypes.string,
 };
