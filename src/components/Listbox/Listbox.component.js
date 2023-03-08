@@ -50,6 +50,7 @@ const ListBox = ({
   loading,
   loadingPlaceholder,
   className,
+  onBlur,
 }) => {
   return (
     <HeadlessListBox
@@ -58,6 +59,7 @@ const ListBox = ({
       value={value}
       onChange={onChange}
       className={`relative ${className}`}
+      onBlur={onBlur}
     >
       <HeadlessListBox.Button className="border-2 border-secondary focus:border-primary bg-tertiary text-white w-full h-12 rounded-lg text-left pl-4 ">
         <span className="flex justify-between">
@@ -143,6 +145,7 @@ ListBox.propTypes = {
     onClick: PropTypes.func,
   }),
   loading: PropTypes.bool,
+  onBlur: PropTypes.func,
   loadingPlaceholder: PropTypes.string,
   className: PropTypes.string,
 };

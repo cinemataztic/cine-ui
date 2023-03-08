@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 
 import './RadioGroup.styles.css';
 
-const RadioGroup = ({ options, value, onChange, className }) => {
+const RadioGroup = ({ options, value, onChange, className, onBlur }) => {
   return (
     <HeadlessRadioGroup
       value={value}
       onChange={onChange}
       className={`flex flex-wrap text-white ${className}`}
+      onBlur={onBlur}
     >
       {options.map((option) => {
         return (
@@ -64,5 +65,6 @@ RadioGroup.propTypes = {
   ).isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   className: PropTypes.string,
 };

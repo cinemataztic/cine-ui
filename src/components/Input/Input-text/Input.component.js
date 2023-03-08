@@ -5,7 +5,17 @@ import './Input.styles.css';
 
 const Input = React.forwardRef(
   (
-    { type, name, placeholder, id, value, onChange, disabled, className },
+    {
+      type,
+      name,
+      placeholder,
+      id,
+      value,
+      onChange,
+      onBlur,
+      disabled,
+      className,
+    },
     ref,
   ) => {
     return (
@@ -16,6 +26,7 @@ const Input = React.forwardRef(
         id={id}
         value={value}
         onChange={(e) => onChange(e)}
+        onBlur={onBlur}
         className={`bg-tertiary focus:outline-none rounded placeholder-primary h-12 w-full px-4 ${
           disabled
             ? 'opacity-50 text-secondary cursor-not-allowed'
@@ -37,6 +48,7 @@ Input.propTypes = {
   id: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   disabled: PropTypes.bool,
   className: PropTypes.string,
 };
