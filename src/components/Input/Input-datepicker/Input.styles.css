@@ -70,6 +70,13 @@
   color: #3ac1c8;
 }
 
+.CalendarDay__blocked_calendar,
+.CalendarDay__blocked_calendar:active,
+.CalendarDay__blocked_calendar:hover {
+  color: #707070;
+  @apply rounded bg-transparent;
+}
+
 .CalendarDay__blocked_out_of_range,
 .CalendarDay__blocked_out_of_range:active,
 .CalendarDay__blocked_out_of_range:hover {
