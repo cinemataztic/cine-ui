@@ -85,7 +85,7 @@ const ListBox = ({
           )}
         </span>
       </HeadlessListBox.Button>
-      <HeadlessListBox.Options className="border-2 border-secondary focus:border-primary bg-tertiary w-full rounded-lg max-h-80 overflow-y-auto text-white absolute">
+      <HeadlessListBox.Options className="border-2 border-secondary focus:border-primary bg-tertiary w-full rounded-lg max-h-80 overflow-y-auto text-white absolute z-10">
         {options.length > 0 ? (
           options.map((option) => (
             <HeadlessListBox.Option key={option.value} value={option.value}>
