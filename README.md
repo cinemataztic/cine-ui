@@ -152,11 +152,11 @@ Available customization variables can be found [here](.config.js).
 ## Steps to follow to create a new version this package
 
 1. Check that you’re on the master/main branch and ensure that you’re not missing any commits from the git repository by running `git pull origin master/main` in the terminal.
-2. Create a new branch for the release `git branch vX.X.X && git checkout vX.X.X`.
+2. Create a new branch for the release `git branch release/vX.X.X && git checkout release/vX.X.X`.
 3. To update the version number in package.json and package-lock.json, on the command line in the package root directory, run the following command, replacing <update_type> with one of the [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) release types (patch, major, or minor): `npm version <update_type>`
 4. The above step will automatically create a version commit and a new Git tag.
 5. Previous tags can be seen by running `git tag`.
-6. Push the new release branch and tag you made: `git push origin vX.X.X --tags`.
+6. Push the new release branch and tag you made: `git push origin release/vX.X.X --tags`.
 
 # Github release
 
