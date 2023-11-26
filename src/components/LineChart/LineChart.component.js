@@ -18,6 +18,18 @@ const LineChart = ({ data }) => {
   const formattingLegendText = (value) => {
     return <span className="text-default ml-1.5">{value}</span>;
   };
+
+  function chooseLineColors(yValue) {
+    let yKey;
+    if (yValue.includes('.')) {
+      yKey = yValue.slice(5, yValue.indexOf('.'));
+    } else {
+      yKey = yValue.slice(5);
+    }
+
+    return lineColors[Number(yKey) - 1];
+  }
+
   return (
     <ResponsiveContainer width="100%" height="100%">
       <RechartsLineChart
@@ -63,7 +75,7 @@ const LineChart = ({ data }) => {
                 key={yValue}
                 type="monotone"
                 dataKey={yValue}
-                stroke={lineColors[index]}
+                stroke={chooseLineColors(yValue)}
                 dot={false}
               />
             );
