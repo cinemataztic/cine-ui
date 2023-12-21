@@ -69,7 +69,7 @@ const LineChart = ({ data }) => {
         />
         {Object.keys(data[0])
           .splice(1)
-          .map((yValue, index) => {
+          .map((yValue) => {
             return (
               <Line
                 key={yValue}
