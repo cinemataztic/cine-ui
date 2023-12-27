@@ -1,6 +1,6 @@
 {
   "name": "@cinemataztic/cine-ui",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Cinemataztic React UI component library.",
   "main": "dist/index.js",
   "scripts": {
