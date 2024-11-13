@@ -13,12 +13,12 @@ const Tooltip = ({ text, children, position = 'top' }) => {
   };
 
   const arrowClasses = {
-    top: 'left-1/2 transform -translate-x-1/2 -bottom-1.5 border-l-8 border-r-8 border-t-8 border-t-gray-700 border-transparent',
+    top: 'left-1/2 transform -translate-x-1/2 -bottom-1.5 border-l-8 border-r-8 border-t-8 border-t-tertiary border-transparent',
     right:
-      'top-1/2 transform -translate-y-1/2 -left-1.5 border-t-8 border-b-8 border-r-8 border-r-gray-700 border-transparent',
+      'top-1/2 transform -translate-y-1/2 -left-1.5 border-t-8 border-b-8 border-r-8 border-r-tertiary border-transparent',
     bottom:
-      'left-1/2 transform -translate-x-1/2 -top-1.5 border-l-8 border-r-8 border-b-8 border-b-gray-700 border-transparent',
-    left: 'top-1/2 transform -translate-y-1/2 -right-1.5 border-t-8 border-b-8 border-l-8 border-l-gray-700 border-transparent',
+      'left-1/2 transform -translate-x-1/2 -top-1.5 border-l-8 border-r-8 border-b-8 border-b-tertiary border-transparent',
+    left: 'top-1/2 transform -translate-y-1/2 -right-1.5 border-t-8 border-b-8 border-l-8 border-l-tertiary border-transparent',
   };
 
   return (

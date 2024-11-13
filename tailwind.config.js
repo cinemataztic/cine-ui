@@ -9,6 +9,7 @@ module.exports = {
       borderColor: {
         primary: '#3AC1C8',
         secondary: '#323232',
+        tertiary: '#3C3C3C',
         primaryHover: '#61CDD3',
         primaryActive: '#2E9AA0',
         buttonSecondary: '#C9C9C9',
