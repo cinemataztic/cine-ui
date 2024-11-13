@@ -42,8 +42,9 @@ const Tooltip = ({ text, children, position = 'top' }) => {
 export default Tooltip;
 
 Tooltip.propTypes = {
-  position: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   position: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+  children: PropTypes.element.isRequired,
 };
 
 Tooltip.defaultProps = {
