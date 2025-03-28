@@ -16,3 +16,4 @@ export { default as CountdownTimer } from './components/CountdownTimer/Countdown
 export { default as HalfPieChart } from './components/HalfPieChart/HalfPieChart.component';
 export { default as LineChart } from './components/LineChart/LineChart.component';
 export { default as Tooltip } from './components/Tooltip/Tooltip.component';
+export { default as Toggle } from './components/Toggle/Toggle.component';
