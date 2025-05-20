@@ -14,7 +14,7 @@ const Modal = ({ isModalOpen, closeModal, children, className }) => {
         <Dialog.Overlay className="fixed inset-0 bg-black opacity-50" />
 
         <div
-          className={`relative bg-inverted rounded-xl p-6  max-w-sm mx-auto`}
+          className={`relative bg-[#3c3c3c] text-white rounded-xl p-6 max-w-sm mx-auto`}
         >
           {children}
         </div>
