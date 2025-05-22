@@ -3,7 +3,7 @@ import { Dialog } from '@headlessui/react';
 import PropTypes from 'prop-types';
 import './Modal.styles.css';
 
-const Modal = ({ isModalOpen, closeModal, children, className }) => {
+const Modal = ({ isModalOpen, closeModal, children, className, isDarkMode }) => {
   const initialFocusRef = useRef(null);
 
   return (
@@ -17,7 +17,7 @@ const Modal = ({ isModalOpen, closeModal, children, className }) => {
         <Dialog.Overlay className="fixed inset-0 bg-black opacity-50" />
 
         <div
-          className={`relative bg-inverted rounded-xl p-6  max-w-sm mx-auto outline-none`}
+          className={`relative ${!isDarkMode ? 'bg-inverted' : 'bg-hover text-white'} rounded-xl p-6 max-w-sm mx-auto`}
           ref={initialFocusRef}
           tabIndex={0}
         >
@@ -35,4 +35,9 @@ Modal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
   className: PropTypes.string,
+  isDarkMode: PropTypes.bool
+};
+
+Modal.defaultProps = {
+  isDarkMode: true,
 };
