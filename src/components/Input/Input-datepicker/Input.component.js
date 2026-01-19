@@ -91,5 +91,4 @@ InputField.propTypes = {
 InputField.defaultProps = {
   placeholder: '',
   isDayBlocked: () => {},
-  isOutsideRange: undefined,
 };
