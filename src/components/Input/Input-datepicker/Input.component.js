@@ -5,7 +5,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import './Input.styles.css';
 import PropTypes from 'prop-types';
 
-const InputField = ({ value, onChange, placeholder, id, isDayBlocked }) => {
+const InputField = ({ value, onChange, placeholder, id, isDayBlocked, isOutsideRange }) => {
   const [focused, setFocused] = useState(false);
 
   const onFocusChange = ({ focused }) => {
@@ -27,6 +27,7 @@ const InputField = ({ value, onChange, placeholder, id, isDayBlocked }) => {
       showDefaultInputIcon={true}
       inputIconPosition="after"
       isDayBlocked={(day) => isDayBlocked(day)}
+      isOutsideRange={isOutsideRange}
       navPrev={
         <div className="DayPickerNavigation_button DayPickerNavigation_button_1 DayPickerNavigation_button__default DayPickerNavigation_button__default_2 DayPickerNavigation_button__horizontal DayPickerNavigation_button__horizontal_3 DayPickerNavigation_button__horizontalDefault DayPickerNavigation_button__horizontalDefault_4 DayPickerNavigation_leftButton__horizontalDefault DayPickerNavigation_leftButton__horizontalDefault_5">
           <svg
@@ -82,6 +83,7 @@ InputField.propTypes = {
   value: PropTypes.object,
   onChange: PropTypes.func,
   isDayBlocked: PropTypes.func,
+  isOutsideRange: PropTypes.func,
   placeholder: PropTypes.string,
   id: PropTypes.string,
 };
