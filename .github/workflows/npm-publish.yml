@@ -27,7 +27,3 @@ jobs:
       
       # --provenance flaget linker pakken til dette repo via OIDC
       - run: npm publish --access public --provenance
-        env:
-          # setup-node@v4 bruger automatisk OIDC tokenet her,
-          # men det kræver at variablen hedder NODE_AUTH_TOKEN
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
