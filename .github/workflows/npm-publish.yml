@@ -1,26 +1,33 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
-
 name: npm publish
-
 on:
   release:
     types: [created]
 
 permissions:
-  id-token: write  # Required for OIDC
   contents: read
+  id-token: write # Vigtigt: Kræves for at generere OIDC token til npm
 
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4 # Opdateret fra v2
+
+      - uses: actions/setup-node@v4 # Opdateret fra v1 (Vigtigt!)
         with:
-          node-version: 20.x
-          registry-url: https://registry.npmjs.org/
-          scope: "@cinemataztic"
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@cinemataztic'
+          # Denne linje er vigtig for Trusted Publishing (provenance)
+          # Den beder npm om at bruge OIDC i stedet for en hardcoded secret
+      
       - run: npm ci --legacy-peer-deps
+      
       - run: npm run build
-      - run: npm publish --access public
+      
+      # --provenance flaget linker pakken til dette repo via OIDC
+      - run: npm publish --access public --provenance
+        env:
+          # setup-node@v4 bruger automatisk OIDC tokenet her,
+          # men det kræver at variablen hedder NODE_AUTH_TOKEN
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
