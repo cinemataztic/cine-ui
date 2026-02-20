@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import PosterCard from './PosterCard.component';
-
-const GAP = 12;
-const PEEK = 0.4;
+import { GAP, PEEK } from './carousel.config';
 
 function useSlidesPerView() {
   const [spv, setSpv] = useState(4);
