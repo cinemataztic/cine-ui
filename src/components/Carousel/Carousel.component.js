@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import PosterCard from './PosterCard.component';
 
@@ -119,7 +119,9 @@ const Carousel = ({ label, movies, selectedMovies, onToggle }) => {
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex < maxIndex;
 
-  const cardWCss = `calc((100% - ${GAP * (slidesPerView - 1)}px) / ${slidesPerView + PEEK})`;
+  const selectedSet = useMemo(() => new Set(selectedMovies), [selectedMovies]);
+
+  const cardWCss = `calc((100% - ${GAP * slidesPerView}px) / ${slidesPerView + PEEK})`;
   const translateCss = `calc(-${currentIndex} * (${cardWCss} + ${GAP}px))`;
 
   return (
@@ -147,7 +149,7 @@ const Carousel = ({ label, movies, selectedMovies, onToggle }) => {
               <PosterCard
                 key={movie.id}
                 movie={movie}
-                isSelected={Array.isArray(selectedMovies) && selectedMovies.includes(movie.id)}
+                isSelected={selectedSet.has(movie.id)}
                 onToggle={onToggle}
                 style={{ width: cardWCss, flexShrink: 0 }}
               />
