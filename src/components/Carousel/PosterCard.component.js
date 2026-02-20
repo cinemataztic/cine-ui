@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Checkbox from '../Checkbox/Checkbox.component';
 
 const PosterCard = ({ movie, isSelected, onToggle, style }) => {
@@ -59,3 +60,16 @@ const PosterCard = ({ movie, isSelected, onToggle, style }) => {
 };
 
 export default PosterCard;
+
+PosterCard.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    distributor: PropTypes.string,
+    screens: PropTypes.number,
+    posterUrl: PropTypes.string,
+  }).isRequired,
+  isSelected: PropTypes.bool,
+  onToggle: PropTypes.func.isRequired,
+  style: PropTypes.object,
+};

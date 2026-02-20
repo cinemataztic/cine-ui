@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import PosterCard from './PosterCard.component';
 
 const GAP = 12;
@@ -16,8 +17,18 @@ function useSlidesPerView() {
       else setSpv(4);
     };
     update();
-    window.addEventListener('resize', update);
-    return () => window.removeEventListener('resize', update);
+
+    let timeoutId;
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(update, 150);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return spv;
@@ -103,8 +114,8 @@ const Carousel = ({ label, movies, selectedMovies, onToggle }) => {
   const maxIndex = Math.max(0, total - slidesPerView);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const prev = () => setCurrentIndex((i) => Math.max(0, i - 1));
-  const next = () => setCurrentIndex((i) => Math.min(maxIndex, i + 1));
+  const prev = React.useCallback(() => setCurrentIndex((i) => Math.max(0, i - 1)), []);
+  const next = React.useCallback(() => setCurrentIndex((i) => Math.min(maxIndex, i + 1)), [maxIndex]);
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex < maxIndex;
 
@@ -151,3 +162,18 @@ const Carousel = ({ label, movies, selectedMovies, onToggle }) => {
 };
 
 export default Carousel;
+
+Carousel.propTypes = {
+  label: PropTypes.string.isRequired,
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      distributor: PropTypes.string,
+      screens: PropTypes.number,
+      posterUrl: PropTypes.string,
+    }),
+  ).isRequired,
+  selectedMovies: PropTypes.arrayOf(PropTypes.string),
+  onToggle: PropTypes.func.isRequired,
+};
