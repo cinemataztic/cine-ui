@@ -6,7 +6,7 @@ export default {
   component: Carousel,
 };
 
-const SAMPLE_MOVIES = Array.from({ length: 6 }, (_, i) => ({
+const SAMPLE_MOVIES = Array.from({ length: 15 }, (_, i) => ({
   id: String(i + 1),
   title: `Movie Title ${i + 1}`,
   distributor: `Distributor ${i + 1}`,

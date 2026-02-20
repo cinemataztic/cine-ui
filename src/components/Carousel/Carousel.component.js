@@ -112,8 +112,11 @@ const Carousel = ({ label, movies, selectedMovies, onToggle }) => {
   const maxIndex = Math.max(0, total - slidesPerView);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const prev = React.useCallback(() => setCurrentIndex((i) => Math.max(0, i - 1)), []);
-  const next = React.useCallback(() => setCurrentIndex((i) => Math.min(maxIndex, i + 1)), [maxIndex]);
+  const numPages = Math.ceil(total / slidesPerView);
+  const activePage = Math.round(currentIndex / slidesPerView);
+
+  const prev = React.useCallback(() => setCurrentIndex((i) => Math.max(0, i - slidesPerView)), [slidesPerView]);
+  const next = React.useCallback(() => setCurrentIndex((i) => Math.min(maxIndex, i + slidesPerView)), [maxIndex, slidesPerView]);
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex < maxIndex;
 
@@ -128,7 +131,7 @@ const Carousel = ({ label, movies, selectedMovies, onToggle }) => {
         <p className='text-lg font-semibold' style={{ color: 'var(--carousel-label-color, #525252)' }}>
           {label}
         </p>
-        <PillDots current={currentIndex} maxIndex={maxIndex} />
+        <PillDots current={activePage} maxIndex={numPages - 1} />
       </div>
 
       <div style={{ position: 'relative' }}>

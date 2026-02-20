@@ -21,7 +21,7 @@ const makeMovies = (n) =>
 
 const defaultProps = {
   label: 'Now Showing',
-  movies: makeMovies(6), // slidesPerView=4 → maxIndex=2, 3 dots
+  movies: makeMovies(6), // slidesPerView=4 → maxIndex=2, numPages=2
   selectedMovies: [],
   onToggle: jest.fn(),
 };
@@ -70,22 +70,21 @@ describe('Carousel — navigation', () => {
   });
 
   it('hides Next at the last slide', () => {
-    // 6 movies, slidesPerView=4 → maxIndex=2, need 2 clicks to reach end
+    // 6 movies, slidesPerView=4 → maxIndex=2, one click jumps to index 2 (last page)
     render(<Carousel {...defaultProps} />);
-    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     expect(screen.queryByRole('button', { name: 'Next' })).not.toBeInTheDocument();
   });
 });
 
 describe('Carousel — pill dots', () => {
-  it('renders maxIndex + 1 dots', () => {
-    // 6 movies, slidesPerView=4 → maxIndex=2 → 3 dots
+  it('renders one dot per page (Math.ceil(total / slidesPerView))', () => {
+    // 6 movies, slidesPerView=4 → Math.ceil(6/4) = 2 dots
     render(<Carousel {...defaultProps} />);
-    expect(screen.getAllByTestId('pill-dot')).toHaveLength(3);
+    expect(screen.getAllByTestId('pill-dot')).toHaveLength(2);
   });
 
-  it('highlights the dot at currentIndex', () => {
+  it('highlights the dot at the active page', () => {
     render(<Carousel {...defaultProps} />);
     let dots = screen.getAllByTestId('pill-dot');
     expect(dots[0]).toHaveStyle({ backgroundColor: 'var(--carousel-accent, #3dd6c8)' });
