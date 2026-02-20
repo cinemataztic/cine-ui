@@ -17,3 +17,5 @@ export { default as HalfPieChart } from './components/HalfPieChart/HalfPieChart.
 export { default as LineChart } from './components/LineChart/LineChart.component';
 export { default as Tooltip } from './components/Tooltip/Tooltip.component';
 export { default as Toggle } from './components/Toggle/Toggle.component';
+export { default as Carousel } from './components/Carousel/Carousel.component';
+export { default as PosterCard } from './components/Carousel/PosterCard.component';
