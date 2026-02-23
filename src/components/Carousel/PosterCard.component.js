@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Checkbox from '../Checkbox/Checkbox.component';
 
-const PosterCard = ({ movie, isSelected, onToggle, style }) => {
+const PosterCard = ({ movie, isSelected, onToggle }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
     <div
       style={{
-        ...style,
+        width: '100%',
         display: 'flex',
         flexDirection: 'column',
         transition: 'transform 0.25s ease',
@@ -71,5 +71,4 @@ PosterCard.propTypes = {
   }).isRequired,
   isSelected: PropTypes.bool,
   onToggle: PropTypes.func.isRequired,
-  style: PropTypes.object,
 };

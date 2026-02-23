@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import PosterCard from './PosterCard.component';
 
 const baseMovie = { id: '42', title: 'Test Movie', distributor: 'Test Dist', screens: 200 };
-const baseProps = { movie: baseMovie, isSelected: false, onToggle: jest.fn(), style: {} };
+const baseProps = { movie: baseMovie, isSelected: false, onToggle: jest.fn() };
 
 describe('PosterCard — poster', () => {
   it('renders an img when posterUrl is provided', () => {

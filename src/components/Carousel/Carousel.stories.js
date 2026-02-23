@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Carousel from './Carousel.component';
+import PosterCard from './PosterCard.component';
 
 export default {
   title: 'Components/Carousel',
@@ -14,7 +15,7 @@ const SAMPLE_MOVIES = Array.from({ length: 15 }, (_, i) => ({
   posterUrl: `https://placehold.co/200x300/333/aaa?text=Movie+${i + 1}`,
 }));
 
-const Template = ({ label, movies }) => {
+const Template = ({ label, items }) => {
   const [selectedMovies, setSelectedMovies] = useState([]);
 
   const handleToggle = (id, checked) => {
@@ -23,13 +24,20 @@ const Template = ({ label, movies }) => {
     );
   };
 
+  const selectedSet = new Set(selectedMovies);
+
   return (
     <div style={{ padding: 24, background: '#1a1a1a', minHeight: '100vh' }}>
       <Carousel
         label={label}
-        movies={movies}
-        selectedMovies={selectedMovies}
-        onToggle={handleToggle}
+        items={items}
+        renderItem={(movie) => (
+          <PosterCard
+            movie={movie}
+            isSelected={selectedSet.has(movie.id)}
+            onToggle={handleToggle}
+          />
+        )}
       />
       {selectedMovies.length > 0 && (
         <p style={{ color: '#aaa', marginTop: 12, fontSize: 13 }}>
@@ -44,5 +52,5 @@ export const Base = Template.bind({});
 
 Base.args = {
   label: 'UPCOMING',
-  movies: SAMPLE_MOVIES,
+  items: SAMPLE_MOVIES,
 };

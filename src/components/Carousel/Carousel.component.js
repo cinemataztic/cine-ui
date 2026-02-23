@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import PosterCard from './PosterCard.component';
 import { GAP, PEEK } from './carousel.config';
 
 function useSlidesPerView() {
@@ -106,9 +105,9 @@ function PeekArrow({ onClick, direction }) {
   );
 }
 
-const Carousel = ({ label, movies, selectedMovies, onToggle }) => {
+const Carousel = ({ label, items, renderItem }) => {
   const slidesPerView = useSlidesPerView();
-  const total = movies.length;
+  const total = items.length;
   const maxIndex = Math.max(0, total - slidesPerView);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -119,8 +118,6 @@ const Carousel = ({ label, movies, selectedMovies, onToggle }) => {
   const next = React.useCallback(() => setCurrentIndex((i) => Math.min(maxIndex, i + slidesPerView)), [maxIndex, slidesPerView]);
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex < maxIndex;
-
-  const selectedSet = useMemo(() => new Set(selectedMovies), [selectedMovies]);
 
   const cardWCss = `calc((100% - ${GAP * slidesPerView}px) / ${slidesPerView + PEEK})`;
   const translateCss = `calc(-${currentIndex} * (${cardWCss} + ${GAP}px))`;
@@ -146,14 +143,10 @@ const Carousel = ({ label, movies, selectedMovies, onToggle }) => {
               transform: `translateX(${translateCss})`,
             }}
           >
-            {movies.map((movie) => (
-              <PosterCard
-                key={movie.id}
-                movie={movie}
-                isSelected={selectedSet.has(movie.id)}
-                onToggle={onToggle}
-                style={{ width: cardWCss, flexShrink: 0 }}
-              />
+            {items.map((item) => (
+              <div key={item.id} style={{ width: cardWCss, flexShrink: 0 }}>
+                {renderItem(item)}
+              </div>
             ))}
           </div>
         </div>
@@ -168,15 +161,8 @@ export default Carousel;
 
 Carousel.propTypes = {
   label: PropTypes.string.isRequired,
-  movies: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      distributor: PropTypes.string,
-      screens: PropTypes.number,
-      posterUrl: PropTypes.string,
-    }),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({ id: PropTypes.string.isRequired }),
   ).isRequired,
-  selectedMovies: PropTypes.arrayOf(PropTypes.string),
-  onToggle: PropTypes.func.isRequired,
+  renderItem: PropTypes.func.isRequired,
 };
