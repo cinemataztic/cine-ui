@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Checkbox from '../Checkbox/Checkbox.component';
 
-const PosterCard = ({ movie, isSelected, onToggle }) => {
+const PosterCard = ({ movie, renderActions }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -48,12 +47,11 @@ const PosterCard = ({ movie, isSelected, onToggle }) => {
         <p className='text-lg font-semibold text-white truncate'>{movie.title}</p>
         <p className='text-sm font-normal mt-0.5' style={{ color: 'var(--movie-card-meta-color, #7D7D7D)' }}>{movie.distributor}</p>
         <p className='text-sm font-normal' style={{ color: 'var(--movie-card-meta-color, #7D7D7D)' }}>{movie.screens} Screens</p>
-        <div className='flex justify-center mt-2'>
-          <Checkbox
-            checked={isSelected}
-            onChange={(e) => onToggle(movie.id, e.target.checked)}
-          />
-        </div>
+        {renderActions && (
+          <div className='flex justify-center mt-2'>
+            {renderActions()}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -69,6 +67,5 @@ PosterCard.propTypes = {
     screens: PropTypes.number,
     posterUrl: PropTypes.string,
   }).isRequired,
-  isSelected: PropTypes.bool,
-  onToggle: PropTypes.func.isRequired,
+  renderActions: PropTypes.func,
 };

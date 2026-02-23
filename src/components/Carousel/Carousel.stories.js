@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Carousel from './Carousel.component';
 import PosterCard from './PosterCard.component';
+import Checkbox from '../Checkbox/Checkbox.component';
 
 export default {
   title: 'Components/Carousel',
@@ -34,8 +35,12 @@ const Template = ({ label, items }) => {
         renderItem={(movie) => (
           <PosterCard
             movie={movie}
-            isSelected={selectedSet.has(movie.id)}
-            onToggle={handleToggle}
+            renderActions={() => (
+              <Checkbox
+                checked={selectedSet.has(movie.id)}
+                onChange={(e) => handleToggle(movie.id, e.target.checked)}
+              />
+            )}
           />
         )}
       />

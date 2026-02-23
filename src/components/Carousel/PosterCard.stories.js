@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PosterCard from './PosterCard.component';
+import Checkbox from '../Checkbox/Checkbox.component';
 
 export default {
   title: 'Components/PosterCard',
@@ -27,15 +28,25 @@ const Template = ({ movie }) => {
     <Wrapper>
       <PosterCard
         movie={movie}
-        isSelected={isSelected}
-        onToggle={(_, checked) => setIsSelected(checked)}
+        renderActions={() => (
+          <Checkbox
+            checked={isSelected}
+            onChange={(e) => setIsSelected(e.target.checked)}
+          />
+        )}
       />
     </Wrapper>
   );
 };
 
-export const WithPoster = Template.bind({});
-WithPoster.args = {
-  movie: SAMPLE_MOVIE,
-};
+const TemplateNoActions = ({ movie }) => (
+  <Wrapper>
+    <PosterCard movie={movie} />
+  </Wrapper>
+);
 
+export const WithPoster = Template.bind({});
+WithPoster.args = { movie: SAMPLE_MOVIE };
+
+export const NoActions = TemplateNoActions.bind({});
+NoActions.args = { movie: SAMPLE_MOVIE };

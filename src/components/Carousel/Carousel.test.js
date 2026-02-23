@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Carousel from './Carousel.component';
 import PosterCard from './PosterCard.component';
+import Checkbox from '../Checkbox/Checkbox.component';
 
 // jsdom defaults window.innerWidth to 0; set to 1200 so slidesPerView = 4
 beforeAll(() => {
@@ -20,11 +21,10 @@ const makeMovies = (n) =>
     screens: 100 + i * 10,
   }));
 
-const noopToggle = jest.fn();
-
 const renderCarousel = ({ items, selectedMovies = [], ...rest } = {}) => {
   const movies = items ?? makeMovies(6);
   const selectedSet = new Set(selectedMovies);
+  const noopToggle = jest.fn();
   return render(
     <Carousel
       label='Now Showing'
@@ -32,8 +32,12 @@ const renderCarousel = ({ items, selectedMovies = [], ...rest } = {}) => {
       renderItem={(movie) => (
         <PosterCard
           movie={movie}
-          isSelected={selectedSet.has(movie.id)}
-          onToggle={noopToggle}
+          renderActions={() => (
+            <Checkbox
+              checked={selectedSet.has(movie.id)}
+              onChange={(e) => noopToggle(movie.id, e.target.checked)}
+            />
+          )}
         />
       )}
       {...rest}
