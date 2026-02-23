@@ -4,7 +4,7 @@
   "description": "Cinemataztic React UI component library.",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"write some tests!\"",
+    "test": "jest",
     "build": "webpack",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
@@ -35,9 +35,9 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/preset-env": "^7.16.5",
-    "@babel/preset-react": "^7.16.5",
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-react": "^7.28.5",
     "@headlessui/react": "^1.4.2",
     "@storybook/addon-actions": "^6.4.9",
     "@storybook/addon-essentials": "^6.4.9",
@@ -47,6 +47,8 @@
     "@storybook/builder-webpack5": "^6.5.0-alpha.9",
     "@storybook/manager-webpack5": "^6.5.0-alpha.9",
     "@storybook/react": "^6.4.9",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^12.1.5",
     "autoprefixer": "^10.4.0",
     "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
@@ -55,6 +57,7 @@
     "eslint-webpack-plugin": "^3.1.1",
     "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.5.1",
     "postcss": "^8.4.5",
     "postcss-loader": "^6.2.1",
     "prop-types": "^15.7.2",
