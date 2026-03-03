@@ -4,6 +4,33 @@ import Carousel from './Carousel.component';
 import PosterCard from './PosterCard.component';
 import Checkbox from '../Checkbox/Checkbox.component';
 
+const mockScrollState = { snapIndex: 0, maxIndex: 2, selectCb: null };
+
+function resetMockScroll(maxIndex = 2) {
+  mockScrollState.snapIndex = 0;
+  mockScrollState.maxIndex = maxIndex;
+  mockScrollState.selectCb = null;
+}
+
+jest.mock('embla-carousel-react', () => ({
+  __esModule: true,
+  default: () => [
+    jest.fn(),
+    {
+      selectedScrollSnap: () => mockScrollState.snapIndex,
+      canScrollPrev: () => mockScrollState.snapIndex > 0,
+      canScrollNext: () => mockScrollState.snapIndex < mockScrollState.maxIndex,
+      scrollTo: (i) => {
+        mockScrollState.snapIndex = i;
+        mockScrollState.selectCb?.();
+      },
+      on: (e, cb) => { if (e === 'select') mockScrollState.selectCb = cb; },
+      off: (e, _cb) => { if (e === 'select') mockScrollState.selectCb = null; },
+    },
+  ],
+}));
+
+
 // jsdom defaults window.innerWidth to 0; set to 1200 so slidesPerView = 4
 beforeAll(() => {
   Object.defineProperty(window, 'innerWidth', {
@@ -12,6 +39,8 @@ beforeAll(() => {
     value: 1200,
   });
 });
+
+beforeEach(() => resetMockScroll(2)); // default: 6 items − 4 spv = maxIndex 2
 
 const makeMovies = (n) =>
   Array.from({ length: n }, (_, i) => ({
@@ -106,12 +135,73 @@ describe('Carousel — pill dots', () => {
   it('highlights the dot at the active page', () => {
     renderCarousel();
     let dots = screen.getAllByTestId('pill-dot');
-    expect(dots[0]).toHaveStyle({ backgroundColor: 'var(--carousel-accent, #3dd6c8)' });
-    expect(dots[1]).toHaveStyle({ backgroundColor: '#555' });
+    expect(dots[0]).toHaveClass('opacity-100');
+    expect(dots[1]).toHaveClass('opacity-30');
 
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     dots = screen.getAllByTestId('pill-dot');
-    expect(dots[0]).toHaveStyle({ backgroundColor: '#555' });
-    expect(dots[1]).toHaveStyle({ backgroundColor: 'var(--carousel-accent, #3dd6c8)' });
+    expect(dots[0]).toHaveClass('opacity-30');
+    expect(dots[1]).toHaveClass('opacity-100');
+  });
+});
+
+describe('Carousel — infinite scroll', () => {
+  // 8 items, slidesPerView=4 → maxIndex=4, pages=[0,4]
+  beforeEach(() => resetMockScroll(4)); // 8 items − 4 spv = maxIndex 4
+
+  const renderInfinite = (overrides = {}) => {
+    const onLoadMore = jest.fn();
+    const utils = renderCarousel({
+      items: makeMovies(8),
+      onLoadMore,
+      total: 9,   // 8 loaded < 9 total → hasMore=true
+      loading: false,
+      ...overrides,
+    });
+    return { ...utils, onLoadMore };
+  };
+
+  it('calls onLoadMore with current item count (offset) when navigating into the prefetch zone', () => {
+    const { onLoadMore } = renderInfinite();
+    // index 0 → newIndex 4; 4+4=8 >= items.length(8) → prefetch fires with offset=8
+    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
+    expect(onLoadMore).toHaveBeenCalledWith(8);
+  });
+
+  it('shows pill dots based on total, not items.length', () => {
+    // 8 items loaded, total=9 → ceil(9/4)=3 dots (not ceil(8/4)=2)
+    renderInfinite();
+    expect(screen.getAllByTestId('pill-dot')).toHaveLength(3);
+  });
+
+  it('does NOT call onLoadMore when well within the middle of a larger list', () => {
+    // 20 items → maxIndex=16; from index 0, newIndex=4; 4+4=8 < 20 → no prefetch
+    resetMockScroll(16);
+    const { onLoadMore } = renderInfinite({ items: makeMovies(20) });
+    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
+    expect(onLoadMore).not.toHaveBeenCalled();
+  });
+
+  it('does NOT call onLoadMore when loading is true', () => {
+    const { onLoadMore } = renderInfinite({ loading: true });
+    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
+    expect(onLoadMore).not.toHaveBeenCalled();
+  });
+
+  it('does NOT call onLoadMore when all items are already loaded (total === items.length)', () => {
+    const { onLoadMore } = renderInfinite({ total: 8 }); // 8 loaded = 8 total → hasMore=false
+    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
+    expect(onLoadMore).not.toHaveBeenCalled();
+  });
+
+  it('shows loading spinner when loading is true', () => {
+    renderInfinite({ loading: true });
+
+    expect(document.querySelector('.animate-spin')).toBeInTheDocument();
+  });
+
+  it('does not show loading spinner when loading is false', () => {
+    renderInfinite({ loading: false });
+    expect(document.querySelector('.animate-spin')).not.toBeInTheDocument();
   });
 });
