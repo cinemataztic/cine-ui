@@ -147,7 +147,7 @@ const EmblaCarousel = ({ label, items, renderItem, onLoadMore, total, loading })
     emblaApi.on('select', onSelect);
 
     return () => emblaApi.off('select', onSelect);
-  }, [emblaApi, items.length, total, loading, onLoadMore, isInfinite, hasMore, slidesPerView, maxIndex]);
+  }, [emblaApi, items.length, total, loading, onLoadMore, isInfinite, hasMore, slidesPerView]);
 
   const scrollPrev = useCallback(() => {
     if (!emblaApi) return;
