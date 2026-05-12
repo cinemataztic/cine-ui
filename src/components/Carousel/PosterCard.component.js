@@ -46,7 +46,7 @@ const PosterCard = ({ movie, renderActions }) => {
       <div className='mt-2 text-center'>
         <p className='text-lg font-semibold text-white truncate'>{movie.title}</p>
         <p className='text-sm font-normal mt-0.5' style={{ color: 'var(--movie-card-meta-color, #7D7D7D)' }}>{movie.distributor}</p>
-        {!!movie.screens && <p className='text-sm font-normal' style={{ color: 'var(--movie-card-meta-color, #7D7D7D)' }}>{movie.screens} Screens</p>}
+        {!!movie.screens && <p className='text-sm font-normal' style={{ color: 'var(--movie-card-meta-color, #7D7D7D)' }}>{movie.screens} {movie.screens === 1 ? 'Screen' : 'Screens'}</p>}
         {renderActions && (
           <div className='flex justify-center mt-2'>
             {renderActions()}
