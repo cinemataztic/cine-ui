@@ -21,8 +21,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           scope: '@cinemataztic'
 
-      - run: npm install -g npm@latest
-
       - run: npm ci --legacy-peer-deps
  
       - run: npm run build
