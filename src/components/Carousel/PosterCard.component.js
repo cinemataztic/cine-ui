@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 const PosterCard = ({ movie, renderActions }) => {
   const [hovered, setHovered] = useState(false);
-  const [imgError, setImgError] = useState(false);
+  const [imgFallbackLevel, setImgFallbackLevel] = useState(0);
+
+  const FALLBACK_URL = 'https://images.cinemataztic.com/_global/NoPosterFallback-EN.png';
+  const imgSrc = imgFallbackLevel === 0 ? movie.posterUrl : FALLBACK_URL;
 
   return (
     <div
@@ -25,12 +28,12 @@ const PosterCard = ({ movie, renderActions }) => {
         background: 'var(--movie-card-bg, #444)',
         flexShrink: 0,
       }}>
-        {movie.posterUrl && !imgError ? (
+        {imgSrc && imgFallbackLevel < 2 ? (
           <img
-            src={movie.posterUrl}
+            src={imgSrc}
             alt={movie.title}
             draggable={false}
-            onError={() => setImgError(true)}
+            onError={() => setImgFallbackLevel(l => l + 1)}
             style={{
               width: '100%',
               height: '100%',
